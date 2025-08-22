@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bk72t67mkho34"]
+
+[ext_resource type="Script" uid="uid://ygmgouo376qj" path="res://stats/Skills/SkillEffects/vengeful_spirit.gd" id="1_jgfgo"]
+
+[resource]
+script = ExtResource("1_jgfgo")
+skill_name = "Vengeful Spirit"
+skill_description = "Haunts an enemy, dealing big damage to it every turn for 3 turns."
+cost = 24
+target = 1
+skill_type = 1

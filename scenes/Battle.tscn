@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://km6y451msd0k"]
+
+[ext_resource type="Script" uid="uid://mqcnyhci7n" path="res://scenes/battle.gd" id="1_bdmed"]
+[ext_resource type="Texture2D" uid="uid://djr7hr6f0687j" path="res://assets/backgrounds/battleback10.png" id="2_0448q"]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_bdmed")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -185.0
+offset_right = 1569.0
+offset_bottom = 729.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_0448q")
+
+[node name="Battlers" type="Node2D" parent="."]
+
+[node name="EnemyBattlers" type="Node2D" parent="."]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://rymqhh3u30fb"]
+
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="1_n8c17"]
+
+[resource]
+script = ExtResource("1_n8c17")
+status_ID = 0
+buff_name = "Shined"
+buff_description = "A weak spot shined by beautiful sunlight.
+-30% Defense."
+turns_left = 0
+buff_type = 1
+is_bad = true
+stacking = false
+def_mult = -0.3
+atk_mult = 0.0
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

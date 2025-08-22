@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdgbkbg5dci01"]
+
+[ext_resource type="Script" uid="uid://c5eqjb6edf037" path="res://scenes/healthbar_container.gd" id="1_3vhio"]
+
+[node name="HealthbarContainer" type="HBoxContainer"]
+script = ExtResource("1_3vhio")
+
+[node name="CharName" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=32]Red"
+scroll_active = false
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+value = 100.0
+allow_lesser = true

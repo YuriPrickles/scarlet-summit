@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://c5frwxdd2qdce"]
+
+[ext_resource type="Resource" uid="uid://dfa35alvqtwwg" path="res://stats/Skills/Sunshot.tres" id="1_tkm6k"]
+[ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="2_gnohp"]
+[ext_resource type="SpriteFrames" uid="uid://cy1n63j26hcd1" path="res://assets/characters/sun/sun.tres" id="2_lom1x"]
+[ext_resource type="Resource" uid="uid://oly3r0jvdhrl" path="res://stats/Skills/FocusedFire.tres" id="2_sgp6e"]
+[ext_resource type="Resource" uid="uid://ekusluuw8480" path="res://stats/Skills/SolarisBlast.tres" id="5_sgp6e"]
+[ext_resource type="Resource" uid="uid://bd063551wqsy1" path="res://stats/Skills/CoverFire.tres" id="5_t7eix"]
+
+[resource]
+script = ExtResource("2_gnohp")
+id = 3
+display_name = "Sun"
+char_sprite_frames = ExtResource("2_lom1x")
+hp = 90
+max_hp = 90
+defense = 0
+attack = 18
+basic_atk = ExtResource("1_tkm6k")
+offense_skill = ExtResource("2_sgp6e")
+support_skill = ExtResource("5_t7eix")
+ultimate = ExtResource("5_sgp6e")

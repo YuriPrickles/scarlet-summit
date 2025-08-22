@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cxqff032jbreu"]
+
+[ext_resource type="Script" uid="uid://colay8cbovyn0" path="res://stats/Skills/SkillEffects/mana_burst.gd" id="1_kcmam"]
+
+[resource]
+script = ExtResource("1_kcmam")
+skill_name = "Mana Burst"
+skill_description = "Release the magic power stored inside you."
+cost = 0
+targeting_type = 0
+skill_type = 2
+animation_oncast = "attack"

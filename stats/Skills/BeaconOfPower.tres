@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://1d0coq6qo1pn"]
+
+[ext_resource type="Script" uid="uid://def5uhg5c2q3k" path="res://stats/Skills/SkillEffects/beacon_of_power.gd" id="1_ntfw3"]
+
+[resource]
+script = ExtResource("1_ntfw3")
+skill_name = "Beacon of Power"
+skill_description = "Rip yourself apart and let loose a beacon of infinite mana for the team for 1 turn."
+cost = 0
+targeting_type = 0
+skill_type = 3
+animation_oncast = "attack"

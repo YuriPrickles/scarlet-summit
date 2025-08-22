@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bd063551wqsy1"]
+
+[ext_resource type="Script" uid="uid://bntsuc8ttiiix" path="res://stats/Skills/SkillEffects/cover_fire.gd" id="1_74528"]
+
+[resource]
+script = ExtResource("1_74528")
+skill_name = "Eclipse"
+skill_description = "Targetted ally receives Sunblock for 3 turns.
+When targeted by an enemy, the ally with Sunblock will take damage instead, and Sun will do her Basic Attack against the enemy.
+Only one ally at a time can have Sunblock."
+cost = 24
+targeting_type = 0
+skill_type = 2
+animation_oncast = "attack"

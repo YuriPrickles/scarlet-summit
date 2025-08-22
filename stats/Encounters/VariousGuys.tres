@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=4 format=3 uid="uid://dj704ppleqak3"]
+
+[ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="1_ufghb"]
+[ext_resource type="Resource" uid="uid://b63a3bpo3ftm0" path="res://stats/Enemies/ThornAngel.tres" id="2_ufghb"]
+[ext_resource type="Script" uid="uid://i8ywi33nxdfs" path="res://scripts/base_encounter.gd" id="3_ymr4e"]
+
+[resource]
+script = ExtResource("3_ymr4e")
+enc_name = "Various Guys"
+default_battle_comments = Array[String](["A battle begins!"])
+enemy_array = Array[ExtResource("1_ufghb")]([ExtResource("2_ufghb")])

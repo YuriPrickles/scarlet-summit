@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://coo30javm4183"]
+
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="1_3jos1"]
+
+[resource]
+script = ExtResource("1_3jos1")
+status_ID = 2
+buff_name = "Sunblock"
+buff_description = "Takes hits for Sun. When hit, Sun will do a counter-attack at the attacking enemy with her Basic Attack."
+turns_left = 0
+buff_type = 1
+stacking = false
+def_mult = -0.3
+atk_mult = 0.0
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

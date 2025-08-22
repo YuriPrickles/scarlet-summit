@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3 uid="uid://pa0vfjwltdur"]
+
+[ext_resource type="Script" uid="uid://cfco2lyso2wu0" path="res://scenes/battle_ui.gd" id="1_p4gof"]
+
+[node name="BattleUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_p4gof")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="Control" type="Control" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ManaBar" type="ProgressBar" parent="VBoxContainer/MarginContainer/Control/HBoxContainer"]
+custom_minimum_size = Vector2(64, 360)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+fill_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Partyhealth" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BattleComment" type="RichTextLabel" parent="VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=32]* What is going on...?"
+scroll_active = false

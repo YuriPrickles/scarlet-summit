@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://csy7l8usmokg1"]
+
+[ext_resource type="Script" uid="uid://dcdm3qllenn83" path="res://stats/Statuses/haunted.gd" id="1_0lfm0"]
+
+[resource]
+script = ExtResource("1_0lfm0")
+status_ID = 4
+buff_name = "Haunted II"
+buff_description = "A normal-sized ghost nibbles at you."
+turns_left = 0
+buff_type = 0
+is_bad = true
+stacking = false
+def_mult = 0.0
+atk_mult = 0.0
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

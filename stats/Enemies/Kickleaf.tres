@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://snsr562qju0j"]
+
+[ext_resource type="Script" uid="uid://dyjoxbtism4pw" path="res://stats/Enemies/EnemyScripts/kickleaf.gd" id="1_ck1ss"]
+[ext_resource type="Texture2D" uid="uid://buyg6wq2iwbsh" path="res://assets/enemies/enemy_placeholder.png" id="2_ck1ss"]
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="3_3n0bm"]
+
+[resource]
+script = ExtResource("1_ck1ss")
+id = 0
+display_name = "Kickleaf"
+sprite = ExtResource("2_ck1ss")
+hp = 55
+max_hp = 55
+defense = 0
+attack = 25
+status_array = Array[ExtResource("3_3n0bm")]([])
+turn_delay = 0

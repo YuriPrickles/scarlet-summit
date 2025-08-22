@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://4vhobrvueiir"]
+
+[ext_resource type="Script" uid="uid://7a0w8bmqw3d0" path="res://stats/Skills/SkillEffects/crescent_cleaver.gd" id="1_8vma1"]
+
+[resource]
+script = ExtResource("1_8vma1")
+skill_name = "Crescent Cleaver"
+skill_description = "Hits one enemy."
+cost = 0
+targeting_type = 0
+skill_type = 0
+animation_oncast = "attack"

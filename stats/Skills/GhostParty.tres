@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dp3vhtxdavcad"]
+
+[ext_resource type="Script" uid="uid://cgnktf3yqef8q" path="res://stats/Skills/SkillEffects/ghost_party.gd" id="1_1s74d"]
+
+[resource]
+script = ExtResource("1_1s74d")
+skill_name = "Ghost Party"
+skill_description = "Haunts every other ally, giving them a ghost that deals light damage every turn.
+The ghost can be passed to an enemy when a Haunted character does their Basic Attack."
+cost = 14
+target = 4
+skill_type = 2

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dhnrouv1jb6n4"]
+
+[ext_resource type="Script" uid="uid://bofnftbv1nidm" path="res://stats/Skills/SkillEffects/healing_herbs.gd" id="1_m1y5o"]
+
+[resource]
+script = ExtResource("1_m1y5o")
+skill_name = "Healing Herbs"
+skill_description = "Heals ally for 35% of their max HP."
+cost = 35
+target = 3
+skill_type = 2

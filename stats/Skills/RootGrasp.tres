@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bijexag7wndex"]
+
+[ext_resource type="Script" uid="uid://deo0hpj8rof7g" path="res://stats/Skills/SkillEffects/root_grasp.gd" id="1_ysyng"]
+
+[resource]
+script = ExtResource("1_ysyng")
+skill_name = "Root Grasp"
+skill_description = "Target enemy is stunned for two turns, but gains extremely high defense while stunned."
+cost = 22
+target = 1
+skill_type = 1

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://df30usqruua4l"]
+
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="1_kmxjn"]
+
+[resource]
+script = ExtResource("1_kmxjn")
+status_ID = 3
+buff_name = "Rooted"
+buff_description = "Trapped within roots and promised no harm."
+turns_left = 0
+buff_type = 2
+is_bad = true
+stacking = false
+def_mult = 10.0
+atk_mult = 0.0
+is_stun = true
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

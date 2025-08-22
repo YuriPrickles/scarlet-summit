@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://uyl7avqvtb8e"]
+
+[ext_resource type="Script" uid="uid://7yh02nllpo30" path="res://stats/Enemies/EnemyScripts/logelisk.gd" id="1_32kkm"]
+[ext_resource type="Texture2D" uid="uid://buyg6wq2iwbsh" path="res://assets/enemies/enemy_placeholder.png" id="2_loqt4"]
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="3_egt6e"]
+
+[resource]
+script = ExtResource("1_32kkm")
+id = 0
+display_name = "Logelisk"
+sprite = ExtResource("2_loqt4")
+hp = 210
+max_hp = 210
+defense = 0
+attack = 75
+status_array = Array[ExtResource("3_egt6e")]([])
+turn_delay = 0

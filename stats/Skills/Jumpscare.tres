@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dqbw2x2j2e3da"]
+
+[ext_resource type="Script" uid="uid://q5rfjc0lp115" path="res://stats/Skills/SkillEffects/jumpscare.gd" id="1_y3uao"]
+
+[resource]
+script = ExtResource("1_y3uao")
+skill_name = "Jumpscare"
+skill_description = "Hits one enemy."
+cost = 0
+target = 1
+skill_type = 0

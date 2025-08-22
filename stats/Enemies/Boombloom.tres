@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://brpmbvs5cybrj"]
+
+[ext_resource type="Script" uid="uid://c0l4i7bgblmce" path="res://stats/Enemies/EnemyScripts/boombloom.gd" id="1_6nunp"]
+[ext_resource type="Texture2D" uid="uid://buyg6wq2iwbsh" path="res://assets/enemies/enemy_placeholder.png" id="2_1iy1j"]
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="3_kgw8o"]
+
+[resource]
+script = ExtResource("1_6nunp")
+id = 1
+display_name = "Boombloom"
+sprite = ExtResource("2_1iy1j")
+hp = 80
+max_hp = 80
+defense = 2
+attack = 15
+status_array = Array[ExtResource("3_kgw8o")]([])
+turn_delay = 0
+max_turn_delay = 3

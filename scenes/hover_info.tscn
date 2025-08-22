@@ -1,0 +1,148 @@
+[gd_scene load_steps=2 format=3 uid="uid://t8hul080agge"]
+
+[ext_resource type="Script" uid="uid://c8labp6o3rvfk" path="res://scenes/hover_info.gd" id="1_xq5lu"]
+
+[node name="HoverInfo" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_xq5lu")
+
+[node name="CharacterInfo" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(640, 720)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_bottom = 360.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CharacterInfo"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterInfo/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CharName" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=32]Red"
+scroll_active = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BasicAttack" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(512, 48)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=32]BASICATTACK"
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="BasicATKDesc" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(512, 32)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=16]BASICATTACK Description"
+fit_content = true
+scroll_active = false
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OffenseSkill" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(512, 48)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=32]OFFENSE SKILL"
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="OffenseSkillDesc" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(512, 32)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=16]OFFENSE SKILL Description"
+fit_content = true
+scroll_active = false
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SupportSkill" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(512, 48)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=32]SUPPORT SKILL"
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="SupportSkillDesc" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(512, 32)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=16]SUPPORT SKILL Description"
+fit_content = true
+scroll_active = false
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Ultimate" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(512, 48)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=32]ULTIMATE"
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="UltimateDesc" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(512, 32)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=16]Ultimate Description"
+fit_content = true
+scroll_active = false

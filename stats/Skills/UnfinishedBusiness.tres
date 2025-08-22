@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cw1he8qhy8egg"]
+
+[ext_resource type="Script" uid="uid://dlqwi0r435k3q" path="res://stats/Skills/SkillEffects/unfinished_business.gd" id="1_qwkdo"]
+
+[resource]
+script = ExtResource("1_qwkdo")
+skill_name = "Unfinished Business"
+skill_description = "Deal big damage to all enemies for every debuff the whole enemy team has."
+cost = 100
+target = 2
+skill_type = 3

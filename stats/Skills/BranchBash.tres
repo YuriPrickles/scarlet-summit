@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://rr18ko5w3wc"]
+
+[ext_resource type="Script" uid="uid://bivwpr6btw71" path="res://stats/Skills/SkillEffects/branch_bash.gd" id="1_ot1ou"]
+
+[resource]
+script = ExtResource("1_ot1ou")
+skill_name = "Crushing Pestle of Doom and Destruction"
+skill_description = "Hits one enemy."
+cost = 0
+target = 1
+skill_type = 0

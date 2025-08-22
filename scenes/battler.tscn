@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://d86ljpgvckru"]
+
+[ext_resource type="Script" uid="uid://dkcbk30snscu4" path="res://scenes/battler.gd" id="1_juhay"]
+[ext_resource type="PackedScene" uid="uid://0fupwvuhes0e" path="res://scenes/select_circle.tscn" id="2_at1d5"]
+[ext_resource type="SpriteFrames" uid="uid://wp11yknboa83" path="res://assets/characters/red/red.tres" id="3_juhay"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_juhay"]
+radius = 26.0
+height = 150.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juhay"]
+size = Vector2(128, 128)
+
+[node name="Battler" type="Node2D"]
+script = ExtResource("1_juhay")
+
+[node name="SelectCircle" parent="." instance=ExtResource("2_at1d5")]
+
+[node name="CircleChain" type="Line2D" parent="."]
+z_index = -1
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_juhay")
+animation = &"selfharm"
+autoplay = "idle"
+frame = 22
+frame_progress = 1.0
+
+[node name="SnapZone" type="Area2D" parent="."]
+position = Vector2(0, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnapZone"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_juhay")
+
+[node name="HoverArea" type="Area2D" parent="."]
+position = Vector2(0, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
+shape = SubResource("RectangleShape2D_juhay")
+
+[connection signal="input_event" from="HoverArea" to="." method="_on_hover_area_input_event"]
+[connection signal="mouse_entered" from="HoverArea" to="." method="_on_hover_area_mouse_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="." method="_on_hover_area_mouse_exited"]

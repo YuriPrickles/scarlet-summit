@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://2rewmupdxrfc"]
+
+[ext_resource type="Script" uid="uid://dcdm3qllenn83" path="res://stats/Statuses/haunted.gd" id="1_2f7w3"]
+
+[resource]
+script = ExtResource("1_2f7w3")
+status_ID = 6
+buff_name = "Ginger Guard"
+buff_description = "Cannot take damage. A portion of damage is turned into healing instead."
+turns_left = 0
+buff_type = 3
+is_bad = false
+stacking = false
+def_mult = 0.0
+atk_mult = 0.0
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

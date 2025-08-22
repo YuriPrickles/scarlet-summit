@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://oly3r0jvdhrl"]
+
+[ext_resource type="Script" uid="uid://c3iksnwp1eiyj" path="res://stats/Skills/SkillEffects/focused_fire.gd" id="1_4ck1r"]
+
+[resource]
+script = ExtResource("1_4ck1r")
+skill_name = "Focused Fire"
+skill_description = "Deals massive damage to a single enemy.
+Shines light on the enemy's weak spot, reducing defense for 2 turns."
+cost = 8
+targeting_type = 0
+skill_type = 1
+animation_oncast = "attack"
