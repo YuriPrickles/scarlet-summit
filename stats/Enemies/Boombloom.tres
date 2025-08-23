@@ -15,4 +15,3 @@ defense = 2
 attack = 15
 status_array = Array[ExtResource("3_kgw8o")]([])
 turn_delay = 0
-max_turn_delay = 3

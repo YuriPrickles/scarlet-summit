@@ -7,5 +7,6 @@ script = ExtResource("1_ysyng")
 skill_name = "Root Grasp"
 skill_description = "Target enemy is stunned for two turns, but gains extremely high defense while stunned."
 cost = 22
-target = 1
+targeting_type = 1
 skill_type = 1
+animation_oncast = "attack"

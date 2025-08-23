@@ -1,5 +1,4 @@
 extends Node2D
-var encounter:Encounter = load("res://stats/Encounters/VariousGuys.tres")
 var initial_charpos = Vector2(360,240)
 var initial_enemypos = Vector2(920,240)
 var char_scene = load("res://scenes/battler.tscn")
@@ -11,13 +10,15 @@ var enemy_scene = load("res://scenes/enemy_battler.tscn")
 signal enemy_turn_done
 var enemy_turn_started = false
 var post_turn_ran = false
+var all_enemies_down:bool = false
+var all_battlers_down = false
 
 func _ready() -> void:
 	State.turn_counter = 0
-	BattleUI.set_battle_comment(encounter.default_battle_comments.pick_random())
+	BattleUI.set_battle_comment(State.battle_comments.pick_random())
 	var separation = 0
 	initial_charpos = Vector2(360,(-64 * (State.current_party.size() - 1)) + 256)
-	initial_enemypos = Vector2(920,(-64 * (encounter.enemy_array.size() - 1)) + 256)
+	initial_enemypos = Vector2(920,(-64 * (State.enemy_array.size() - 1)) + 256)
 	for c in State.current_party:
 		var ch:Battler = char_scene.instantiate()
 		ch.char_data = c.duplicate()
@@ -25,7 +26,7 @@ func _ready() -> void:
 		separation -= 1
 		battlers.add_child(ch)
 	var enemy_separation = 0
-	for e in encounter.enemy_array:
+	for e in State.enemy_array:
 		var enemy:EnemyBattler = enemy_scene.instantiate()
 		enemy.enemy_data = e.duplicate()
 		enemy.position = initial_enemypos + Vector2(enemy_separation * -32,enemy_separation * -128)
@@ -47,13 +48,21 @@ func turn_manager():
 		enemy_turn()
 	await enemy_turn_done
 	post_turn()
+	
 	for b:Battler in battlers.get_children():
 		if b.health > 0:
 			b.weak_state = false
 			b.turn_status(false)
 		else:
 			b.turn_status(true)
-	
+	if all_enemies_down:
+		await get_tree().create_timer(1.5).timeout
+		get_tree().change_scene_to_packed(load("res://scenes/battle_select.tscn"))
+	if all_battlers_down:
+		BattleUI.set_battle_comment("Everyone was defeated!")
+		await get_tree().create_timer(1.5).timeout
+		get_tree().change_scene_to_packed(load("res://scenes/battle_select.tscn"))
+		
 	State.finish_action()
 	ongoing_enemy_turn = false
 
@@ -67,6 +76,9 @@ func enemy_turn():
 	await get_tree().create_timer(1.75).timeout
 	BattleUI.set_battle_comment("The opponents strike!")
 	for e in enemy_battlers.get_children():
+		if check_all_battlers_down():
+			break
+			
 		var skip_turn = false
 		for status in e.status_array:
 			if status != null and status.is_stun:
@@ -85,6 +97,7 @@ func enemy_turn():
 	enemy_turn_done.emit()
 
 func post_turn():
+	all_battlers_down = true
 	for battler in battlers.get_children():
 		print(battler.char_data.display_name)
 		for status in battler.status_array:
@@ -96,7 +109,9 @@ func post_turn():
 				battler.status_array[status.status_ID] = null
 		if battler.health <= 0:
 			battler.heal((battler.char_data.max_hp / 2) * 0.2)
-	var all_enemies_down:bool = true
+		else:
+			all_battlers_down = false
+	all_enemies_down = true
 	for enemy in enemy_battlers.get_children():
 		for status in enemy.status_array:
 			if status == null: continue
@@ -112,5 +127,13 @@ func post_turn():
 	
 	State.turn_counter += 1
 	print("Turn: %s" % State.turn_counter)
-	var battle_text = encounter.default_battle_comments.pick_random() if not all_enemies_down else "Battle won!"
+	var battle_text = State.battle_comments.pick_random() if not all_enemies_down else "Battle won!"
 	BattleUI.set_battle_comment(battle_text)
+
+##Also updates [all_battlers_down].
+func check_all_battlers_down():
+	all_battlers_down = true
+	for battler in battlers.get_children():
+		if battler.health > 0:
+			all_battlers_down = false
+	return all_battlers_down

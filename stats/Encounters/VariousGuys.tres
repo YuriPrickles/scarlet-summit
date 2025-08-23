@@ -9,3 +9,4 @@ script = ExtResource("3_ymr4e")
 enc_name = "Various Guys"
 default_battle_comments = Array[String](["A battle begins!"])
 enemy_array = Array[ExtResource("1_ufghb")]([ExtResource("2_ufghb")])
+party = null

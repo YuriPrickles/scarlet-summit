@@ -7,5 +7,6 @@ script = ExtResource("1_ot1ou")
 skill_name = "Crushing Pestle of Doom and Destruction"
 skill_description = "Hits one enemy."
 cost = 0
-target = 1
+targeting_type = 1
 skill_type = 0
+animation_oncast = "attack"

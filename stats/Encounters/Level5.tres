@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=5 format=3 uid="uid://0juk2h2wrmaw"]
+
+[ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_i3iq0"]
+[ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="2_0u3yj"]
+[ext_resource type="Resource" uid="uid://brpmbvs5cybrj" path="res://stats/Enemies/Boombloom.tres" id="5_t16j2"]
+[ext_resource type="Script" uid="uid://i8ywi33nxdfs" path="res://scripts/base_encounter.gd" id="6_jhbav"]
+
+[resource]
+script = ExtResource("6_jhbav")
+enc_name = "1-5 - Bomb Squad"
+enc_desc = "Level 5 Description"
+enc_pic = ExtResource("1_i3iq0")
+default_battle_comments = Array[String](["A battle begins!"])
+enemy_array = Array[ExtResource("2_0u3yj")]([ExtResource("5_t16j2"), ExtResource("5_t16j2"), ExtResource("5_t16j2")])
+party = null

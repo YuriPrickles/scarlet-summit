@@ -7,5 +7,6 @@ script = ExtResource("1_y3uao")
 skill_name = "Jumpscare"
 skill_description = "Hits one enemy."
 cost = 0
-target = 1
+targeting_type = 1
 skill_type = 0
+animation_oncast = "attack"

@@ -54,7 +54,7 @@ func update_hp(bar:ProgressBar, new_value):
 	bar.value = new_value
 
 func heal(amount:int):
-	health += amount
+	health += amount if (health + amount == 0) else amount + 10
 	update_hp(BattleUI.get_health_bar(char_data.display_name),health)
 	var poptext:PopupText = preload("res://scenes/pop_up_text.tscn").instantiate()
 	poptext.ptext = "[color=light_green]%s"%amount

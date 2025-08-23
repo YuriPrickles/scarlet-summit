@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=7 format=3 uid="uid://3di361bglrdj"]
+
+[ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="1_gtelu"]
+[ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_sv5sy"]
+[ext_resource type="Resource" uid="uid://snsr562qju0j" path="res://stats/Enemies/Kickleaf.tres" id="2_a0754"]
+[ext_resource type="Resource" uid="uid://uyl7avqvtb8e" path="res://stats/Enemies/Logelisk.tres" id="2_sv5sy"]
+[ext_resource type="Script" uid="uid://i8ywi33nxdfs" path="res://scripts/base_encounter.gd" id="3_a0754"]
+[ext_resource type="Resource" uid="uid://brpmbvs5cybrj" path="res://stats/Enemies/Boombloom.tres" id="4_tb2ij"]
+
+[resource]
+script = ExtResource("3_a0754")
+enc_name = "1-4 - Overgrowth"
+enc_desc = "Level 4 Description"
+enc_pic = ExtResource("1_sv5sy")
+default_battle_comments = Array[String](["A battle begins!"])
+enemy_array = Array[ExtResource("1_gtelu")]([ExtResource("2_a0754"), ExtResource("2_sv5sy"), ExtResource("4_tb2ij")])
+party = null

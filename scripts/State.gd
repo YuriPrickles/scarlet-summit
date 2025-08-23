@@ -6,6 +6,11 @@ var current_party:Array[Character] = [
 	load("res://stats/Characters/TwistingTree.tres"),
 	load("res://stats/Characters/ShadeLady.tres")
 	]
+var enemy_array:Array[Enemy]
+var battle_comments:Array[String]
+var battle_desc:String
+var battle_picture:Texture2D
+
 var select_circle_held:SelectCircle
 func set_battler_arrays(array, e_array):
 	battler_array.clear()

@@ -1,12 +1,23 @@
-[gd_scene load_steps=0 format=3 uid="uid://dk2ttmfturr70"]
+[gd_scene load_steps=9 format=3 uid="uid://c845oe0t2s3xj"]
 
-[node name="Control" type="Control"]
+[ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_6rp8x"]
+[ext_resource type="Script" uid="uid://bpotjeuj352ne" path="res://scenes/battle_select.gd" id="1_uqqp6"]
+[ext_resource type="Script" uid="uid://i8ywi33nxdfs" path="res://scripts/base_encounter.gd" id="2_mh6sm"]
+[ext_resource type="Resource" uid="uid://dahcpmwo8bdia" path="res://stats/Encounters/Level1.tres" id="3_dgat4"]
+[ext_resource type="Resource" uid="uid://b5ypvdm2m1v1i" path="res://stats/Encounters/Level2.tres" id="4_nk1i2"]
+[ext_resource type="Resource" uid="uid://4gowmwcsqxef" path="res://stats/Encounters/Level3.tres" id="5_eilpv"]
+[ext_resource type="Resource" uid="uid://3di361bglrdj" path="res://stats/Encounters/Level4.tres" id="6_pos0x"]
+[ext_resource type="Resource" uid="uid://0juk2h2wrmaw" path="res://stats/Encounters/Level5.tres" id="7_nk1i2"]
+
+[node name="BattleSelect" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uqqp6")
+encounter_list = Array[ExtResource("2_mh6sm")]([ExtResource("3_dgat4"), ExtResource("4_nk1i2"), ExtResource("5_eilpv"), ExtResource("6_pos0x"), ExtResource("7_nk1i2")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -38,10 +49,8 @@ theme_override_constants/margin_bottom = 32
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer/BattleList"]
-custom_minimum_size = Vector2(0, 64)
+[node name="BattleButtonContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer/BattleList"]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
@@ -51,16 +60,58 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="BattleInfoPanel" type="PanelContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="BattleInfoPanel" type="PanelContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/BattleInfoPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/BattleInfoPanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/BattleInfoPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/BattleInfoPanel/MarginContainer"]
 layout_mode = 2
+
+[node name="BattlePicture" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/BattleInfoPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 340)
+layout_mode = 2
+texture = ExtResource("1_6rp8x")
+
+[node name="BattleDescription" type="RichTextLabel" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/BattleInfoPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(510, 144)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=24]Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+
+[node name="StartBattle" type="Button" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/StartBattle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/StartBattle/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font_size=32][center]Battle!"
+scroll_active = false
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/StartBattle" to="." method="_on_start_battle_pressed"]

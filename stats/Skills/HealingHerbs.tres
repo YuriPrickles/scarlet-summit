@@ -7,5 +7,6 @@ script = ExtResource("1_m1y5o")
 skill_name = "Healing Herbs"
 skill_description = "Heals ally for 35% of their max HP."
 cost = 35
-target = 3
+targeting_type = 3
 skill_type = 2
+animation_oncast = "attack"
