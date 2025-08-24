@@ -20,3 +20,4 @@ basic_atk = ExtResource("1_0auxs")
 offense_skill = ExtResource("2_twetf")
 support_skill = ExtResource("4_r4qwn")
 ultimate = ExtResource("5_r4qwn")
+active_charm_effects = {}

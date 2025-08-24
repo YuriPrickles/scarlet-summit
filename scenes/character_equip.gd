@@ -10,5 +10,7 @@ func _ready() -> void:
 		party_eq_display.add_child(char_equip_container)
 		
 func _on_button_pressed() -> void:
+	for char_eq in party_eq_display.get_children():
+		State.attached_charms
 	queue_free()
 	pass # Replace with function body.

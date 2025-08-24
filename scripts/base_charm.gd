@@ -3,6 +3,7 @@ class_name Charm
 extends Resource
 
 enum CharmType {
+	None,
 	Weapon,
 	Armor,
 	Badge

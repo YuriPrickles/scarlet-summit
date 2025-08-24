@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_0yw2a")
-id = 0
+id = 4
 display_name = "Twiggle"
 hp = 30
 max_hp = 30

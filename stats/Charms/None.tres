@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Charm" load_steps=2 format=3 uid="uid://bc1r4rn425k7h"]
+
+[ext_resource type="Script" uid="uid://bgioe3l50hrr8" path="res://scripts/base_charm.gd" id="1_8a4jw"]
+
+[resource]
+script = ExtResource("1_8a4jw")
+charm_ID = 0
+charm_name = "None"
+charm_type = 0
+metadata/_custom_type_script = "uid://bgioe3l50hrr8"

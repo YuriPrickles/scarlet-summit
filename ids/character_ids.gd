@@ -27,6 +27,6 @@ enum StatusID {
 }
 
 enum CharmID {
-	UltimateNothingness,
+	None,
 	ThornHeart
 }
