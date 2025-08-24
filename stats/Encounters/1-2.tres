@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=6 format=3 uid="uid://b5ypvdm2m1v1i"]
+
+[ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_icnip"]
+[ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="2_464mo"]
+[ext_resource type="Resource" uid="uid://snsr562qju0j" path="res://stats/Enemies/Kickleaf.tres" id="3_55ito"]
+[ext_resource type="Resource" uid="uid://brpmbvs5cybrj" path="res://stats/Enemies/Boombloom.tres" id="4_hm8u6"]
+[ext_resource type="Script" uid="uid://i8ywi33nxdfs" path="res://scripts/base_encounter.gd" id="5_ujyw6"]
+
+[resource]
+script = ExtResource("5_ujyw6")
+enc_name = "1-2 - Blooming"
+enc_desc = "Level 2 Description"
+enc_pic = ExtResource("1_icnip")
+default_battle_comments = Array[String](["A battle begins!"])
+enemy_array = Array[ExtResource("2_464mo")]([ExtResource("3_55ito"), ExtResource("4_hm8u6"), ExtResource("3_55ito")])
+party = null

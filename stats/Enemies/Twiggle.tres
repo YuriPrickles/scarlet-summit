@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://clltaujb6eluo"]
+
+[ext_resource type="Script" uid="uid://cirfpik20ybkw" path="res://stats/Enemies/EnemyScripts/twiggle.gd" id="1_0yw2a"]
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="3_wormm"]
+
+[resource]
+script = ExtResource("1_0yw2a")
+id = 0
+display_name = "Twiggle"
+hp = 30
+max_hp = 30
+defense = 0
+attack = 2
+status_array = Array[ExtResource("3_wormm")]([])
+turn_delay = 0

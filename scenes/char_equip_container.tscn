@@ -1,0 +1,110 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3uggbq7o0llp"]
+
+[ext_resource type="Script" uid="uid://c2lxxeputx3f2" path="res://scenes/char_equip_container.gd" id="1_44vlm"]
+
+[node name="CharEquipContainer" type="MarginContainer"]
+custom_minimum_size = Vector2(320, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -360.0
+offset_right = 160.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_44vlm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="CharName" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=48][center]NoName"
+fit_content = true
+scroll_active = false
+
+[node name="WepCharm" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/WepCharm"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[font_size=24][right]Weapon Charm"
+fit_content = true
+scroll_active = false
+
+[node name="WeaponCharmList" type="OptionButton" parent="VBoxContainer/WepCharm"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ArmorCharm" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ArmorCharm"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[right][font_size=24]Armor Charm"
+fit_content = true
+scroll_active = false
+
+[node name="ArmorCharmList" type="OptionButton" parent="VBoxContainer/ArmorCharm"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BadgeA" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/BadgeA"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[font_size=24][right]Badge [A]"
+fit_content = true
+scroll_active = false
+
+[node name="BadgeListA" type="OptionButton" parent="VBoxContainer/BadgeA"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BadgeB" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/BadgeB"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[font_size=24][right]Badge [B]"
+fit_content = true
+scroll_active = false
+
+[node name="BadgeListB" type="OptionButton" parent="VBoxContainer/BadgeB"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BadgeC" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/BadgeC"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[font_size=24][right]Badge [C]"
+fit_content = true
+scroll_active = false
+
+[node name="BadgeListC" type="OptionButton" parent="VBoxContainer/BadgeC"]
+layout_mode = 2
+size_flags_horizontal = 3

@@ -19,6 +19,7 @@ func initialize_healthbars(battler_array:Array):
 		hb.max_health_value = ch.max_health
 		hb.health_value = ch.health
 		partyhealth.add_child(hb)
+		hb.name = ch.char_data.display_name
 
 func set_battle_comment(text:String):
 	var final_text = "[font_size=32]%s" % text
@@ -28,4 +29,9 @@ func set_battle_comment(text:String):
 	tween.tween_property(battle_comment,"visible_characters",final_text.length(), 1)
 
 func get_health_bar(char_name) -> ProgressBar:
-	return partyhealth.get_node(char_name).get_node("HealthBar")
+	print(partyhealth)
+	for hb :HealthbarContainer in partyhealth.get_children():
+		if hb.char_data.display_name == char_name:
+			return hb.get_node("HealthBar")
+			
+	return null

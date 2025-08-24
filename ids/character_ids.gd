@@ -12,7 +12,8 @@ enum EnemyID{
 	Kickleaf,
 	Boombloom,
 	Logelisk,
-	ThornAngel
+	ThornAngel,
+	Twiggle
 }
 
 enum StatusID {
@@ -23,4 +24,9 @@ enum StatusID {
 	Haunted,
 	MiniHaunted,
 	GingerGuard,
+}
+
+enum CharmID {
+	UltimateNothingness,
+	ThornHeart
 }

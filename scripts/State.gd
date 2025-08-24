@@ -6,12 +6,28 @@ var current_party:Array[Character] = [
 	load("res://stats/Characters/TwistingTree.tres"),
 	load("res://stats/Characters/ShadeLady.tres")
 	]
+
+var unlocked_charms:Dictionary
+var attached_charms:Dictionary
+
+var charm_list_ref:Array[Charm]
+	
 var enemy_array:Array[Enemy]
 var battle_comments:Array[String]
 var battle_desc:String
 var battle_picture:Texture2D
 
+var max_level_reached = 0
+var levels_beaten:Array[bool]
+var current_level_position
+var current_reward:Charm
+
 var select_circle_held:SelectCircle
+
+func _ready() -> void:
+	
+	levels_beaten.resize(500)
+	levels_beaten.fill(false)
 func set_battler_arrays(array, e_array):
 	battler_array.clear()
 	battler_array.append_array(array)

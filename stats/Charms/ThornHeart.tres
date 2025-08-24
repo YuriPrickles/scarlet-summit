@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Charm" load_steps=2 format=3 uid="uid://blwro7ekcnu"]
+
+[ext_resource type="Script" uid="uid://bgioe3l50hrr8" path="res://scripts/base_charm.gd" id="1_rihew"]
+
+[resource]
+script = ExtResource("1_rihew")
+charm_ID = 0
+charm_name = "Thorn Heart"
+charm_type = 2
+metadata/_custom_type_script = "uid://bgioe3l50hrr8"

@@ -16,6 +16,8 @@ extends Resource
 @export var support_skill:Skill
 @export var ultimate:Skill
 
+@export var active_charm_effects:Dictionary
+
 
 func on_hit():
 	

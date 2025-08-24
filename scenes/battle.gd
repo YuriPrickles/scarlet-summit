@@ -14,6 +14,7 @@ var all_enemies_down:bool = false
 var all_battlers_down = false
 
 func _ready() -> void:
+	State.set_mana(0)
 	State.turn_counter = 0
 	BattleUI.set_battle_comment(State.battle_comments.pick_random())
 	var separation = 0
@@ -56,9 +57,15 @@ func turn_manager():
 		else:
 			b.turn_status(true)
 	if all_enemies_down:
+		if not State.levels_beaten[State.current_level_position]:
+			var charmtionary:Dictionary
+			charmtionary[State.current_reward] = true
+			State.unlocked_charms[State.current_reward.charm_ID] = charmtionary
+			State.max_level_reached += 1
+		State.levels_beaten[State.current_level_position] = true
 		await get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_packed(load("res://scenes/battle_select.tscn"))
-	if all_battlers_down:
+	if all_battlers_down and not all_enemies_down:
 		BattleUI.set_battle_comment("Everyone was defeated!")
 		await get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_packed(load("res://scenes/battle_select.tscn"))
