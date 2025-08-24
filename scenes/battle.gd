@@ -44,9 +44,7 @@ func _process(_delta: float) -> void:
 
 func turn_manager():
 	ongoing_enemy_turn = true
-	if not enemy_turn_started:
-		enemy_turn_started = true
-		enemy_turn()
+	enemy_turn()
 	await enemy_turn_done
 	post_turn()
 	

@@ -13,7 +13,7 @@ var og_position:Vector2
 
 signal finished_action
 
-@export var status_array:Array[StatusEffect]
+var status_array:Array[StatusEffect]
 
 func _ready() -> void:
 	health = enemy_data.hp
