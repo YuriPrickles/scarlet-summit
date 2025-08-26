@@ -108,3 +108,5 @@ scroll_active = false
 [node name="BadgeListC" type="OptionButton" parent="VBoxContainer/BadgeC"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[connection signal="item_selected" from="VBoxContainer/WepCharm/WeaponCharmList" to="." method="update_equippable"]

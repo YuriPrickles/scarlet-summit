@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Charm" load_steps=2 format=3 uid="uid://3j7nq55qjpb1"]
+
+[ext_resource type="Script" uid="uid://bgioe3l50hrr8" path="res://scripts/base_charm.gd" id="1_hyms4"]
+
+[resource]
+script = ExtResource("1_hyms4")
+charm_ID = 0
+charm_name = "Rind Grinder"
+charm_type = 1
+metadata/_custom_type_script = "uid://bgioe3l50hrr8"

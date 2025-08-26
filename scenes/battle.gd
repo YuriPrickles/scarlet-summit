@@ -55,7 +55,7 @@ func turn_manager():
 		else:
 			b.turn_status(true)
 	if all_enemies_down:
-		if not State.levels_beaten[State.current_level_position]:
+		if not State.levels_beaten[State.current_level_position] and State.current_reward.charm_ID != ID.CharmID.None:
 			var charmtionary:Dictionary
 			charmtionary[State.current_reward] = true
 			State.unlocked_charms[State.current_reward.charm_ID] = charmtionary

@@ -28,5 +28,9 @@ enum StatusID {
 
 enum CharmID {
 	None,
-	ThornHeart
+	ThornHeart,
+	SodPlating,
+	RindGrinder,
+	CropClock,
+	AbundantSoils
 }

@@ -25,7 +25,10 @@ var current_reward:Charm
 var select_circle_held:SelectCircle
 
 func _ready() -> void:
-	
+	var none_charm:Charm = preload("res://stats/Charms/None.tres")
+	var charmtionary:Dictionary
+	charmtionary[none_charm] = true
+	State.unlocked_charms[none_charm.charm_ID] = charmtionary
 	levels_beaten.resize(500)
 	levels_beaten.fill(false)
 func set_battler_arrays(array, e_array):

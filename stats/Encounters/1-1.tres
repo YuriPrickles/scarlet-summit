@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Encounter" load_steps=5 format=3 uid="uid://dahcpmwo8bdia"]
+[gd_resource type="Resource" script_class="Encounter" load_steps=6 format=3 uid="uid://dahcpmwo8bdia"]
 
+[ext_resource type="Resource" uid="uid://bc1r4rn425k7h" path="res://stats/Charms/None.tres" id="1_1m44w"]
 [ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="1_fpup7"]
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_xf1q5"]
 [ext_resource type="Resource" uid="uid://snsr562qju0j" path="res://stats/Enemies/Kickleaf.tres" id="2_fpup7"]
@@ -8,8 +9,9 @@
 [resource]
 script = ExtResource("3_ekq0q")
 enc_name = "1-1 - First Steps"
-enc_desc = "Level 1 Description"
+enc_desc = "How inconvenient... this journey was meant to be done alone. I didn't expect anyone to want to help."
 enc_pic = ExtResource("1_xf1q5")
 default_battle_comments = Array[String](["A battle begins!"])
 enemy_array = Array[ExtResource("1_fpup7")]([ExtResource("2_fpup7"), ExtResource("2_fpup7")])
 party = null
+completion_reward = ExtResource("1_1m44w")

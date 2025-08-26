@@ -12,4 +12,4 @@ extends Resource
 	load("res://stats/Characters/TwistingTree.tres"),
 	load("res://stats/Characters/ShadeLady.tres")
 ]
-@export var completion_reward:Charm
+@export var completion_reward:Charm = preload("res://stats/Charms/None.tres")

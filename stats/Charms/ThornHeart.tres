@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_rihew")
-charm_ID = 0
+charm_ID = 1
 charm_name = "Thorn Heart"
 charm_type = 3
 metadata/_custom_type_script = "uid://bgioe3l50hrr8"
