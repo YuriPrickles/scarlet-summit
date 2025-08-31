@@ -82,6 +82,8 @@ func hurt(damage:int,enemy_attacker:EnemyBattler = null,color_string="white",hur
 		downed_count += 1
 		
 	update_hp(BattleUI.get_health_bar(char_data.display_name),health)
+	if enemy_attacker != null:
+		char_data.on_hit(self,enemy_attacker)
 	var poptext:PopupText = preload("res://scenes/pop_up_text.tscn").instantiate()
 	poptext.ptext = "[color=%s]%s"%[color_string,damage]
 	poptext.global_position = global_position + Vector2(randi_range(-16,16),randi_range(-16,16))
@@ -110,7 +112,8 @@ func cast_skill(skill:Skill,target,is_ally:bool=false):
 enum AttackAnimations{
 	GetClose,
 	StayInPlace,
-	GoToMiddle
+	GoToMiddle,
+	Filler
 }
 func attack_enemy(target:EnemyBattler,attack_anim:AttackAnimations,attack_method:Callable,sprite_anim:String="attack"):
 	State.someone_doing_something = true
@@ -139,8 +142,14 @@ func attack_enemy(target:EnemyBattler,attack_anim:AttackAnimations,attack_method
 			attack_method.call()
 			await finished_action
 			await get_tree().create_timer(0.4).timeout
+		AttackAnimations.Filler:
+			await get_tree().create_timer(0.6).timeout
 	State.finish_action()
 	sprite.animation = "idle"
+
+#To not cause loops with on-hurt abilities
+func attack_reflect(target:EnemyBattler,mult:float=1):
+	target.hurt(damage_against(target) * mult,self)
 	
 func attack_one(target:EnemyBattler,mult:float=1):
 	target.hurt(damage_against(target) * mult, self)
@@ -203,6 +212,10 @@ func damage_against(target:EnemyBattler):
 
 func has_status(status_ID:ID.StatusID) -> bool:
 	return status_array[status_ID] != null
+	
+func has_charm(charm_ID:ID.CharmID):
+	print(State.attached_charms[char_data.id].has(charm_ID))
+	return State.attached_charms[char_data.id].has(charm_ID)
 	
 func transfer_statuses(target:EnemyBattler):
 	if has_status(ID.StatusID.MiniHaunted):

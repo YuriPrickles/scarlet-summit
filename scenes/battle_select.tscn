@@ -144,5 +144,13 @@ bbcode_enabled = true
 text = "[font_size=32][center]Battle!"
 scroll_active = false
 
+[node name="CloseButton" type="Button" parent="MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+
 [connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Equip" to="." method="_on_equip_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/StartBattle" to="." method="_on_start_battle_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/CloseButton" to="." method="_on_close_button_pressed"]

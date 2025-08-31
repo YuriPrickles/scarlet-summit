@@ -19,9 +19,9 @@ extends Resource
 @export var active_charm_effects:Dictionary
 
 
-func on_hit():
-	
-	pass
+func on_hit(battler:Battler,attacker:EnemyBattler):
+	if battler.has_charm(ID.CharmID.ThornHeart):
+		battler.attack_reflect(attacker,1 + (defense/10))
 
 func on_vanquish():
 	pass

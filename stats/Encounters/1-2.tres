@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Encounter" load_steps=6 format=3 uid="uid://b5ypvdm2m1v1i"]
+[gd_resource type="Resource" script_class="Encounter" load_steps=7 format=3 uid="uid://b5ypvdm2m1v1i"]
 
+[ext_resource type="Resource" uid="uid://bc1r4rn425k7h" path="res://stats/Charms/None.tres" id="1_464mo"]
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_icnip"]
 [ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="2_464mo"]
 [ext_resource type="Resource" uid="uid://snsr562qju0j" path="res://stats/Enemies/Kickleaf.tres" id="3_55ito"]
@@ -14,3 +15,4 @@ enc_pic = ExtResource("1_icnip")
 default_battle_comments = Array[String](["A battle begins!"])
 enemy_array = Array[ExtResource("2_464mo")]([ExtResource("3_55ito"), ExtResource("4_hm8u6"), ExtResource("3_55ito")])
 party = null
+completion_reward = ExtResource("1_464mo")

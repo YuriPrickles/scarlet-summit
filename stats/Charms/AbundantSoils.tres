@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_x0gi3")
-charm_ID = 1
+charm_ID = 5
 charm_name = "Abundant Soils"
 charm_type = 3
 metadata/_custom_type_script = "uid://bgioe3l50hrr8"

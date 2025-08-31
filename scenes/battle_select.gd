@@ -23,6 +23,7 @@ func _ready() -> void:
 		battle_button.level_position = encounter_list.find(enc)
 		battle_button.battle_reward = enc.completion_reward
 		battle_button_container.add_child(battle_button)
+		battle_button._on_pressed()
 		pass
 
 func _process(delta: float) -> void:
@@ -36,4 +37,9 @@ func _on_start_battle_pressed() -> void:
 
 func _on_equip_pressed() -> void:
 	add_child(preload("res://scenes/character_equip.tscn").instantiate())
+	pass # Replace with function body.
+
+
+func _on_close_button_pressed() -> void:
+	queue_free()
 	pass # Replace with function body.

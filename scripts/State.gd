@@ -25,6 +25,12 @@ var current_reward:Charm
 var select_circle_held:SelectCircle
 
 func _ready() -> void:
+	attached_charms = {
+		0: [0,0,0,0,0],
+		1: [0,0,0,0,0],
+		2: [0,0,0,0,0],
+		3: [0,0,0,0,0]
+	}
 	var none_charm:Charm = preload("res://stats/Charms/None.tres")
 	var charmtionary:Dictionary
 	charmtionary[none_charm] = true

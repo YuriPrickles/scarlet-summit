@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_prvpy")
-charm_ID = "SodPlating"
+charm_ID = 2
 charm_name = "Sod Plating"
 charm_type = 2
 metadata/_custom_type_script = "uid://bgioe3l50hrr8"
