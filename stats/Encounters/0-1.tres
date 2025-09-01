@@ -12,7 +12,7 @@ script = ExtResource("5_dqslr")
 enc_name = "0-1 - A Strange Encounter"
 enc_desc = "AND SO THE UNIVERSE SAID:
 [Left Click] SHALL BE DRAGGED TO A FOE FROM THE FIGHTER
-BASIC ATTACK PERFORMED, ITS HEALTH DWINDLES TIGHTER"
+BASIC ATTACK PERFORMED, ITS HEALTH DWINDLES LIGHTER"
 enc_pic = ExtResource("1_l4jex")
 default_battle_comments = Array[String](["A battle begins!"])
 enemy_array = Array[ExtResource("2_c7nv5")]([ExtResource("3_fkw00")])
