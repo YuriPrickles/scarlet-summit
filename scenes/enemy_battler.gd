@@ -10,6 +10,7 @@ var defense
 var attack
 var turn_delay
 var og_position:Vector2
+var locked_target:Battler = null
 
 signal finished_action
 
@@ -31,9 +32,9 @@ func _process(_delta: float) -> void:
 	pass
 func update_hp(bar:ProgressBar, new_value):
 	bar.value = new_value
-func hurt(damage:int,attacker:Battler=null):
+func hurt(damage:int,attacker:Battler=null,allow_onhit=true):
 	print("%s hurt for %s damage" % [enemy_data.display_name, damage])
-	if attacker != null:
+	if attacker != null and allow_onhit:
 		enemy_data.on_hit(self,attacker)
 	health -= damage
 	update_hp(hpbar,health)
@@ -52,6 +53,26 @@ enum AttackAnimations{
 	GoToMiddle,
 	Filler
 }
+
+func get_target(set_lock=false) -> Battler:
+	if not set_lock:
+		if locked_target != null:
+			return locked_target
+	var battlers = State.battler_array
+	var chosen_battler:Battler = battlers.pick_random()
+	chosen_battler = battlers.pick_random()
+	while chosen_battler.health <= 0 and not set_lock:
+		chosen_battler = battlers.pick_random()
+	while locked_target == chosen_battler and set_lock and chosen_battler.health <= 0:
+		chosen_battler = battlers.pick_random()
+	return chosen_battler
+
+func lock_target(target:Battler):
+	locked_target = target
+
+func unlock_target():
+	locked_target = null
+
 func attack_enemy(target:Battler,attack_anim:AttackAnimations,attack_method:Callable,return_after:float=0.6):
 	State.someone_doing_something = true
 	match attack_anim:
@@ -121,6 +142,7 @@ func return_to_place(duration:float = 0.3):
 	tween2.tween_callback(emit_signal.bind("finished_action"))
 	
 func add_status(status:StatusEffect,turns:int):
+	if turns <= 0: return
 	status.turns_left = turns
 	status_array[status.status_ID] = status.duplicate()
 	var poptext:PopupText = preload("res://scenes/pop_up_text.tscn").instantiate()

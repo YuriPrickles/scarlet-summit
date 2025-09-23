@@ -7,9 +7,9 @@
 script = ExtResource("1_0yw2a")
 id = 4
 display_name = "Twiggle"
-hp = 30
-max_hp = 30
+hp = 90
+max_hp = 90
 defense = 0
-attack = 2
+attack = 8
 status_array = Array[ExtResource("3_wormm")]([])
 turn_delay = 0

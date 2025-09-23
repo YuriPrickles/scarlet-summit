@@ -3,25 +3,14 @@ class_name BattleButton
 extends Button
 
 @onready var battle_title = $MarginContainer/BattleTitle
-var battle_text = "Test Battle"
-var party:Array[Character]
-var enemy_array:Array[Enemy]
-var battle_comments:Array[String]
-var battle_desc:String
-var battle_picture:Texture2D
+var encounter:Encounter
 var level_position = 0
-var battle_reward:Charm
 
 func _process(delta: float) -> void:
-	battle_title.text = "[font_size=32]%s" % battle_text
+	battle_title.text = "[font_size=32]%s" % encounter.enc_name
 
 
 func _on_pressed() -> void:
-	State.current_party = party
-	State.enemy_array = enemy_array
-	State.battle_comments = battle_comments
-	State.battle_desc = battle_desc
-	State.battle_picture = battle_picture
+	State.loaded_encounter = encounter
 	State.current_level_position = level_position
-	State.current_reward = battle_reward
 	pass # Replace with function body.

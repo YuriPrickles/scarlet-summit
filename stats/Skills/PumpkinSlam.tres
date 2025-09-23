@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dy7x1mpx68x3m"]
+
+[ext_resource type="Script" uid="uid://dssct6xu2m6sc" path="res://stats/Skills/SkillEffects/pumpkinslam.gd" id="1_dpl2j"]
+
+[resource]
+script = ExtResource("1_dpl2j")
+skill_name = "Fist of Pumpkin Pie"
+skill_description = "Hits one enemy. Hitting enemies below 40% health heal the party."
+cost = 0
+targeting_type = 1
+skill_type = 0
+animation_oncast = "attack"

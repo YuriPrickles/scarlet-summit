@@ -18,6 +18,8 @@ extends Resource
 
 @export var active_charm_effects:Dictionary
 
+@export var skill_changes_resource:SkillChanges
+
 
 func on_hit(battler:Battler,attacker:EnemyBattler):
 	if battler.has_charm(ID.CharmID.ThornHeart):

@@ -24,6 +24,9 @@ enum StatusID {
 	Haunted,
 	MiniHaunted,
 	GingerGuard,
+	LockedTarget,
+	Corroding,
+	HarvestTime
 }
 
 enum CharmID {

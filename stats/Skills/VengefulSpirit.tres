@@ -7,5 +7,6 @@ script = ExtResource("1_jgfgo")
 skill_name = "Vengeful Spirit"
 skill_description = "Haunts an enemy, dealing big damage to it every turn for 3 turns."
 cost = 24
-target = 1
+targeting_type = 0
 skill_type = 1
+animation_oncast = "attack"

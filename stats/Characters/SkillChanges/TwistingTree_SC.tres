@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://il126aih463j"]
+
+[ext_resource type="Script" uid="uid://c2p7kn1d1y3ou" path="res://stats/Characters/SkillChanges/twistingtree_changes.gd" id="1_r6qwg"]
+
+[resource]
+script = ExtResource("1_r6qwg")
+metadata/_custom_type_script = "uid://dxcj8d2bhbsb"

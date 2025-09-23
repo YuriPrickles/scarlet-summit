@@ -6,27 +6,23 @@ func filler_func():
 	print("filler? i barely know er")
 
 func do_attack(enemy:EnemyBattler):
-	var battlers = State.battler_array
-	var chosen_battler = battlers.pick_random()
-	chosen_battler = battlers.pick_random()
-	while chosen_battler.health <= 0:
-		chosen_battler = battlers.pick_random()
-	if not bomb_ready and not is_using_delay:
+	var target = enemy.get_target()
+	if not bomb_ready and turn_delay == 0:
 		enemy.attack_enemy(null, enemy.AttackAnimations.Filler, filler_func)
-		is_using_delay = true
 		turn_delay = 2
 		return
 		
-	if is_using_delay:
+	if not turn_delay == 0:
 		enemy.attack_enemy(null, enemy.AttackAnimations.Filler, filler_func)
 		turn_delay -= 1
 		if turn_delay == 0:
-			is_using_delay = false
+			turn_delay = 0
 			bomb_ready = true
 		return
+	
 	if bomb_ready:
 		enemy.attack_enemy(
-			chosen_battler,
+			target,
 			enemy.AttackAnimations.StayInPlace,
 			enemy.attack_all.bind(1.3)
 			)

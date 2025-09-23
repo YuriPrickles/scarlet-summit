@@ -5,20 +5,15 @@ func filler_func():
 	print("filler? i barely know er")
 
 func do_attack(enemy:EnemyBattler):
-	var battlers = State.battler_array
-	var chosen_battler = battlers.pick_random()
-	chosen_battler = battlers.pick_random()
-	while chosen_battler.health <= 0:
-		chosen_battler = battlers.pick_random()
 		
-	if is_using_delay:
+	var target = enemy.get_target()
+	if not turn_delay == 0:
 		enemy.attack_enemy(null, enemy.AttackAnimations.Filler, filler_func)
 		turn_delay -= 1
 		if turn_delay == 0:
 			turn_delay = 2
-			is_using_delay = false
 			enemy.attack_enemy(
-				chosen_battler,
+				target,
 				enemy.AttackAnimations.GoToMiddle,
 				enemy.attack_wildhits.bind(5, 1),
 				1.6
@@ -26,11 +21,10 @@ func do_attack(enemy:EnemyBattler):
 			return
 	else:
 		enemy.attack_enemy(null, enemy.AttackAnimations.Filler, filler_func)
-		is_using_delay = true
 		turn_delay = 2
 		return
 	enemy.attack_enemy(
-		chosen_battler,
+		target,
 		enemy.AttackAnimations.GoToMiddle,
 		enemy.attack_wildhits.bind(3, 0.5),
 		1.6

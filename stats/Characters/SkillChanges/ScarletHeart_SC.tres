@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://30ny14qsglc7"]
+
+[ext_resource type="Script" uid="uid://det10erhvdtq3" path="res://stats/Characters/SkillChanges/scarletheart_changes.gd" id="1_6em45"]
+
+[resource]
+script = ExtResource("1_6em45")
+metadata/_custom_type_script = "uid://dxcj8d2bhbsb"

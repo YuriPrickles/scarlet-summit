@@ -13,6 +13,7 @@ enc_name = "1-2 - Blooming"
 enc_desc = "Level 2 Description"
 enc_pic = ExtResource("1_icnip")
 default_battle_comments = Array[String](["A battle begins!"])
+comment_conditions = Array[int]([2])
 enemy_array = Array[ExtResource("2_464mo")]([ExtResource("3_55ito"), ExtResource("4_hm8u6"), ExtResource("3_55ito")])
 party = null
 completion_reward = ExtResource("1_464mo")

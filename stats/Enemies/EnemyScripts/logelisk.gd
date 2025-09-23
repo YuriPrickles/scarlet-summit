@@ -1,7 +1,6 @@
 extends Enemy
 
 
-var chosen_battler
 var already_chose = false
 
 func filler_func():
@@ -9,29 +8,32 @@ func filler_func():
 
 func do_attack(enemy:EnemyBattler):
 	var battlers = State.battler_array
+	var target = enemy.locked_target
+	
 	if not already_chose:
-		chosen_battler = battlers.pick_random()
+		enemy.lock_target(enemy.get_target(true))
 		already_chose = true
-	print("Chosen battler: %s" % chosen_battler.char_data.display_name)
-	if not is_using_delay:
-		chosen_battler = battlers.pick_random()
-		
+	print("Chosen battler: %s" % target.char_data.display_name)
+	if not turn_delay == 0:
 		enemy.attack_enemy(null, enemy.AttackAnimations.Filler, filler_func)
-		is_using_delay = true
 		turn_delay = 3
 		return
-	while chosen_battler.health <= 0:
-		chosen_battler = battlers.pick_random()
-	if is_using_delay:
+
+	while enemy.locked_target.health <= 0:
+		enemy.lock_target(enemy.get_target(true))
+		target = enemy.locked_target
+
+	if not turn_delay == 0:
 		turn_delay -= 1
 		if turn_delay == 0:
 			enemy.attack_enemy(
-				chosen_battler,
+				target,
 				enemy.AttackAnimations.GetClose,
-				enemy.attack_one.bind(chosen_battler,1)
+				enemy.attack_one.bind(target,1)
 				)
+			enemy.lock_target(enemy.get_target(true))
 			already_chose = false
-			is_using_delay = false
+			
 		else:
 			enemy.attack_enemy(null, enemy.AttackAnimations.Filler, filler_func)
 		return

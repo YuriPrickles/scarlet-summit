@@ -10,11 +10,12 @@
 script = ExtResource("2_xkqre")
 id = 2
 display_name = "Ghost"
-hp = 120
-max_hp = 120
-defense = 1
-attack = 10
+hp = 360
+max_hp = 360
+defense = 5
+attack = 30
 basic_atk = ExtResource("1_hyp3g")
 offense_skill = ExtResource("2_h3sx3")
 support_skill = ExtResource("4_meree")
 ultimate = ExtResource("5_meree")
+active_charm_effects = {}

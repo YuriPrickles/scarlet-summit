@@ -21,6 +21,9 @@ func initialize_healthbars(battler_array:Array):
 		partyhealth.add_child(hb)
 		hb.name = ch.char_data.display_name
 
+func set_entry_comment():
+	pass
+
 func set_battle_comment(text:String):
 	var final_text = "[font_size=32]%s" % text
 	battle_comment.text = final_text

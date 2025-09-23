@@ -149,7 +149,7 @@ func attack_enemy(target:EnemyBattler,attack_anim:AttackAnimations,attack_method
 
 #To not cause loops with on-hurt abilities
 func attack_reflect(target:EnemyBattler,mult:float=1):
-	target.hurt(damage_against(target) * mult,self)
+	target.hurt(damage_against(target) * mult,self,false)
 	
 func attack_one(target:EnemyBattler,mult:float=1):
 	target.hurt(damage_against(target) * mult, self)
@@ -185,7 +185,7 @@ func add_status(status:StatusEffect,turns:int):
 	status_array[status.status_ID] = status.duplicate()
 	var poptext:PopupText = preload("res://scenes/pop_up_text.tscn").instantiate()
 	var color:Color = Color.MEDIUM_PURPLE if status.is_bad else Color.LIGHT_GREEN
-	poptext.ptext = "[color=%s]%s"%[Color.MEDIUM_PURPLE,status.buff_name]
+	poptext.ptext = "[color=%s]%s"%[color,status.buff_name]
 	poptext.global_position = global_position + Vector2(randi_range(-16,16),randi_range(-16,16))
 	add_child(poptext)
 	pass
@@ -196,7 +196,7 @@ func get_def_mult() -> float:
 		if status == null: continue
 		if status.def_mult != 0:
 			total_mult += status.def_mult
-	total_mult += defense * 0.02
+	total_mult += defense * 0.05
 	return total_mult
 	
 func get_atk_mult() -> float:
@@ -214,7 +214,6 @@ func has_status(status_ID:ID.StatusID) -> bool:
 	return status_array[status_ID] != null
 	
 func has_charm(charm_ID:ID.CharmID):
-	print(State.attached_charms[char_data.id].has(charm_ID))
 	return State.attached_charms[char_data.id].has(charm_ID)
 	
 func transfer_statuses(target:EnemyBattler):
@@ -268,8 +267,8 @@ func special_animation_mana_burst():
 	sprite.play("selfharm")
 	await get_tree().create_timer(1.3).timeout
 	for i in range(3):
-		hurt(char_data.attack,null,"crimson",false)
-		State.add_mana(char_data.attack)
+		hurt(roundi(State.damage_calc(char_data.attack/2,get_atk_mult(),get_def_mult())),null,"crimson",false)
+		State.add_mana(char_data.attack/2)
 		await get_tree().create_timer(0.25).timeout
 	await sprite.animation_finished
 	weak_state = true

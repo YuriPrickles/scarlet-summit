@@ -5,7 +5,7 @@ extends Control
 
 func _ready() -> void:
 	
-	for char in State.current_party:
+	for char in State.loaded_encounter.party:
 		var char_equip_container = preload("res://scenes/char_equip_container.tscn").instantiate()
 		char_equip_container.char_data = char
 		party_eq_display.add_child(char_equip_container)

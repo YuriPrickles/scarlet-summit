@@ -10,11 +10,12 @@
 script = ExtResource("2_v88of")
 id = 1
 display_name = "Leaf"
-hp = 140
-max_hp = 140
-defense = 3
-attack = 8
+hp = 420
+max_hp = 420
+defense = 12
+attack = 24
 basic_atk = ExtResource("1_fcvhh")
 offense_skill = ExtResource("2_6bh0a")
 support_skill = ExtResource("4_6bh0a")
 ultimate = ExtResource("5_u2c6c")
+active_charm_effects = {}

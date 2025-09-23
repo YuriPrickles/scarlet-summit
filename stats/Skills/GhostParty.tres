@@ -8,5 +8,6 @@ skill_name = "Ghost Party"
 skill_description = "Haunts every other ally, giving them a ghost that deals light damage every turn.
 The ghost can be passed to an enemy when a Haunted character does their Basic Attack."
 cost = 14
-target = 4
+targeting_type = 0
 skill_type = 2
+animation_oncast = "attack"

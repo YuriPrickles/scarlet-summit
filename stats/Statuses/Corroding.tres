@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cdanstr6j1fmw"]
+
+[ext_resource type="Script" uid="uid://dcdm3qllenn83" path="res://stats/Statuses/haunted.gd" id="1_dhf5b"]
+
+[resource]
+script = ExtResource("1_dhf5b")
+status_ID = 8
+buff_name = "Corroding"
+buff_description = "Your hands are melting your hands are melting your hands are melting your hands are melting"
+turns_left = 0
+buff_type = 0
+is_bad = true
+stacking = false
+def_mult = 0.0
+atk_mult = 0.0
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

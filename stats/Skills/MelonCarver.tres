@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b5um74ah5ec3p"]
+
+[ext_resource type="Script" uid="uid://7a0w8bmqw3d0" path="res://stats/Skills/SkillEffects/crescent_cleaver.gd" id="1_upmbw"]
+
+[resource]
+script = ExtResource("1_upmbw")
+skill_name = "Melon Carver"
+skill_description = "Hits one enemy. If target is below 40% HP, it is forced to attack Red for 2 turns."
+cost = 0
+targeting_type = 1
+skill_type = 0
+animation_oncast = "attack"

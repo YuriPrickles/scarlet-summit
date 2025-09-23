@@ -7,9 +7,9 @@
 script = ExtResource("1_egub7")
 id = 1
 display_name = "Thorn Angel"
-hp = 275
-max_hp = 275
+hp = 825
+max_hp = 825
 defense = 3
-attack = 16
+attack = 40
 status_array = Array[ExtResource("3_856oq")]([])
 turn_delay = 0

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dmevqvvw3f10m"]
+
+[ext_resource type="Script" uid="uid://dqnt3yy81ck26" path="res://stats/Skills/SkillEffects/rindfrier.gd" id="1_w1hft"]
+
+[resource]
+script = ExtResource("1_w1hft")
+skill_name = "Rindfrier"
+skill_description = "Hits one enemy. Deals more damage to enemies below 50% health."
+cost = 0
+targeting_type = 1
+skill_type = 0
+animation_oncast = "attack"

@@ -7,5 +7,6 @@ script = ExtResource("1_qwkdo")
 skill_name = "Unfinished Business"
 skill_description = "Deal big damage to all enemies for every debuff the whole enemy team has."
 cost = 100
-target = 2
+targeting_type = 0
 skill_type = 3
+animation_oncast = "attack"

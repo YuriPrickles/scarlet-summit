@@ -14,21 +14,15 @@ func _ready() -> void:
 			break
 		highest_level += 1
 		var battle_button:BattleButton = preload("res://scenes/battle_button.tscn").instantiate()
-		battle_button.battle_text = enc.enc_name
-		battle_button.enemy_array = enc.enemy_array
-		battle_button.party = enc.party
-		battle_button.battle_comments = enc.default_battle_comments
-		battle_button.battle_desc = enc.enc_desc
-		battle_button.battle_picture = enc.enc_pic
+		battle_button.encounter = enc
 		battle_button.level_position = encounter_list.find(enc)
-		battle_button.battle_reward = enc.completion_reward
 		battle_button_container.add_child(battle_button)
 		battle_button._on_pressed()
 		pass
 
 func _process(delta: float) -> void:
-	battle_texture.texture = State.battle_picture
-	battle_desc.text = State.battle_desc
+	battle_texture.texture = State.loaded_encounter.enc_pic
+	battle_desc.text = State.loaded_encounter.enc_desc
 
 func _on_start_battle_pressed() -> void:
 	BattleUI.show()
