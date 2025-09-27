@@ -16,7 +16,7 @@ enum CommentConditions {
 @export var comment_conditions:Array[CommentConditions] = [CommentConditions.Entry]
 
 @export_category("Battlers")
-@export var enemy_array:Array[Enemy]
+@export var waves:Array[Wave]
 @export var party:Array[Character] = [
 	preload("res://stats/Characters/ScarletHeart.tres"),
 	preload("res://stats/Characters/GoldenSun.tres"),

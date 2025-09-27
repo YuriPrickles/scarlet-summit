@@ -9,7 +9,11 @@ id = 1
 display_name = "Thorn Angel"
 hp = 825
 max_hp = 825
+tired_threshold = 35
 defense = 3
 attack = 40
 status_array = Array[ExtResource("3_856oq")]([])
 turn_delay = 0
+attack_desc = "An uncommon case of Angelic Jam greatly affecting living beings.
+
+Thorn Angels use their thorny forms to defend against attackers while being able to continuously lash their thorny tentacles out at them."

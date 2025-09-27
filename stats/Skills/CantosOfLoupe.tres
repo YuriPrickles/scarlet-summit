@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cpwh3ayr44hum"]
+
+[ext_resource type="Script" uid="uid://5s3lc47vmefb" path="res://stats/Skills/SkillEffects/cantos_of_loupe.gd" id="1_ytsfe"]
+
+[resource]
+script = ExtResource("1_ytsfe")
+skill_name = "Cantos de Loupe"
+skill_description = "Hits one enemy. Enemies below 50% HP gain extra Tiredness points."
+cost = 0
+targeting_type = 1
+skill_type = 0
+animation_oncast = "attack"

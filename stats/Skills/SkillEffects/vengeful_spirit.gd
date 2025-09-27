@@ -7,5 +7,5 @@ func onCast(attacker:Battler,target:EnemyBattler):
 		)
 	var status:StatusEffect = load("res://stats/Statuses/Haunted.tres")
 	status.damage_over_time = attacker.attack * 1.5
-	target.add_status(status, 3)
+	target.add_status([status], [3])
 	pass

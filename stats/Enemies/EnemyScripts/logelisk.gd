@@ -12,9 +12,9 @@ func do_attack(enemy:EnemyBattler):
 	
 	if not already_chose:
 		enemy.lock_target(enemy.get_target(true))
+		target = enemy.locked_target
 		already_chose = true
-	print("Chosen battler: %s" % target.char_data.display_name)
-	if not turn_delay == 0:
+	if turn_delay == 0:
 		enemy.attack_enemy(null, enemy.AttackAnimations.Filler, filler_func)
 		turn_delay = 3
 		return
@@ -31,7 +31,7 @@ func do_attack(enemy:EnemyBattler):
 				enemy.AttackAnimations.GetClose,
 				enemy.attack_one.bind(target,1)
 				)
-			enemy.lock_target(enemy.get_target(true))
+			enemy.unlock_target()
 			already_chose = false
 			
 		else:

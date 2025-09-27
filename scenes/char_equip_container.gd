@@ -23,6 +23,4 @@ func _ready():
 				badge_c.add_item(charm.charm_name,charm.charm_ID)
 				
 func update_equippable(charm_index:int):
-	var char_eq_screen = get_parent()
-	if char_eq_screen.is_charm_equipped(charm_index):
-		pass
+	pass

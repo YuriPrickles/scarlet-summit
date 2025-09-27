@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Encounter" load_steps=8 format=3 uid="uid://dp07avngk36ty"]
+[gd_resource type="Resource" script_class="Encounter" load_steps=11 format=3 uid="uid://dp07avngk36ty"]
 
 [ext_resource type="Resource" uid="uid://blwro7ekcnu" path="res://stats/Charms/ThornHeart.tres" id="1_c7nv5"]
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_l4jex"]
@@ -7,6 +7,17 @@
 [ext_resource type="Resource" uid="uid://n7pus7alujwx" path="res://stats/Characters/ScarletHeart.tres" id="4_vdrk4"]
 [ext_resource type="Script" uid="uid://i8ywi33nxdfs" path="res://scripts/base_encounter.gd" id="5_dqslr"]
 [ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="5_fkw00"]
+[ext_resource type="Script" uid="uid://djyvhruidy31o" path="res://scripts/base_wave.gd" id="6_vdrk4"]
+
+[sub_resource type="Resource" id="Resource_dqslr"]
+script = ExtResource("6_vdrk4")
+enemy_array = Array[ExtResource("2_c7nv5")]([ExtResource("3_fkw00")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[sub_resource type="Resource" id="Resource_vdrk4"]
+script = ExtResource("6_vdrk4")
+enemy_array = Array[ExtResource("2_c7nv5")]([ExtResource("3_fkw00"), ExtResource("3_fkw00")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
 
 [resource]
 script = ExtResource("5_dqslr")
@@ -15,6 +26,6 @@ enc_desc = "Instructions echo within Red's head. Banishing powerful beings is no
 enc_pic = ExtResource("1_l4jex")
 default_battle_comments = Array[String](["Drag with [LEFT CLICK] to an enemy to perform a basic attack.", "What an even matchup!"])
 comment_conditions = Array[int]([2, 0])
-enemy_array = Array[ExtResource("2_c7nv5")]([ExtResource("3_fkw00")])
+waves = Array[ExtResource("6_vdrk4")]([SubResource("Resource_dqslr"), SubResource("Resource_vdrk4")])
 party = Array[ExtResource("5_fkw00")]([ExtResource("4_vdrk4")])
 completion_reward = ExtResource("1_c7nv5")

@@ -6,12 +6,16 @@
 
 [resource]
 script = ExtResource("1_32kkm")
-id = 0
+id = 2
 display_name = "Logelisk"
 sprite = ExtResource("2_loqt4")
 hp = 640
 max_hp = 640
+tired_threshold = 30
 defense = 0
 attack = 200
 status_array = Array[ExtResource("3_egt6e")]([])
 turn_delay = 0
+attack_desc = "Logelisks are heavy-hitting beings.
+
+Either focus all damage onto it to take it out early or prepare its target for a big hit from it."

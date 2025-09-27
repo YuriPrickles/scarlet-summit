@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Encounter" load_steps=7 format=3 uid="uid://b5ypvdm2m1v1i"]
+[gd_resource type="Resource" script_class="Encounter" load_steps=14 format=3 uid="uid://b5ypvdm2m1v1i"]
 
 [ext_resource type="Resource" uid="uid://bc1r4rn425k7h" path="res://stats/Charms/None.tres" id="1_464mo"]
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_icnip"]
@@ -6,6 +6,17 @@
 [ext_resource type="Resource" uid="uid://snsr562qju0j" path="res://stats/Enemies/Kickleaf.tres" id="3_55ito"]
 [ext_resource type="Resource" uid="uid://brpmbvs5cybrj" path="res://stats/Enemies/Boombloom.tres" id="4_hm8u6"]
 [ext_resource type="Script" uid="uid://i8ywi33nxdfs" path="res://scripts/base_encounter.gd" id="5_ujyw6"]
+[ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="6_v8hfg"]
+[ext_resource type="Resource" uid="uid://n7pus7alujwx" path="res://stats/Characters/ScarletHeart.tres" id="7_stn7t"]
+[ext_resource type="Resource" uid="uid://c5frwxdd2qdce" path="res://stats/Characters/GoldenSun.tres" id="8_1dnnl"]
+[ext_resource type="Resource" uid="uid://bnlgvjwf6grdb" path="res://stats/Characters/TwistingTree.tres" id="9_71ukh"]
+[ext_resource type="Script" uid="uid://djyvhruidy31o" path="res://scripts/base_wave.gd" id="9_stn7t"]
+[ext_resource type="Resource" uid="uid://yhg5d2s57ufu" path="res://stats/Characters/ShadeLady.tres" id="10_4dwor"]
+
+[sub_resource type="Resource" id="Resource_1dnnl"]
+script = ExtResource("9_stn7t")
+enemy_array = Array[ExtResource("2_464mo")]([ExtResource("3_55ito"), ExtResource("4_hm8u6"), ExtResource("3_55ito")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
 
 [resource]
 script = ExtResource("5_ujyw6")
@@ -14,6 +25,6 @@ enc_desc = "Level 2 Description"
 enc_pic = ExtResource("1_icnip")
 default_battle_comments = Array[String](["A battle begins!"])
 comment_conditions = Array[int]([2])
-enemy_array = Array[ExtResource("2_464mo")]([ExtResource("3_55ito"), ExtResource("4_hm8u6"), ExtResource("3_55ito")])
-party = null
+waves = Array[ExtResource("9_stn7t")]([SubResource("Resource_1dnnl")])
+party = Array[ExtResource("6_v8hfg")]([ExtResource("7_stn7t"), ExtResource("8_1dnnl"), ExtResource("9_71ukh"), ExtResource("10_4dwor")])
 completion_reward = ExtResource("1_464mo")

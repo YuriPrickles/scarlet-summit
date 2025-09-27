@@ -26,7 +26,10 @@ enum StatusID {
 	GingerGuard,
 	LockedTarget,
 	Corroding,
-	HarvestTime
+	HarvestTime,
+	Drowsy,
+	Tired,
+	Asleep
 }
 
 enum CharmID {

@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="SkillChanges" load_steps=2 format=3 uid="uid://dggwg3juhgfya"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dggwg3juhgfya"]
 
-[ext_resource type="Script" uid="uid://dxcj8d2bhbsb" path="res://scripts/base_skillchanges.gd" id="1_8hpgs"]
+[ext_resource type="Script" uid="uid://bhach4srwrg3v" path="res://stats/Characters/SkillChanges/goldensun_changes.gd" id="1_dyw4m"]
 
 [resource]
-script = ExtResource("1_8hpgs")
+script = ExtResource("1_dyw4m")
 metadata/_custom_type_script = "uid://dxcj8d2bhbsb"

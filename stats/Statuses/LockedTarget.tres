@@ -1,11 +1,11 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://c8fkhk6m0yovo"]
 
-[ext_resource type="Script" uid="uid://dcdm3qllenn83" path="res://stats/Statuses/haunted.gd" id="1_euk2o"]
+[ext_resource type="Script" uid="uid://dlrfmcixrck5f" path="res://stats/Statuses/locked_target.gd" id="1_euk2o"]
 
 [resource]
 script = ExtResource("1_euk2o")
 status_ID = 7
-buff_name = "Taunted!"
+buff_name = "Taunted"
 buff_description = "Will only target a specific person. Completely irrelevant for AOE attacks."
 turns_left = 0
 buff_type = 3

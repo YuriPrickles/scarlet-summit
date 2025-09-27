@@ -180,14 +180,19 @@ func return_to_place(duration:float = 0.3):
 func turn_status(value:bool = true):
 	turn_done = value
 
-func add_status(status:StatusEffect,turns:int):
-	status.turns_left = turns
-	status_array[status.status_ID] = status.duplicate()
-	var poptext:PopupText = preload("res://scenes/pop_up_text.tscn").instantiate()
-	var color:Color = Color.MEDIUM_PURPLE if status.is_bad else Color.LIGHT_GREEN
-	poptext.ptext = "[color=%s]%s"%[color,status.buff_name]
-	poptext.global_position = global_position + Vector2(randi_range(-16,16),randi_range(-16,16))
-	add_child(poptext)
+func add_status(status:Array[StatusEffect],turns:Array[int]):
+	if status.size() != turns.size():
+		print("Error with applying statuses.")
+		return
+	for i in status.size():
+		if turns[i] <= 0: return
+		status[i].turns_left = turns[i]
+		status_array[status[i].status_ID] = status[i].duplicate()
+		var poptext:PopupText = preload("res://scenes/pop_up_text.tscn").instantiate()
+		var color:String = "medium_purple" if status[i].is_bad else "light_green"
+		poptext.ptext = "[color=%s]%s"%[color,status[i].buff_name]
+		poptext.global_position = global_position + Vector2(0, (12 * status.size()) - (12 * i))
+		add_child(poptext)
 	pass
 	
 func get_def_mult() -> float:
@@ -221,7 +226,7 @@ func transfer_statuses(target:EnemyBattler):
 		var status = status_array[ID.StatusID.MiniHaunted]
 		status.damage_over_time = status_array[ID.StatusID.MiniHaunted].damage_over_time
 		var haunted_turns = status_array[ID.StatusID.MiniHaunted].turns_left
-		target.add_status(status,haunted_turns)
+		target.add_status([status],[haunted_turns])
 		status_array[ID.StatusID.MiniHaunted] = null
 
 var is_hovering = false

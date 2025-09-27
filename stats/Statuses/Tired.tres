@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://d18661ikptn5b"]
+
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="1_i65ua"]
+
+[resource]
+script = ExtResource("1_i65ua")
+status_ID = 11
+buff_name = "Tired"
+buff_description = "-30% DEF"
+turns_left = 0
+buff_type = 1
+is_bad = true
+stacking = false
+def_mult = -0.3
+atk_mult = 0.0
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

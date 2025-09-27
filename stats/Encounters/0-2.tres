@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Encounter" load_steps=8 format=3 uid="uid://bgq61bamewsue"]
+[gd_resource type="Resource" script_class="Encounter" load_steps=10 format=3 uid="uid://bgq61bamewsue"]
 
 [ext_resource type="Resource" uid="uid://bcuk6mx0kwae3" path="res://stats/Charms/SodPlating.tres" id="1_7rkwl"]
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_kfi5i"]
@@ -7,6 +7,12 @@
 [ext_resource type="Resource" uid="uid://n7pus7alujwx" path="res://stats/Characters/ScarletHeart.tres" id="4_n8fgp"]
 [ext_resource type="Script" uid="uid://i8ywi33nxdfs" path="res://scripts/base_encounter.gd" id="5_8slll"]
 [ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="5_qtqfd"]
+[ext_resource type="Script" uid="uid://djyvhruidy31o" path="res://scripts/base_wave.gd" id="6_n8fgp"]
+
+[sub_resource type="Resource" id="Resource_8slll"]
+script = ExtResource("6_n8fgp")
+enemy_array = Array[ExtResource("2_7rkwl")]([ExtResource("3_qtqfd"), ExtResource("3_qtqfd"), ExtResource("3_qtqfd")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
 
 [resource]
 script = ExtResource("5_8slll")
@@ -15,6 +21,6 @@ enc_desc = "When a pot breaks, everything inside spills out in chaos."
 enc_pic = ExtResource("1_kfi5i")
 default_battle_comments = Array[String](["Drag with [RIGHT CLICK] to an enemy to perform your offense skill.", "It's like walking through thorny bushes."])
 comment_conditions = Array[int]([2, 0])
-enemy_array = Array[ExtResource("2_7rkwl")]([ExtResource("3_qtqfd"), ExtResource("3_qtqfd"), ExtResource("3_qtqfd")])
+waves = Array[ExtResource("6_n8fgp")]([SubResource("Resource_8slll")])
 party = Array[ExtResource("5_qtqfd")]([ExtResource("4_n8fgp")])
 completion_reward = ExtResource("1_7rkwl")

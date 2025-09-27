@@ -6,10 +6,11 @@ extends Control
 @onready var battle_texture = $MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/BattleInfoPanel/MarginContainer/VBoxContainer/BattlePicture
 @onready var battle_desc = $MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/BattleInfoPanel/MarginContainer/VBoxContainer/BattleDescription
 
+
 func _ready() -> void:
 	BattleUI.hide()
-	var highest_level = 0
 	for enc in encounter_list:
+		var highest_level = 0
 		if highest_level > State.max_level_reached:
 			break
 		highest_level += 1

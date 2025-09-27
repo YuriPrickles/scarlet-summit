@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bcdv6kt6hal1q"]
+
+[ext_resource type="Script" uid="uid://bvw7u85vg7lph" path="res://stats/Statuses/drowsy.gd" id="1_sj7s2"]
+
+[resource]
+script = ExtResource("1_sj7s2")
+status_ID = 10
+buff_name = "Drowsy"
+buff_description = "+1 Tiredness every turn."
+turns_left = 0
+buff_type = 3
+is_bad = false
+stacking = false
+def_mult = 0.0
+atk_mult = 0.0
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

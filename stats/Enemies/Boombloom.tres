@@ -11,7 +11,11 @@ display_name = "Boombloom"
 sprite = ExtResource("2_1iy1j")
 hp = 250
 max_hp = 250
+tired_threshold = 20
 defense = 7
 attack = 90
 status_array = Array[ExtResource("3_kgw8o")]([])
 turn_delay = 0
+attack_desc = "The original plant this came from is known for its explosive seed-spreading method, which has been weaponized by this Jamborn.
+
+Touching its flowers when they're ready to bloom will cause it to explode on ONLY the attacker. It's at least much better than it exploding on everyone."

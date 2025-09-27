@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://n7pus7alujwx"]
+[gd_resource type="Resource" script_class="Character" load_steps=8 format=3 uid="uid://n7pus7alujwx"]
 
 [ext_resource type="Resource" uid="uid://4vhobrvueiir" path="res://stats/Skills/CrescentCleaver.tres" id="1_0auxs"]
 [ext_resource type="SpriteFrames" uid="uid://wp11yknboa83" path="res://assets/characters/red/red.tres" id="2_e0yrb"]
 [ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="2_hvjic"]
 [ext_resource type="Resource" uid="uid://bp87myaiwbc5m" path="res://stats/Skills/NightCycle.tres" id="2_twetf"]
 [ext_resource type="Resource" uid="uid://cxqff032jbreu" path="res://stats/Skills/ManaBurst.tres" id="4_r4qwn"]
+[ext_resource type="Resource" uid="uid://30ny14qsglc7" path="res://stats/Characters/SkillChanges/ScarletHeart_SC.tres" id="5_elxas"]
 [ext_resource type="Resource" uid="uid://1d0coq6qo1pn" path="res://stats/Skills/BeaconOfPower.tres" id="5_r4qwn"]
 
 [resource]
@@ -21,3 +22,4 @@ offense_skill = ExtResource("2_twetf")
 support_skill = ExtResource("4_r4qwn")
 ultimate = ExtResource("5_r4qwn")
 active_charm_effects = {}
+skill_changes_resource = ExtResource("5_elxas")

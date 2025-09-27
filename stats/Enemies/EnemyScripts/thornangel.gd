@@ -30,7 +30,7 @@ func do_attack(enemy:EnemyBattler):
 		1.6
 		)
 	
-func on_hit(enemy:EnemyBattler,attacker:Battler):
+func on_hit(enemy:EnemyBattler,attacker:Battler,damage:int):
 	enemy.attack_reflect(attacker,1)
 	pass
 

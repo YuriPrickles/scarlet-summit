@@ -10,7 +10,13 @@ var current_party:Array[Character] = [
 var unlocked_charms:Dictionary
 var attached_charms:Dictionary
 
-var charm_list_ref:Array[Charm]
+var charm_list_ref:Array[Charm] = [
+	preload("res://stats/Charms/AbundantSoils.tres"),
+	preload("res://stats/Charms/CropClock.tres"),
+	preload("res://stats/Charms/RindGrinder.tres"),
+	preload("res://stats/Charms/SodPlating.tres"),
+	preload("res://stats/Charms/ThornHeart.tres")
+	]
 
 var loaded_encounter:Encounter
 
@@ -42,6 +48,16 @@ func _ready() -> void:
 	State.unlocked_charms[none_charm.charm_ID] = charmtionary
 	levels_beaten.resize(500)
 	levels_beaten.fill(false)
+
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("unlock_all_levels"):
+		max_level_reached = 99999
+		levels_beaten.fill(true)
+	if Input.is_action_pressed("unlock_all_charms"):
+		for charm:Charm in charm_list_ref:
+			var charmtionary:Dictionary
+			charmtionary[charm] = true
+			State.unlocked_charms[charm.charm_ID] = charmtionary
 
 func set_battler_arrays(array, e_array):
 	battler_array.clear()

@@ -28,7 +28,7 @@ func do_attack(enemy:EnemyBattler):
 			)
 		bomb_ready = false
 	
-func on_hit(enemy:EnemyBattler,attacker:Battler):
+func on_hit(enemy:EnemyBattler,attacker:Battler,damage:int):
 	if bomb_ready:
 		enemy.attack_enemy(
 			attacker,

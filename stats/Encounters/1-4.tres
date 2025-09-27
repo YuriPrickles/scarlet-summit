@@ -1,11 +1,23 @@
-[gd_resource type="Resource" script_class="Encounter" load_steps=7 format=3 uid="uid://3di361bglrdj"]
+[gd_resource type="Resource" script_class="Encounter" load_steps=15 format=3 uid="uid://3di361bglrdj"]
 
 [ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="1_gtelu"]
+[ext_resource type="Resource" uid="uid://bc1r4rn425k7h" path="res://stats/Charms/None.tres" id="1_n3mjy"]
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_sv5sy"]
 [ext_resource type="Resource" uid="uid://snsr562qju0j" path="res://stats/Enemies/Kickleaf.tres" id="2_a0754"]
 [ext_resource type="Resource" uid="uid://uyl7avqvtb8e" path="res://stats/Enemies/Logelisk.tres" id="2_sv5sy"]
 [ext_resource type="Script" uid="uid://i8ywi33nxdfs" path="res://scripts/base_encounter.gd" id="3_a0754"]
 [ext_resource type="Resource" uid="uid://brpmbvs5cybrj" path="res://stats/Enemies/Boombloom.tres" id="4_tb2ij"]
+[ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="7_urhcl"]
+[ext_resource type="Resource" uid="uid://n7pus7alujwx" path="res://stats/Characters/ScarletHeart.tres" id="8_lkbcp"]
+[ext_resource type="Script" uid="uid://djyvhruidy31o" path="res://scripts/base_wave.gd" id="9_urhcl"]
+[ext_resource type="Resource" uid="uid://c5frwxdd2qdce" path="res://stats/Characters/GoldenSun.tres" id="9_wghed"]
+[ext_resource type="Resource" uid="uid://bnlgvjwf6grdb" path="res://stats/Characters/TwistingTree.tres" id="10_ohedo"]
+[ext_resource type="Resource" uid="uid://yhg5d2s57ufu" path="res://stats/Characters/ShadeLady.tres" id="11_usvvb"]
+
+[sub_resource type="Resource" id="Resource_lkbcp"]
+script = ExtResource("9_urhcl")
+enemy_array = Array[ExtResource("1_gtelu")]([ExtResource("2_a0754"), ExtResource("2_sv5sy"), ExtResource("4_tb2ij")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
 
 [resource]
 script = ExtResource("3_a0754")
@@ -13,5 +25,7 @@ enc_name = "1-4 - Overgrowth"
 enc_desc = "Level 4 Description"
 enc_pic = ExtResource("1_sv5sy")
 default_battle_comments = Array[String](["A battle begins!"])
-enemy_array = Array[ExtResource("1_gtelu")]([ExtResource("2_a0754"), ExtResource("2_sv5sy"), ExtResource("4_tb2ij")])
-party = null
+comment_conditions = Array[int]([2])
+waves = Array[ExtResource("9_urhcl")]([SubResource("Resource_lkbcp")])
+party = Array[ExtResource("7_urhcl")]([ExtResource("8_lkbcp"), ExtResource("9_wghed"), ExtResource("10_ohedo"), ExtResource("11_usvvb")])
+completion_reward = ExtResource("1_n3mjy")

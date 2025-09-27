@@ -7,6 +7,9 @@ var enemy_scene = load("res://scenes/enemy_battler.tscn")
 @onready var battlers = $Battlers
 @onready var enemy_battlers = $EnemyBattlers
 
+var waves:Array[Wave] = State.loaded_encounter.waves
+var current_wave = 0
+
 signal enemy_turn_done
 var enemy_turn_started = false
 var post_turn_ran = false
@@ -15,29 +18,37 @@ var all_battlers_down = false
 
 var ongoing_enemy_turn = false
 
+func load_wave(wave:Wave):
+	initial_enemypos = Vector2(920,(-64 * (wave.enemy_array.size() - 1)) + 256)
+	var enemy_separation = 0
+	for e in wave.enemy_array:
+		var enemy:EnemyBattler = enemy_scene.instantiate()
+		enemy.enemy_data = e.duplicate()
+		enemy.position = initial_enemypos + Vector2(enemy_separation * -32,enemy_separation * -128)
+		enemy_separation -= 1
+		enemy_battlers.add_child(enemy)
+	
+	
 func _ready() -> void:
 	State.set_mana(0)
 	State.turn_counter = 0
 	BattleUI.set_battle_comment(State.loaded_encounter.get_entry_comment())
 	var separation = 0
 	initial_charpos = Vector2(360,(-64 * (State.loaded_encounter.party.size() - 1)) + 256)
-	initial_enemypos = Vector2(920,(-64 * (State.loaded_encounter.enemy_array.size() - 1)) + 256)
 	for c in State.loaded_encounter.party:
 		var ch:Battler = char_scene.instantiate()
 		ch.char_data = c.duplicate()
+		ch.char_data.skill_changes_resource.apply_changed_skills(ch)
 		ch.position = initial_charpos + Vector2(separation * 32,separation * -128)
 		separation -= 1
 		battlers.add_child(ch)
-	var enemy_separation = 0
-	for e in State.loaded_encounter.enemy_array:
-		var enemy:EnemyBattler = enemy_scene.instantiate()
-		enemy.enemy_data = e.duplicate()
-		enemy.position = initial_enemypos + Vector2(enemy_separation * -32,enemy_separation * -128)
-		enemy_separation -= 1
-		enemy_battlers.add_child(enemy)
+	waves = State.loaded_encounter.waves
 	BattleUI.initialize_healthbars(battlers.get_children())
 
 func _process(_delta: float) -> void:
+	while current_wave < waves.size() and enemy_battlers.get_child_count() == 0:
+		load_wave(waves[current_wave])
+		current_wave += 1
 	State.set_battler_arrays(battlers.get_children(),enemy_battlers.get_children())
 	if not ongoing_enemy_turn:
 		check_all_turns_done()
@@ -58,14 +69,15 @@ func turn_manager():
 			print("sssssssssssskipped turn of %s" % b.char_data.display_name)
 	var campsite:PackedScene = load("res://scenes/campsite.tscn")
 	if all_enemies_down:
-		if not State.levels_beaten[State.current_level_position] and State.loaded_encounter.completion_reward.charm_ID != ID.CharmID.None:
-			var charmtionary:Dictionary
-			charmtionary[State.loaded_encounter.completion_reward] = true
-			State.unlocked_charms[State.loaded_encounter.completion_reward.charm_ID] = charmtionary
-			State.max_level_reached += 1
-		State.levels_beaten[State.current_level_position] = true
-		await get_tree().create_timer(1.5).timeout
-		get_tree().change_scene_to_packed(campsite)
+		if current_wave >= waves.size():
+			if not State.levels_beaten[State.current_level_position] and State.loaded_encounter.completion_reward.charm_ID != ID.CharmID.None:
+				var charmtionary:Dictionary
+				charmtionary[State.loaded_encounter.completion_reward] = true
+				State.unlocked_charms[State.loaded_encounter.completion_reward.charm_ID] = charmtionary
+				State.max_level_reached += 1
+			State.levels_beaten[State.current_level_position] = true
+			await get_tree().create_timer(1.5).timeout
+			get_tree().change_scene_to_packed(campsite)
 	if all_battlers_down and not all_enemies_down:
 		BattleUI.set_battle_comment("Everyone was defeated!")
 		await get_tree().create_timer(1.5).timeout
@@ -143,7 +155,7 @@ func post_turn():
 	
 	State.turn_counter += 1
 	print("Turn: %s" % State.turn_counter)
-	var battle_text = State.loaded_encounter.get_comment() if not all_enemies_down else "Battle won!"
+	var battle_text = State.loaded_encounter.get_comment() if not all_enemies_down else ("Battle won!" if current_wave >= waves.size() else "Wave Complete!")
 	BattleUI.set_battle_comment(battle_text)
 
 ##Also updates [all_battlers_down].

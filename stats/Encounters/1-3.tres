@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Encounter" load_steps=11 format=3 uid="uid://4gowmwcsqxef"]
+[gd_resource type="Resource" script_class="Encounter" load_steps=13 format=3 uid="uid://4gowmwcsqxef"]
 
 [ext_resource type="Resource" uid="uid://bc1r4rn425k7h" path="res://stats/Charms/None.tres" id="1_dh85i"]
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_mpnid"]
@@ -10,6 +10,12 @@
 [ext_resource type="Resource" uid="uid://c5frwxdd2qdce" path="res://stats/Characters/GoldenSun.tres" id="7_0subj"]
 [ext_resource type="Resource" uid="uid://bnlgvjwf6grdb" path="res://stats/Characters/TwistingTree.tres" id="8_g5o5f"]
 [ext_resource type="Resource" uid="uid://yhg5d2s57ufu" path="res://stats/Characters/ShadeLady.tres" id="9_etdd5"]
+[ext_resource type="Script" uid="uid://djyvhruidy31o" path="res://scripts/base_wave.gd" id="9_ywsam"]
+
+[sub_resource type="Resource" id="Resource_aw3af"]
+script = ExtResource("9_ywsam")
+enemy_array = Array[ExtResource("1_pdbwk")]([ExtResource("2_pdbwk"), ExtResource("2_pdbwk")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
 
 [resource]
 script = ExtResource("3_r8ack")
@@ -18,6 +24,6 @@ enc_desc = "Level 3 Description"
 enc_pic = ExtResource("1_mpnid")
 default_battle_comments = Array[String](["A twin of towering twees thwart your twavels.", "There's bite in this bark.", "A tower falls!"])
 comment_conditions = Array[int]([2, 0, 1])
-enemy_array = Array[ExtResource("1_pdbwk")]([ExtResource("2_pdbwk"), ExtResource("2_pdbwk")])
+waves = Array[ExtResource("9_ywsam")]([SubResource("Resource_aw3af")])
 party = Array[ExtResource("5_ywsam")]([ExtResource("6_aw3af"), ExtResource("7_0subj"), ExtResource("8_g5o5f"), ExtResource("9_etdd5")])
 completion_reward = ExtResource("1_dh85i")

@@ -1,15 +1,21 @@
-[gd_resource type="Resource" load_steps=11 format=3 uid="uid://dahcpmwo8bdia"]
+[gd_resource type="Resource" load_steps=13 format=3 uid="uid://dahcpmwo8bdia"]
 
 [ext_resource type="Resource" uid="uid://bc1r4rn425k7h" path="res://stats/Charms/None.tres" id="1_1m44w"]
 [ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="1_fpup7"]
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_xf1q5"]
-[ext_resource type="Resource" uid="uid://b63a3bpo3ftm0" path="res://stats/Enemies/ThornAngel.tres" id="4_02w7w"]
+[ext_resource type="Resource" uid="uid://snsr562qju0j" path="res://stats/Enemies/Kickleaf.tres" id="4_02w7w"]
 [ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="5_02w7w"]
 [ext_resource type="Resource" uid="uid://n7pus7alujwx" path="res://stats/Characters/ScarletHeart.tres" id="6_jktad"]
 [ext_resource type="Resource" uid="uid://c5frwxdd2qdce" path="res://stats/Characters/GoldenSun.tres" id="7_3uhq3"]
 [ext_resource type="Resource" uid="uid://bnlgvjwf6grdb" path="res://stats/Characters/TwistingTree.tres" id="8_um2dm"]
 [ext_resource type="Resource" uid="uid://yhg5d2s57ufu" path="res://stats/Characters/ShadeLady.tres" id="9_7f2mn"]
+[ext_resource type="Script" uid="uid://djyvhruidy31o" path="res://scripts/base_wave.gd" id="9_jktad"]
 [ext_resource type="Script" uid="uid://cxw3tqver7f4m" path="res://stats/Encounters/1-1.gd" id="10_02w7w"]
+
+[sub_resource type="Resource" id="Resource_3uhq3"]
+script = ExtResource("9_jktad")
+enemy_array = Array[ExtResource("1_fpup7")]([ExtResource("4_02w7w"), ExtResource("4_02w7w"), ExtResource("4_02w7w")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
 
 [resource]
 script = ExtResource("10_02w7w")
@@ -18,6 +24,6 @@ enc_desc = "The journey was meant to be done alone. More people will just impede
 enc_pic = ExtResource("1_xf1q5")
 default_battle_comments = Array[String](["Drag with [RIGHT CLICK] to an ally to use your support skill.", "The team is running out of mana.", "Red is utterly confused.", "Who the hell are they?", "Hover over anyone for more information."])
 comment_conditions = Array[int]([2, 1, 0, 0, 1])
-enemy_array = Array[ExtResource("1_fpup7")]([ExtResource("4_02w7w")])
+waves = Array[ExtResource("9_jktad")]([SubResource("Resource_3uhq3")])
 party = Array[ExtResource("5_02w7w")]([ExtResource("6_jktad"), ExtResource("7_3uhq3"), ExtResource("8_um2dm"), ExtResource("9_7f2mn")])
 completion_reward = ExtResource("1_1m44w")

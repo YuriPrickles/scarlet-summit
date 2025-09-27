@@ -11,7 +11,12 @@ display_name = "Kickleaf"
 sprite = ExtResource("2_ck1ss")
 hp = 170
 max_hp = 170
+tired_threshold = 15
 defense = 3
 attack = 50
 status_array = Array[ExtResource("3_3n0bm")]([])
 turn_delay = 0
+attack_desc = "Do not underestimate the little Kickleaf!
+
+They travel alongside other Jamborns to overwhelm the enemy with their nimble footwork.
+It takes them a while to adjust their technique, but when they get it right, they won't stop until their target is dead."

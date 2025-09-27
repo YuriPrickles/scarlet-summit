@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://dvdfkn8dwblc8"]
+
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="1_pltwi"]
+
+[resource]
+script = ExtResource("1_pltwi")
+status_ID = 12
+buff_name = "Asleep"
+buff_description = "The user skips their turn."
+turns_left = 0
+buff_type = 2
+is_bad = true
+stacking = false
+def_mult = 0.0
+atk_mult = 0.0
+is_stun = true
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"
