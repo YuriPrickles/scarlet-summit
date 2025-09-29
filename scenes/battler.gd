@@ -26,6 +26,8 @@ var downed = false
 var downed_count = 0
 
 var counters = 0
+##Currently only used for Sun when using Sunblock and multiple hits from one attack are blocked.
+var stored_hits = 0
 
 @export var status_array:Array[StatusEffect]
 
@@ -56,10 +58,7 @@ func update_hp(bar:ProgressBar, new_value):
 func heal(amount:int):
 	health += amount if (health + amount == 0) else amount + 10
 	update_hp(BattleUI.get_health_bar(char_data.display_name),health)
-	var poptext:PopupText = preload("res://scenes/pop_up_text.tscn").instantiate()
-	poptext.ptext = "[color=light_green]%s"%amount
-	poptext.global_position = global_position + Vector2(randi_range(-16,16),randi_range(-16,16))
-	add_child(poptext)
+	State.popatext(self, amount, Color.LIGHT_GREEN)
 
 func hurt(damage:int,enemy_attacker:EnemyBattler = null,color_string="white",hurt_sprite_needed=true):
 	var already_downed = health <= 0
@@ -84,10 +83,8 @@ func hurt(damage:int,enemy_attacker:EnemyBattler = null,color_string="white",hur
 	update_hp(BattleUI.get_health_bar(char_data.display_name),health)
 	if enemy_attacker != null:
 		char_data.on_hit(self,enemy_attacker)
-	var poptext:PopupText = preload("res://scenes/pop_up_text.tscn").instantiate()
-	poptext.ptext = "[color=%s]%s"%[color_string,damage]
-	poptext.global_position = global_position + Vector2(randi_range(-16,16),randi_range(-16,16))
-	add_child(poptext)
+		
+	State.popatext(self,damage,color_string)
 	
 	if hurt_sprite_needed:
 		hurting = true
@@ -117,7 +114,6 @@ enum AttackAnimations{
 }
 func attack_enemy(target:EnemyBattler,attack_anim:AttackAnimations,attack_method:Callable,sprite_anim:String="attack"):
 	State.someone_doing_something = true
-	transfer_statuses(target)
 	match attack_anim:
 		AttackAnimations.GetClose:
 			move_to(target.position - Vector2(150,0),0.4)
@@ -125,6 +121,7 @@ func attack_enemy(target:EnemyBattler,attack_anim:AttackAnimations,attack_method
 			sprite.play(sprite_anim)
 			await sprite.animation_finished
 			attack_method.call()
+			transfer_statuses(target)
 			await finished_action
 			await get_tree().create_timer(0.4).timeout
 		AttackAnimations.StayInPlace:
@@ -132,6 +129,7 @@ func attack_enemy(target:EnemyBattler,attack_anim:AttackAnimations,attack_method
 			sprite.play(sprite_anim)
 			await sprite.animation_finished
 			attack_method.call()
+			transfer_statuses(target)
 			await finished_action
 			await get_tree().create_timer(0.4).timeout
 		AttackAnimations.GoToMiddle:
@@ -140,6 +138,7 @@ func attack_enemy(target:EnemyBattler,attack_anim:AttackAnimations,attack_method
 			sprite.play(sprite_anim)
 			await sprite.animation_finished
 			attack_method.call()
+			transfer_statuses(target)
 			await finished_action
 			await get_tree().create_timer(0.4).timeout
 		AttackAnimations.Filler:
@@ -151,8 +150,10 @@ func attack_enemy(target:EnemyBattler,attack_anim:AttackAnimations,attack_method
 func attack_reflect(target:EnemyBattler,mult:float=1):
 	target.hurt(damage_against(target) * mult,self,false)
 	
-func attack_one(target:EnemyBattler,mult:float=1):
-	target.hurt(damage_against(target) * mult, self)
+func attack_one(target:EnemyBattler,mult:float=1,hits:int=1):
+	for i in range(hits):
+		target.hurt(damage_against(target) * mult, self)
+		await get_tree().create_timer(0.2).timeout
 	return_to_place()
 		
 func attack_all(mult:float=1):
@@ -188,11 +189,8 @@ func add_status(status:Array[StatusEffect],turns:Array[int]):
 		if turns[i] <= 0: return
 		status[i].turns_left = turns[i]
 		status_array[status[i].status_ID] = status[i].duplicate()
-		var poptext:PopupText = preload("res://scenes/pop_up_text.tscn").instantiate()
-		var color:String = "medium_purple" if status[i].is_bad else "light_green"
-		poptext.ptext = "[color=%s]%s"%[color,status[i].buff_name]
-		poptext.global_position = global_position + Vector2(0, (12 * status.size()) - (12 * i))
-		add_child(poptext)
+		var color = Color.MEDIUM_PURPLE if status[i].is_bad else Color.LIGHT_GREEN
+		State.popatext(self,status[i].buff_name,color)
 	pass
 	
 func get_def_mult() -> float:
@@ -219,15 +217,12 @@ func has_status(status_ID:ID.StatusID) -> bool:
 	return status_array[status_ID] != null
 	
 func has_charm(charm_ID:ID.CharmID):
-	return State.attached_charms[char_data.id].has(charm_ID)
+	return State.attached_charms[char_data.id][0].has(charm_ID)
 	
 func transfer_statuses(target:EnemyBattler):
-	if has_status(ID.StatusID.MiniHaunted):
-		var status = status_array[ID.StatusID.MiniHaunted]
-		status.damage_over_time = status_array[ID.StatusID.MiniHaunted].damage_over_time
-		var haunted_turns = status_array[ID.StatusID.MiniHaunted].turns_left
-		target.add_status([status],[haunted_turns])
-		status_array[ID.StatusID.MiniHaunted] = null
+	for status in status_array:
+		if status == null: continue
+		status.onTransfer(self,target)
 
 var is_hovering = false
 var hover_display_req_sent = false
@@ -245,6 +240,8 @@ func _on_hover_area_input_event(_viewport: Node, _event: InputEvent, _shape_idx:
 	await get_tree().create_timer(1).timeout
 	if (not Input.is_action_pressed("dragging") and is_hovering):
 		HoverInfo.CharName.text = "[font_size=32] %s" % char_data.display_name
+		HoverInfo.CharName2.text = "[font_size=32] %s" % char_data.display_name
+		HoverInfo.status_array = status_array.duplicate()
 		for sk in skill_array:
 			if sk != null:
 				if sk.cost != 0:
@@ -272,7 +269,7 @@ func special_animation_mana_burst():
 	sprite.play("selfharm")
 	await get_tree().create_timer(1.3).timeout
 	for i in range(3):
-		hurt(roundi(State.damage_calc(char_data.attack/2,get_atk_mult(),get_def_mult())),null,"crimson",false)
+		hurt(roundi(State.damage_calc(char_data.attack/2,get_atk_mult(),get_def_mult())),null,Color.CRIMSON,false)
 		State.add_mana(char_data.attack/2)
 		await get_tree().create_timer(0.25).timeout
 	await sprite.animation_finished

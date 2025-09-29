@@ -6,7 +6,9 @@
 script = ExtResource("1_74528")
 skill_name = "Eclipse"
 skill_description = "Targetted ally receives Sunblock for 3 turns.
-When targeted by an enemy, the ally with Sunblock will take damage instead, and Sun will do her Basic Attack against the enemy.
+
+When targeted by an enemy, the ally with Sunblock will take damage instead. Sun's next Basic Attack will gain more hits the more the ally was hit.
+
 Only one ally at a time can have Sunblock."
 cost = 24
 targeting_type = 0

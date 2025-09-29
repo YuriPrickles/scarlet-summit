@@ -49,6 +49,7 @@ scroll_active = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="BasicAttack" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(512, 48)
@@ -74,6 +75,7 @@ scroll_active = false
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="OffenseSkill" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(512, 48)
@@ -99,6 +101,7 @@ scroll_active = false
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="SupportSkill" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(512, 48)
@@ -124,6 +127,7 @@ scroll_active = false
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Ultimate" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer4"]
 custom_minimum_size = Vector2(512, 48)
@@ -144,5 +148,53 @@ custom_minimum_size = Vector2(512, 32)
 layout_mode = 2
 bbcode_enabled = true
 text = "[font_size=16]Ultimate Description"
+fit_content = true
+scroll_active = false
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="CharacterInfo/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollText" type="RichTextLabel" parent="CharacterInfo/MarginContainer/VBoxContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(512, 48)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[font_size=32](Scroll for further information.)"
+fit_content = true
+scroll_active = false
+
+[node name="BuffList" type="VBoxContainer" parent="CharacterInfo/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterInfo/MarginContainer/BuffList"]
+layout_mode = 2
+
+[node name="CharName2" type="RichTextLabel" parent="CharacterInfo/MarginContainer/BuffList/HBoxContainer"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[font_size=32]Red"
+fit_content = true
+scroll_active = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterInfo/MarginContainer/BuffList"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="VBoxContainer" parent="CharacterInfo/MarginContainer/BuffList/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CharacterInfo/MarginContainer/BuffList"]
+layout_mode = 2
+
+[node name="ScrollText" type="RichTextLabel" parent="CharacterInfo/MarginContainer/BuffList/VBoxContainer2"]
+custom_minimum_size = Vector2(512, 48)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[font_size=32](Scroll for further information.)"
 fit_content = true
 scroll_active = false

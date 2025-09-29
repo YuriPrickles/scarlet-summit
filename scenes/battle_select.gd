@@ -9,6 +9,8 @@ extends Control
 
 func _ready() -> void:
 	BattleUI.hide()
+	HoverInfo.hide()
+	EnemyHoverInfo.hide()
 	for enc in encounter_list:
 		var highest_level = 0
 		if highest_level > State.max_level_reached:

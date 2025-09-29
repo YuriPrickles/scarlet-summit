@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_p34km")
 skill_name = "Ginger's Guard"
-skill_description = "The whole team is invincible for 1 turn and heals when enemies attempt to damage them."
+skill_description = "The whole team is invincible for 2 turns and heals when enemies attempt to damage them."
 cost = 100
 targeting_type = 4
 skill_type = 3

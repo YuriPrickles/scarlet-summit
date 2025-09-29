@@ -10,13 +10,7 @@ var current_party:Array[Character] = [
 var unlocked_charms:Dictionary
 var attached_charms:Dictionary
 
-var charm_list_ref:Array[Charm] = [
-	preload("res://stats/Charms/AbundantSoils.tres"),
-	preload("res://stats/Charms/CropClock.tres"),
-	preload("res://stats/Charms/RindGrinder.tres"),
-	preload("res://stats/Charms/SodPlating.tres"),
-	preload("res://stats/Charms/ThornHeart.tres")
-	]
+var charm_list_ref:Array[Charm] = []
 
 var loaded_encounter:Encounter
 
@@ -36,6 +30,12 @@ var turn_counter:int = 0
 var mana:int = 0
 
 func _ready() -> void:
+	for filePath in DirAccess.get_files_at("res://stats/Charms/"): 
+		if filePath.get_extension() == "tres":  
+			print("res://stats/Charms/" + filePath)
+			var final_path = "res://stats/Charms/" + filePath
+			var charm:Charm = load(final_path)
+			charm_list_ref.append(charm)
 	attached_charms = {
 		0: [0,0,0,0,0],
 		1: [0,0,0,0,0],
@@ -90,3 +90,9 @@ func look_for_member(battler_ID:ID.CharID) -> Battler:
 		if battler.char_data.id == battler_ID:
 			return battler
 	return null
+	
+func popatext(parent:Node,string,color:Color=Color.WHITE):
+	var poptext:PopupText = preload("res://scenes/pop_up_text.tscn").instantiate()
+	poptext.ptext = "[color=%s]%s"%[color.to_html(false),string]
+	poptext.global_position = parent.global_position + Vector2(randi_range(-16,16),randi_range(-16,16))
+	parent.add_child(poptext)

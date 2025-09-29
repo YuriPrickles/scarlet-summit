@@ -12,3 +12,8 @@ enum CharmType {
 @export var charm_ID:ID.CharmID
 @export var charm_name = ""
 @export var charm_type:CharmType
+
+func on_battle_start_effects(battler:Battler):
+	pass
+func post_turn_effects(battler:Battler):
+	pass

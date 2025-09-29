@@ -58,10 +58,8 @@ func hurt(damage:int,attacker:Battler=null,allow_onhit=true):
 	health -= damage
 	update_hp(hpbar,health)
 	
-	var poptext:PopupText = preload("res://scenes/pop_up_text.tscn").instantiate()
-	poptext.ptext = damage
-	poptext.global_position = global_position + Vector2(randi_range(-16,16),randi_range(-16,16))
-	add_child(poptext)
+
+	State.popatext(self,damage,Color.WHITE)
 
 func vanquish():
 	var tween = get_tree().create_tween()
@@ -85,6 +83,14 @@ func get_target(set_lock=false) -> Battler:
 		chosen_battler = battlers.pick_random()
 	while locked_target == chosen_battler and set_lock and chosen_battler.health <= 0:
 		chosen_battler = battlers.pick_random()
+	#if chosen_battler.char_data.id == ID.CharID.GoldenSun:
+		#for battler in State.battler_array:
+			#if battler.has_status(ID.StatusID.Sunblock):
+				#battler.hurt(damage_against(battler),self)
+				#print("blocked by a teammate!")
+				#await get_tree().create_timer(0.6).timeout
+				#chosen_battler.cast_skill(chosen_battler.char_data.basic_atk,self)
+				#return
 	return chosen_battler
 
 func lock_target(target:Battler):
@@ -125,10 +131,9 @@ func attack_one(target:Battler,mult:float = 1):
 	if target.char_data.id == ID.CharID.GoldenSun:
 		for battler in State.battler_array:
 			if battler.has_status(ID.StatusID.Sunblock):
-				battler.hurt(damage_against(battler),self)
+				battler.hurt(damage_against(battler) * mult,self)
 				print("blocked by a teammate!")
-				await get_tree().create_timer(0.6).timeout
-				target.cast_skill(target.char_data.basic_atk,self)
+				target.stored_hits += 1
 				return
 	target.hurt(damage_against(target) * mult,self)
 		
@@ -138,18 +143,17 @@ func attack_all(mult:float = 1):
 
 func attack_wildhits(hits:int, mult:float = 1):
 	for i in range(hits):
-		var b = State.battler_array.pick_random()
+		var b:Battler = State.battler_array.pick_random()
 		while b.health <= 0:
 			b = State.battler_array.pick_random()
 		if b.char_data.id == ID.CharID.GoldenSun:
 			for battler in State.battler_array:
 				if battler.has_status(ID.StatusID.Sunblock):
-					battler.hurt(damage_against(battler),self)
+					battler.hurt(damage_against(battler) * mult,self)
 					print("blocked by a teammate!")
-					await get_tree().create_timer(0.6).timeout
-					b.cast_skill(b.char_data.basic_atk,self)
-					return
-		b.hurt(damage_against(b) * mult,self)
+					b.stored_hits += 1
+		else:
+			b.hurt(damage_against(b) * mult,self)
 		await get_tree().create_timer(0.2).timeout
 
 func move_to(target:Vector2,duration:float):
@@ -170,11 +174,8 @@ func add_status(status:Array[StatusEffect],turns:Array[int]):
 		if turns[i] <= 0: return
 		status[i].turns_left = turns[i]
 		status_array[status[i].status_ID] = status[i].duplicate()
-		var poptext:PopupText = preload("res://scenes/pop_up_text.tscn").instantiate()
-		var color:String = "medium_purple" if status[i].is_bad else "light_green"
-		poptext.ptext = "[color=%s]%s"%[color,status[i].buff_name]
-		poptext.global_position = global_position + Vector2(0, 0 + (12 * i))
-		add_child(poptext)
+		var color = Color.MEDIUM_PURPLE if status[i].is_bad else Color.LIGHT_GREEN
+		State.popatext(self,status[i].buff_name,color)
 	pass
 
 func get_def_mult() -> float:
@@ -225,7 +226,9 @@ func _on_hover_area_input_event(_viewport: Node, _event: InputEvent, _shape_idx:
 	if (not Input.is_action_pressed("dragging") and is_hovering):
 		EnemyHoverInfo.status_array = status_array.duplicate()
 		var tired_percent = ((float(tiredness)/float(tired_threshold)) * 100)
-		EnemyHoverInfo.EnemyName.text = "[font_size=32]%s   [color=light_gray][font_size=16][%d%% Tired]" % [enemy_data.display_name, tired_percent]
+		var tired_count = "%d/%d Tiredness" % [tiredness,tired_threshold]
+		EnemyHoverInfo.EnemyName.text = "[font_size=32]%s   [color=light_gray][font_size=16][%s | %d%% Tired]" % [enemy_data.display_name, tired_count, tired_percent]
+		EnemyHoverInfo.EnemyName2.text = "[font_size=32]%s   [color=light_gray][font_size=16][%s | %d%% Tired]" % [enemy_data.display_name, tired_count, tired_percent]
 		
 		EnemyHoverInfo.AttackInfo.text = "[font_size=16]%s" % enemy_data.attack_desc
 		EnemyHoverInfo.show()

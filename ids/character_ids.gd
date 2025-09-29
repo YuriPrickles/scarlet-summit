@@ -13,7 +13,11 @@ enum EnemyID{
 	Boombloom,
 	Logelisk,
 	ThornAngel,
-	Twiggle
+	Twiggle,
+	Fortroot,
+	Mediccorn,
+	Basqit,
+	ARCH_Hatreesiah
 }
 
 enum StatusID {
@@ -38,5 +42,7 @@ enum CharmID {
 	SodPlating,
 	RindGrinder,
 	CropClock,
-	AbundantSoils
+	AbundantSoils,
+	PoisonPatch,
+	Napsack
 }

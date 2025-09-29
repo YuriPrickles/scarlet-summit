@@ -42,6 +42,11 @@ func _ready() -> void:
 		ch.position = initial_charpos + Vector2(separation * 32,separation * -128)
 		separation -= 1
 		battlers.add_child(ch)
+	for battler:Battler in battlers.get_children():
+		print(battler.char_data.display_name)
+		for charm in State.attached_charms.get(battler.char_data.id):
+			charm[1].on_battle_start_effects(battler)
+			print(charm)
 	waves = State.loaded_encounter.waves
 	BattleUI.initialize_healthbars(battlers.get_children())
 
@@ -119,15 +124,12 @@ func enemy_turn():
 func post_turn():
 	all_battlers_down = true
 	for battler:Battler in battlers.get_children():
-		
-		if battler.has_charm(ID.CharmID.SodPlating) and State.turn_counter % 1 == 0 :
-			var poptext:PopupText = preload("res://scenes/pop_up_text.tscn").instantiate()
-			var color:Color = Color.LIGHT_YELLOW
-			poptext.ptext = "[color=%s]%s"%[color,"DEF +4"]
-			poptext.global_position = battler.global_position + Vector2(randi_range(-16,16),randi_range(-16,16))
-			add_child(poptext)
-			battler.defense += 4
 		print(battler.char_data.display_name)
+		for charm in State.attached_charms.get(battler.char_data.id):
+			charm[1].post_turn_effects(battler)
+			print(charm)
+			
+			
 		for status in battler.status_array:
 			if status == null: continue
 			status.onTickDown(battler)
@@ -155,6 +157,11 @@ func post_turn():
 	
 	State.turn_counter += 1
 	print("Turn: %s" % State.turn_counter)
+	for battler:Battler in battlers.get_children():
+		print(battler.char_data.display_name)
+		for charm in State.attached_charms.get(battler.char_data.id):
+			charm[1].post_turn_effects(battler)
+			print(charm)
 	var battle_text = State.loaded_encounter.get_comment() if not all_enemies_down else ("Battle won!" if current_wave >= waves.size() else "Wave Complete!")
 	BattleUI.set_battle_comment(battle_text)
 

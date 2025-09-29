@@ -1,12 +1,12 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://2rewmupdxrfc"]
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://2rewmupdxrfc"]
 
-[ext_resource type="Script" uid="uid://dcdm3qllenn83" path="res://stats/Statuses/haunted.gd" id="1_2f7w3"]
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="1_2f7w3"]
 
 [resource]
 script = ExtResource("1_2f7w3")
 status_ID = 6
-buff_name = "Ginger Guard"
-buff_description = "Cannot take damage. A portion of damage is turned into healing instead."
+buff_name = "Ginger's Guard"
+buff_description = "The whole team is invincible for 2 turns and heals when enemies attempt to damage them."
 turns_left = 0
 buff_type = 3
 is_bad = false

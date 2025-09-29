@@ -12,8 +12,8 @@ enum CommentConditions {
 @export var enc_pic:Texture2D = preload("res://icon.svg")
 
 @export_category("Dialogue")
-@export var default_battle_comments:Array[String] = ["A battle begins!"]
-@export var comment_conditions:Array[CommentConditions] = [CommentConditions.Entry]
+@export var default_battle_comments:Array[String] = ["A battle begins!","A battle is ongoing."]
+@export var comment_conditions:Array[CommentConditions] = [CommentConditions.Entry,CommentConditions.Random]
 
 @export_category("Battlers")
 @export var waves:Array[Wave]

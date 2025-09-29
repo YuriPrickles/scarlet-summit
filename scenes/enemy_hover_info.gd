@@ -12,7 +12,6 @@ var status_array:Array[StatusEffect]
 var page = 0
 
 func _process(_delta: float) -> void:
-	EnemyName2.text = EnemyName.text
 	var page_array = [MainPage,BuffPage]
 	for p in page_array:
 		p.hide()

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://cdanstr6j1fmw"]
 
-[ext_resource type="Script" uid="uid://dcdm3qllenn83" path="res://stats/Statuses/haunted.gd" id="1_dhf5b"]
+[ext_resource type="Script" uid="uid://bscr15481ywd7" path="res://stats/Statuses/corroding.gd" id="1_dhf5b"]
 
 [resource]
 script = ExtResource("1_dhf5b")

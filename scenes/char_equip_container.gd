@@ -15,12 +15,17 @@ func _ready():
 		for charm:Charm in charmtionary.keys():
 			if charmtionary.get(charm) and (charm.charm_type == Charm.CharmType.None or charm.charm_type == Charm.CharmType.Weapon):
 				wep_charmlist.add_item(charm.charm_name,charm.charm_ID)
+				wep_charmlist.set_item_metadata(wep_charmlist.get_item_index(charm.charm_ID),charm)
 			if charmtionary.get(charm) and (charm.charm_type == Charm.CharmType.None or charm.charm_type == Charm.CharmType.Armor):
 				armor_charmlist.add_item(charm.charm_name,charm.charm_ID)
+				armor_charmlist.set_item_metadata(armor_charmlist.get_item_index(charm.charm_ID),charm)
 			if charmtionary.get(charm) and (charm.charm_type == Charm.CharmType.None or charm.charm_type == Charm.CharmType.Badge):
 				badge_a.add_item(charm.charm_name,charm.charm_ID)
+				badge_a.set_item_metadata(badge_a.get_item_index(charm.charm_ID),charm)
 				badge_b.add_item(charm.charm_name,charm.charm_ID)
+				badge_b.set_item_metadata(badge_b.get_item_index(charm.charm_ID),charm)
 				badge_c.add_item(charm.charm_name,charm.charm_ID)
+				badge_c.set_item_metadata(badge_c.get_item_index(charm.charm_ID),charm)
 				
 func update_equippable(charm_index:int):
 	pass

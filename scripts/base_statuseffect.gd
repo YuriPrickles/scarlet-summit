@@ -33,3 +33,5 @@ func onExpire(_battler:Battler):
 	pass
 func onExpire_enemy(_enemy:EnemyBattler):
 	pass
+func onTransfer(battler:Battler,_enemy:EnemyBattler):
+	pass

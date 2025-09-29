@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ctgns2tvh65d3"]
+
+[ext_resource type="Script" uid="uid://c8vu0rfi5behs" path="res://stats/Charms/poison_patch.gd" id="1_7kpvv"]
+
+[resource]
+script = ExtResource("1_7kpvv")
+charm_ID = 6
+charm_name = "Poison Patch"
+charm_type = 3
+metadata/_custom_type_script = "uid://bgioe3l50hrr8"

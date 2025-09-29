@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://b5um74ah5ec3p"]
 
-[ext_resource type="Script" uid="uid://7a0w8bmqw3d0" path="res://stats/Skills/SkillEffects/crescent_cleaver.gd" id="1_upmbw"]
+[ext_resource type="Script" uid="uid://cq5x7et3dyqs5" path="res://stats/Skills/SkillEffects/melon_carver.gd" id="1_upmbw"]
 
 [resource]
 script = ExtResource("1_upmbw")

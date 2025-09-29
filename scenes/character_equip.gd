@@ -20,11 +20,11 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	for char_eq:CharEquipContainer in party_eq_display.get_children():
 		State.attached_charms[char_eq.char_data.id] = [
-			char_eq.wep_charmlist.get_item_id(char_eq.wep_charmlist.selected),
-			char_eq.armor_charmlist.get_item_id(char_eq.armor_charmlist.selected),
-			char_eq.badge_a.get_item_id(char_eq.badge_a.selected),
-			char_eq.badge_b.get_item_id(char_eq.badge_b.selected),
-			char_eq.badge_c.get_item_id(char_eq.badge_c.selected)
+			[char_eq.wep_charmlist.get_item_id(char_eq.wep_charmlist.selected),char_eq.wep_charmlist.get_item_metadata(char_eq.wep_charmlist.get_item_index(char_eq.wep_charmlist.get_item_id(char_eq.wep_charmlist.selected)))],
+			[char_eq.armor_charmlist.get_item_id(char_eq.armor_charmlist.selected),char_eq.armor_charmlist.get_item_metadata(char_eq.armor_charmlist.get_item_index(char_eq.armor_charmlist.get_item_id(char_eq.armor_charmlist.selected)))],
+			[char_eq.badge_a.get_item_id(char_eq.badge_a.selected),char_eq.badge_a.get_item_metadata(char_eq.badge_a.get_item_index(char_eq.badge_a.get_item_id(char_eq.badge_a.selected)))],
+			[char_eq.badge_b.get_item_id(char_eq.badge_b.selected),char_eq.badge_b.get_item_metadata(char_eq.badge_b.get_item_index(char_eq.badge_b.get_item_id(char_eq.badge_b.selected)))],
+			[char_eq.badge_c.get_item_id(char_eq.badge_c.selected), char_eq.badge_c.get_item_metadata(char_eq.badge_c.get_item_index(char_eq.badge_c.get_item_id(char_eq.badge_c.selected)))]
 			]
 	queue_free()
 	pass # Replace with function body.
