@@ -48,6 +48,10 @@ func _process(_delta: float) -> void:
 func update_hp(bar:ProgressBar, new_value):
 	bar.value = new_value
 
+func heal(amount:int):
+	health = min(health + amount,max_health)
+	update_hp(hpbar,health)
+	State.popatext(self, amount, Color.LIGHT_GREEN)
 
 func hurt(damage:int,attacker:Battler=null,allow_onhit=true):
 	print("%s hurt for %s damage" % [enemy_data.display_name, damage])
@@ -146,15 +150,17 @@ func attack_wildhits(hits:int, mult:float = 1):
 		var b:Battler = State.battler_array.pick_random()
 		while b.health <= 0:
 			b = State.battler_array.pick_random()
+		var donthurt = false
 		if b.char_data.id == ID.CharID.GoldenSun:
 			for battler in State.battler_array:
 				if battler.has_status(ID.StatusID.Sunblock):
 					battler.hurt(damage_against(battler) * mult,self)
 					print("blocked by a teammate!")
 					b.stored_hits += 1
-		else:
+					donthurt = true
+		if not donthurt:
 			b.hurt(damage_against(b) * mult,self)
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.1).timeout
 
 func move_to(target:Vector2,duration:float):
 	var tween = get_tree().create_tween()
@@ -204,11 +210,19 @@ func has_status(status_ID:ID.StatusID) -> bool:
 func add_tired(amount:int):
 	tiredness += amount
 	if tiredness >= tired_threshold:
+		enemy_data.on_sleep(self)
 		add_status(
 			[load("res://stats/Statuses/Tired.tres"),
 			load("res://stats/Statuses/Asleep.tres")],
 			[4,1])
 		tiredness = 0
+
+func summon_enemy(e:Enemy,position:Vector2):
+	var enemy_scene = load("res://scenes/enemy_battler.tscn")
+	var enemy:EnemyBattler = enemy_scene.instantiate()
+	enemy.enemy_data = e.duplicate()
+	enemy.position = position
+	State.get_enemy_battlers_node().add_child(enemy)
 
 var is_hovering = false
 var hover_display_req_sent = false

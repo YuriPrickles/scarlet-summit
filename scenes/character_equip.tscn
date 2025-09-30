@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://wp1pfamy2jiy" path="res://scenes/character_equip.gd" id="1_27688"]
 
-[node name="Control" type="Control"]
+[node name="CharEquipScreen" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

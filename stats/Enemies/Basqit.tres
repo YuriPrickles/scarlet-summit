@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://j8e8klj600kx"]
+
+[ext_resource type="Script" uid="uid://bivqs6d5ij521" path="res://stats/Enemies/EnemyScripts/basqit.gd" id="1_afeh4"]
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="2_qyx2c"]
+
+[resource]
+script = ExtResource("1_afeh4")
+id = 7
+display_name = "Basqit"
+hp = 300
+max_hp = 300
+tired_threshold = 9
+defense = 7
+attack = 36
+status_array = Array[ExtResource("2_qyx2c")]([])
+turn_delay = 0
+attack_desc = "Sleeping Basqits used to provide invincibility to other Jamborns. However, the Thorn Angels couldn't utilize their abilities, so it had to be removed.
+
+Now, surely no Jamborn is gonna complain about a damage buff, right?
+"

@@ -22,6 +22,7 @@ EnemyHoverInfo="*res://scenes/enemy_hover_info.tscn"
 HoverInfo="*res://scenes/hover_info.tscn"
 BattleUI="*res://scenes/battle_ui.tscn"
 DebugView="*res://scenes/DebugView.tscn"
+CharacterEquip="*res://scenes/character_equip.tscn"
 
 [display]
 

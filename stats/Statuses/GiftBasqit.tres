@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://7d3j6ccgq4ka"]
+
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="1_mkb3j"]
+
+[resource]
+script = ExtResource("1_mkb3j")
+status_ID = 13
+buff_name = "Gift Basqit"
+buff_description = "A lovely gift from a Basqit!
++40% ATK"
+turns_left = 0
+buff_type = 1
+is_bad = false
+stacking = false
+def_mult = 0.0
+atk_mult = 0.4
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

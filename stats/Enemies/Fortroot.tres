@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dxjhjc7sscvqi"]
+
+[ext_resource type="Script" uid="uid://dxy2bn30tx5c" path="res://stats/Enemies/EnemyScripts/fortroot.gd" id="1_ejqum"]
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="2_ahrpa"]
+
+[resource]
+script = ExtResource("1_ejqum")
+id = 5
+display_name = "Fortroot"
+hp = 500
+max_hp = 500
+tired_threshold = 22
+defense = 15
+attack = 75
+status_array = Array[ExtResource("2_ahrpa")]([])
+turn_delay = 0
+attack_desc = "Takes the form of a tower because it abhors the texture of the wind. 
+
+It also abhors everything else, and takes a more strategic and targeted approach in doing so.
+"

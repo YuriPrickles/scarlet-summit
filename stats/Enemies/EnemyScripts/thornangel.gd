@@ -31,6 +31,7 @@ func do_attack(enemy:EnemyBattler):
 		)
 	
 func on_hit(enemy:EnemyBattler,attacker:Battler,damage:int):
+	super.on_hit(enemy,attacker,damage)
 	enemy.attack_reflect(attacker,1)
 	pass
 

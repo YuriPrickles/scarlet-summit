@@ -6,13 +6,13 @@
 script = ExtResource("1_hhl3l")
 status_ID = 9
 buff_name = "Harvest Time"
-buff_description = "+400% attack damage"
+buff_description = "+100% attack damage"
 turns_left = 0
 buff_type = 1
 is_bad = false
 stacking = false
 def_mult = 0.0
-atk_mult = 4.0
+atk_mult = 1.0
 is_stun = false
 damage_over_time = 0
 metadata/_custom_type_script = "uid://bepl5ht5qlybw"

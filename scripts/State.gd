@@ -25,6 +25,7 @@ var enemy_battler_array:Array[EnemyBattler]
 
 var someone_doing_something = false
 signal someone_finished_something
+signal char_eq_setup_done
 
 var turn_counter:int = 0
 var mana:int = 0
@@ -36,13 +37,12 @@ func _ready() -> void:
 			var final_path = "res://stats/Charms/" + filePath
 			var charm:Charm = load(final_path)
 			charm_list_ref.append(charm)
-	attached_charms = {
-		0: [0,0,0,0,0],
-		1: [0,0,0,0,0],
-		2: [0,0,0,0,0],
-		3: [0,0,0,0,0]
-	}
 	var none_charm:Charm = preload("res://stats/Charms/None.tres")
+	for char:Character in current_party:
+		var none_arr:Array[Array] = []
+		for i in range(5):
+			none_arr.append([0, none_charm])
+		attached_charms[char.id] = none_arr.duplicate()
 	var charmtionary:Dictionary
 	charmtionary[none_charm] = true
 	State.unlocked_charms[none_charm.charm_ID] = charmtionary
@@ -54,6 +54,12 @@ func _process(delta: float) -> void:
 		max_level_reached = 99999
 		levels_beaten.fill(true)
 	if Input.is_action_pressed("unlock_all_charms"):
+		State.unlocked_charms.clear()
+		State.attached_charms.clear()
+		var none_charm:Charm = preload("res://stats/Charms/None.tres")
+		var charmdict:Dictionary
+		charmdict[none_charm] = true
+		State.unlocked_charms[none_charm.charm_ID] = charmdict
 		for charm:Charm in charm_list_ref:
 			var charmtionary:Dictionary
 			charmtionary[charm] = true
@@ -96,3 +102,11 @@ func popatext(parent:Node,string,color:Color=Color.WHITE):
 	poptext.ptext = "[color=%s]%s"%[color.to_html(false),string]
 	poptext.global_position = parent.global_position + Vector2(randi_range(-16,16),randi_range(-16,16))
 	parent.add_child(poptext)
+	
+func get_enemy_battlers_node() -> Node:
+	var battle_node = get_tree().root.get_node("Battle")
+	if battle_node != null:
+		return battle_node.get_node("EnemyBattlers")
+	return null
+	
+	

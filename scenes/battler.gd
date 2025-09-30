@@ -56,7 +56,7 @@ func update_hp(bar:ProgressBar, new_value):
 	bar.value = new_value
 
 func heal(amount:int):
-	health += amount if (health + amount == 0) else amount + 10
+	health = min(health + amount,max_health) if not (health + amount >= 0 and health + amount < 10) else amount + 10
 	update_hp(BattleUI.get_health_bar(char_data.display_name),health)
 	State.popatext(self, amount, Color.LIGHT_GREEN)
 
@@ -217,6 +217,7 @@ func has_status(status_ID:ID.StatusID) -> bool:
 	return status_array[status_ID] != null
 	
 func has_charm(charm_ID:ID.CharmID):
+	if State.attached_charms[char_data.id][0] is int: return false
 	return State.attached_charms[char_data.id][0].has(charm_ID)
 	
 func transfer_statuses(target:EnemyBattler):

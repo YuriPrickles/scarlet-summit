@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Encounter" load_steps=15 format=3 uid="uid://3di361bglrdj"]
+[gd_resource type="Resource" script_class="Encounter" load_steps=16 format=3 uid="uid://3di361bglrdj"]
 
 [ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="1_gtelu"]
 [ext_resource type="Resource" uid="uid://bc1r4rn425k7h" path="res://stats/Charms/None.tres" id="1_n3mjy"]
@@ -13,10 +13,11 @@
 [ext_resource type="Resource" uid="uid://c5frwxdd2qdce" path="res://stats/Characters/GoldenSun.tres" id="9_wghed"]
 [ext_resource type="Resource" uid="uid://bnlgvjwf6grdb" path="res://stats/Characters/TwistingTree.tres" id="10_ohedo"]
 [ext_resource type="Resource" uid="uid://yhg5d2s57ufu" path="res://stats/Characters/ShadeLady.tres" id="11_usvvb"]
+[ext_resource type="Resource" uid="uid://c2eqd7l5sgo5y" path="res://stats/Enemies/Mediccorn.tres" id="14_lkbcp"]
 
 [sub_resource type="Resource" id="Resource_lkbcp"]
 script = ExtResource("9_urhcl")
-enemy_array = Array[ExtResource("1_gtelu")]([ExtResource("2_a0754"), ExtResource("2_sv5sy"), ExtResource("4_tb2ij")])
+enemy_array = Array[ExtResource("1_gtelu")]([ExtResource("2_a0754"), ExtResource("2_sv5sy"), ExtResource("4_tb2ij"), ExtResource("14_lkbcp")])
 metadata/_custom_type_script = "uid://djyvhruidy31o"
 
 [resource]

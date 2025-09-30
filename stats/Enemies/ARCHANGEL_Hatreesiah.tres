@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://1i1i3gnx1uta"]
+
+[ext_resource type="Script" uid="uid://bwq4h85vxucey" path="res://stats/Enemies/EnemyScripts/ARCHANGEL_Hatreesiah.gd" id="1_08r8o"]
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="3_d2wih"]
+
+[resource]
+script = ExtResource("1_08r8o")
+id = 8
+display_name = "Archangel Hatreesiah"
+hp = 2000
+max_hp = 2000
+tired_threshold = 35
+defense = 50
+attack = 45
+status_array = Array[ExtResource("3_d2wih")]([])
+turn_delay = 0
+attack_desc = "All it wants is to see the world burn."

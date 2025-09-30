@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c2eqd7l5sgo5y"]
+
+[ext_resource type="Script" uid="uid://dpag15nraol1n" path="res://stats/Enemies/EnemyScripts/mediccorn.gd" id="1_mtgxy"]
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="3_u2jjn"]
+
+[resource]
+script = ExtResource("1_mtgxy")
+id = 6
+display_name = "Mediccorn"
+hp = 350
+max_hp = 350
+tired_threshold = 16
+defense = 6
+attack = 60
+status_array = Array[ExtResource("3_u2jjn")]([])
+turn_delay = 0
+attack_desc = "The more exhausted they are, the more effort it puts into healing.
+
+Mediccorns wish they could all say the same for the efforts of their fellow Jamborns. If there's something they hate more than anything, it's DPSs and tanks that don't protect the healers!"

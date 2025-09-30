@@ -33,7 +33,8 @@ func _on_start_battle_pressed() -> void:
 
 
 func _on_equip_pressed() -> void:
-	add_child(preload("res://scenes/character_equip.tscn").instantiate())
+	CharacterEquip.show()
+	CharacterEquip.update()
 	pass # Replace with function body.
 
 

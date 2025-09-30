@@ -33,7 +33,8 @@ enum StatusID {
 	HarvestTime,
 	Drowsy,
 	Tired,
-	Asleep
+	Asleep,
+	GiftBasqit
 }
 
 enum CharmID {

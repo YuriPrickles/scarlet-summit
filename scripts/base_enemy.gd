@@ -29,7 +29,8 @@ func on_hit(_enemy:EnemyBattler,_attacker:Battler,damage:int):
 		_enemy.add_tired(3)
 		_enemy.add_status([load("res://stats/Statuses/Drowsy.tres")],[999])
 	pass
-
+func on_sleep(_enemy:EnemyBattler):
+	pass
 func on_vanquish():
 	pass
 	
