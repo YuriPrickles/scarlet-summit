@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b24lm15vwe11u"]
+
+[ext_resource type="Script" uid="uid://bofnftbv1nidm" path="res://stats/Skills/SkillEffects/healing_herbs.gd" id="1_anoy8"]
+
+[resource]
+script = ExtResource("1_anoy8")
+skill_name = "Daisy Chains"
+skill_description = "Target ally heals 14% of Max HP for 3 turns."
+cost = 40
+targeting_type = 3
+skill_type = 2
+animation_oncast = "attack"

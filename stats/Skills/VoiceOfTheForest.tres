@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://biv4gvjdpovng"]
+
+[ext_resource type="Script" uid="uid://cgnktf3yqef8q" path="res://stats/Skills/SkillEffects/ghost_party.gd" id="1_770nm"]
+
+[resource]
+script = ExtResource("1_770nm")
+skill_name = "Voice Of The Forest"
+skill_description = "Haunts every other ally, giving them a Forest Spirit that heals every turn.
+When getting hit, the spirit is disturbed and can be kept to heal more or transfered to an enemy for damage."
+cost = 14
+targeting_type = 0
+skill_type = 2
+animation_oncast = "attack"

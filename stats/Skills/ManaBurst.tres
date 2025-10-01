@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_kcmam")
 skill_name = "Mana Burst"
-skill_description = "Release the magic power stored inside you."
+skill_description = "Release the magic power stored within."
 cost = 0
 targeting_type = 0
 skill_type = 2

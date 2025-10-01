@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ck5j8oyj3h14c"]
+
+[ext_resource type="Script" uid="uid://ce13krht30fm3" path="res://stats/Skills/SkillEffects/flower_power.gd" id="1_wjn3q"]
+
+[resource]
+script = ExtResource("1_wjn3q")
+skill_name = "Flower Power"
+skill_description = "Release the magic power stored within.
+
+The ally with the lowest HP (except Red) is healed."
+cost = 0
+targeting_type = 4
+skill_type = 2
+animation_oncast = "attack"

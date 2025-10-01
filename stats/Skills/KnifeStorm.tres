@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b2us872hiosld"]
+
+[ext_resource type="Script" uid="uid://c8y63u3dlq61l" path="res://stats/Skills/SkillEffects/knife_storm.gd" id="1_v8vdc"]
+
+[resource]
+script = ExtResource("1_v8vdc")
+skill_name = "Knife Storm"
+skill_description = "Hits randomly 5 times. Damages self."
+cost = 0
+targeting_type = 0
+skill_type = 1
+animation_oncast = "attack"

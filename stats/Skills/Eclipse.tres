@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://bd063551wqsy1"]
 
-[ext_resource type="Script" uid="uid://bntsuc8ttiiix" path="res://stats/Skills/SkillEffects/cover_fire.gd" id="1_74528"]
+[ext_resource type="Script" uid="uid://bntsuc8ttiiix" path="res://stats/Skills/SkillEffects/eclipse.gd" id="1_74528"]
 
 [resource]
 script = ExtResource("1_74528")

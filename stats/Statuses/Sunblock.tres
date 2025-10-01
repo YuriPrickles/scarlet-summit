@@ -6,11 +6,12 @@
 script = ExtResource("1_3jos1")
 status_ID = 2
 buff_name = "Sunblock"
-buff_description = "Takes hits for Sun. When hit, Sun will do a counter-attack at the attacking enemy with her Basic Attack."
+buff_description = "Takes hits for Sun. When hit, Sun's next Basic Attack gains more hits."
 turns_left = 0
-buff_type = 1
+buff_type = 3
+is_bad = false
 stacking = false
-def_mult = -0.3
+def_mult = 0.0
 atk_mult = 0.0
 is_stun = false
 damage_over_time = 0

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ciaok7gw25pq8"]
+
+[ext_resource type="Script" uid="uid://ba0lrqbt8arqr" path="res://stats/Statuses/disturbed_spirits.gd" id="1_2x34w"]
+
+[resource]
+script = ExtResource("1_2x34w")
+status_ID = 18
+buff_name = "Disturbed Spirits"
+buff_description = "The spirits of the forests are mad!
+Let them continue to bless you or let them take revenge on the Jamborns!"
+turns_left = 0
+buff_type = 3
+is_bad = false
+stacking = false
+def_mult = 0.0
+atk_mult = 0.0
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

@@ -20,10 +20,21 @@ extends Resource
 
 @export var skill_changes_resource:SkillChanges
 
+func on_hurt(battler:Battler,target:EnemyBattler,damage:int):
+	if battler.char_data.id == ID.CharID.GoldenSun:
+		for b in State.battler_array:
+			if b.has_status(ID.StatusID.Flowerfence):
+				b.heal(b.max_health * 0.03)
 
 func on_hit(battler:Battler,attacker:EnemyBattler):
 	if battler.has_charm(ID.CharmID.ThornHeart):
 		battler.attack_reflect(attacker,1 + (defense/10))
+	if battler.has_status(ID.StatusID.ForestSpirits):
+		var status = battler.status_array[ID.StatusID.ForestSpirits]
+		var d_spirits:StatusEffect = load("res://stats/Statuses/DisturbedSpirits.tres")
+		d_spirits.damage_over_time = status.damage_over_time
+		battler.add_status([d_spirits],[1])
+		battler.status_array[ID.StatusID.ForestSpirits] = null
 
 func on_vanquish():
 	pass

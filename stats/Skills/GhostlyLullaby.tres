@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b4gkgpdtra4vo"]
+
+[ext_resource type="Script" uid="uid://biv0gt64fyk0k" path="res://stats/Skills/SkillEffects/ghostly_lullaby.gd" id="1_s8aie"]
+
+[resource]
+script = ExtResource("1_s8aie")
+skill_name = "Ghostly Lullaby"
+skill_description = "Applies 7 Tiredness to an enemy and does damage to it."
+cost = 24
+targeting_type = 1
+skill_type = 1
+animation_oncast = "attack"

@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://oly3r0jvdhrl" path="res://stats/Skills/FocusedFire.tres" id="2_sgp6e"]
 [ext_resource type="Resource" uid="uid://dggwg3juhgfya" path="res://stats/Characters/SkillChanges/GoldenSun_SC.tres" id="5_rjroe"]
 [ext_resource type="Resource" uid="uid://ekusluuw8480" path="res://stats/Skills/SolarisBlast.tres" id="5_sgp6e"]
-[ext_resource type="Resource" uid="uid://bd063551wqsy1" path="res://stats/Skills/CoverFire.tres" id="5_t7eix"]
+[ext_resource type="Resource" uid="uid://bd063551wqsy1" path="res://stats/Skills/Eclipse.tres" id="5_t7eix"]
 
 [resource]
 script = ExtResource("2_gnohp")

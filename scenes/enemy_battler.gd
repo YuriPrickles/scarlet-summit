@@ -146,9 +146,14 @@ func attack_all(mult:float = 1):
 		b.hurt(damage_against(b) * mult,self)
 
 func attack_wildhits(hits:int, mult:float = 1):
+	var all_down = true
 	for i in range(hits):
 		var b:Battler = State.battler_array.pick_random()
 		while b.health <= 0:
+			for bat in State.battler_array:
+				if bat.health > 0:
+					all_down = false
+			if all_down: break
 			b = State.battler_array.pick_random()
 		var donthurt = false
 		if b.char_data.id == ID.CharID.GoldenSun:
@@ -157,6 +162,10 @@ func attack_wildhits(hits:int, mult:float = 1):
 					battler.hurt(damage_against(battler) * mult,self)
 					print("blocked by a teammate!")
 					b.stored_hits += 1
+					donthurt = true
+				if battler.has_status(ID.StatusID.Flowerfence):
+					battler.hurt(damage_against(battler) * mult,self)
+					print("blocked by a teammate!")
 					donthurt = true
 		if not donthurt:
 			b.hurt(damage_against(b) * mult,self)

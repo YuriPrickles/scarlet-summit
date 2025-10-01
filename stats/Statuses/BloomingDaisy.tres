@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://r0m5hvds4k6s"]
+
+[ext_resource type="Script" uid="uid://b2dvd4agymh6f" path="res://stats/Statuses/blooming_daisy.gd" id="1_6my4v"]
+
+[resource]
+script = ExtResource("1_6my4v")
+status_ID = 16
+buff_name = "Blooming Daisy"
+buff_description = "Daisies grow on wounds and heal them."
+turns_left = 0
+buff_type = 0
+is_bad = false
+stacking = false
+def_mult = 0.0
+atk_mult = 0.0
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

@@ -19,7 +19,6 @@ func on_hit(enemy:EnemyBattler,battler:Battler,damage):
 			enemy.AttackAnimations.GoToMiddle,
 			enemy.attack_wildhits.bind(4, 0.8)
 			)
-		
 	pass
 
 func do_attack(enemy:EnemyBattler):

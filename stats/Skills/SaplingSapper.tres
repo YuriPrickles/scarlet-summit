@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ckd78ssalicn5"]
+
+[ext_resource type="Script" uid="uid://cssaecyvrs3xa" path="res://stats/Skills/SkillEffects/sapling_sapper.gd" id="1_kexqd"]
+
+[resource]
+script = ExtResource("1_kexqd")
+skill_name = "Sapling Sapper"
+skill_description = "Target enemy receives -50% ATK for 3 turns."
+cost = 45
+targeting_type = 1
+skill_type = 1
+animation_oncast = "attack"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bl53b62oabpli"]
+
+[ext_resource type="Script" uid="uid://bobg72y5u7ts6" path="res://stats/Statuses/forest_spirits.gd" id="1_lqxsb"]
+
+[resource]
+script = ExtResource("1_lqxsb")
+status_ID = 17
+buff_name = "Forest Spirits"
+buff_description = "The untouched spirits of the forest bless you."
+turns_left = 0
+buff_type = 3
+is_bad = false
+stacking = false
+def_mult = 0.0
+atk_mult = 0.0
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

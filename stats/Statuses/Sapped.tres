@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://trvpb2pc1p5d"]
+
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="1_kpoy7"]
+
+[resource]
+script = ExtResource("1_kpoy7")
+status_ID = 14
+buff_name = "Sapped"
+buff_description = "Saplings wrap around, reducing efficiency in attacking.
+-50% ATK"
+turns_left = 0
+buff_type = 1
+is_bad = false
+stacking = false
+def_mult = 0.0
+atk_mult = -0.5
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

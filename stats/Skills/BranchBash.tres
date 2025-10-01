@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_ot1ou")
-skill_name = "Crushing Pestle of Doom and Destruction"
+skill_name = "The Old 1-2"
 skill_description = "Hits one enemy."
 cost = 0
 targeting_type = 1

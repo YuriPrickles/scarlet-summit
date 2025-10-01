@@ -152,20 +152,28 @@ func attack_reflect(target:EnemyBattler,mult:float=1):
 	
 func attack_one(target:EnemyBattler,mult:float=1,hits:int=1):
 	for i in range(hits):
+		char_data.on_hurt(self,target,damage_against(target) * mult)
 		target.hurt(damage_against(target) * mult, self)
 		await get_tree().create_timer(0.2).timeout
 	return_to_place()
 		
 func attack_all(mult:float=1):
 	for e in State.enemy_battler_array:
+		char_data.on_hurt(self,e,damage_against(e) * mult)
 		e.hurt(damage_against(e) * mult, self)
 	return_to_place()
 		
 func attack_wildhits(hits:int, mult:float = 1):
+	var all_down = true
 	for i in range(hits):
 		var e = State.enemy_battler_array.pick_random()
 		while e.health <= 0:
+			for en in State.enemy_battler_array:
+				if en.health > 0:
+					all_down = false
+			if all_down: break
 			e = State.enemy_battler_array.pick_random()
+		char_data.on_hurt(self,e,damage_against(e) * mult)
 		e.hurt(damage_against(e) * mult,self)
 		await get_tree().create_timer(0.2).timeout
 	return_to_place()
@@ -271,7 +279,30 @@ func special_animation_mana_burst():
 	await get_tree().create_timer(1.3).timeout
 	for i in range(3):
 		hurt(roundi(State.damage_calc(char_data.attack/2,get_atk_mult(),get_def_mult())),null,Color.CRIMSON,false)
-		State.add_mana(char_data.attack/2)
+		State.add_mana(roundi(State.damage_calc(char_data.attack/4,get_atk_mult(),get_def_mult())))
+		await get_tree().create_timer(0.25).timeout
+	await sprite.animation_finished
+	weak_state = true
+	State.finish_action()
+	pass
+	
+func special_animation_flower_power():
+	State.someone_doing_something = true
+	await get_tree().create_timer(0.6).timeout
+	sprite.play("selfharm")
+	await get_tree().create_timer(1.3).timeout
+	var chosen_target:Battler = null
+	var stored_hp = 999999999
+	for battler in State.battler_array:
+		if battler.char_data.id == ID.CharID.ScarletHeart:
+			continue
+		if stored_hp > battler.health:
+			stored_hp = battler.health
+			chosen_target = battler
+	for i in range(3):
+		hurt(roundi(State.damage_calc(char_data.attack/2.4,get_atk_mult(),get_def_mult())),null,Color.CRIMSON,false)
+		State.add_mana(roundi(State.damage_calc(char_data.attack/2.4,get_atk_mult(),get_def_mult())))
+		chosen_target.heal(roundi(State.damage_calc(char_data.attack/2.4,get_atk_mult(),get_def_mult())))
 		await get_tree().create_timer(0.25).timeout
 	await sprite.animation_finished
 	weak_state = true

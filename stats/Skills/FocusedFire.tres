@@ -7,7 +7,7 @@ script = ExtResource("1_4ck1r")
 skill_name = "Focused Fire"
 skill_description = "Deals massive damage to a single enemy.
 Shines light on the enemy's weak spot, reducing defense for 2 turns."
-cost = 8
+cost = 16
 targeting_type = 0
 skill_type = 1
 animation_oncast = "attack"

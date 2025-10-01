@@ -34,7 +34,13 @@ enum StatusID {
 	Drowsy,
 	Tired,
 	Asleep,
-	GiftBasqit
+	GiftBasqit,
+	Sapped,
+	Flowerfence,
+	BloomingDaisy,
+	ForestSpirits,
+	DisturbedSpirits,
+	OolongerGingerGuard
 }
 
 enum CharmID {
@@ -45,5 +51,9 @@ enum CharmID {
 	CropClock,
 	AbundantSoils,
 	PoisonPatch,
-	Napsack
+	Napsack,
+	HuntersSharpener,
+	FlowerBands,
+	BloomingWreath,
+	StranglerFig
 }

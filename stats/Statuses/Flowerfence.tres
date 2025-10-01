@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://bysf0fu7cnrqv"]
+
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="1_pcgre"]
+
+[resource]
+script = ExtResource("1_pcgre")
+status_ID = 15
+buff_name = "Flowerfence"
+buff_description = "Takes hits for Sun. Heals back HP whenever Sun hits something."
+turns_left = 0
+buff_type = 3
+is_bad = false
+stacking = false
+def_mult = 0.0
+atk_mult = 0.0
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

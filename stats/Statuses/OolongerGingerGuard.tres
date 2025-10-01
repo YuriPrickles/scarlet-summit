@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://c7cjq2sodhv3a"]
+
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="1_mn6wj"]
+
+[resource]
+script = ExtResource("1_mn6wj")
+status_ID = 19
+buff_name = "Oolonger Ginger's Guard"
+buff_description = "The whole team is invincible for 3 turns and heals a smll amount when enemies attempt to damage them."
+turns_left = 0
+buff_type = 3
+is_bad = false
+stacking = false
+def_mult = 0.0
+atk_mult = 0.0
+is_stun = false
+damage_over_time = 0
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"
