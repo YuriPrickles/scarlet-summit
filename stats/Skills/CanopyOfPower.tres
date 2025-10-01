@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://0a6fao5woc5k"]
+
+[ext_resource type="Script" uid="uid://tsae8rrjdm6" path="res://stats/Skills/SkillEffects/canopy_of_power.gd" id="1_felk5"]
+
+[resource]
+script = ExtResource("1_felk5")
+skill_name = "Canopy of Power"
+skill_description = "Rip yourself apart and let loose a beacon of infinite mana for the team for 2 turns.
+Red cannot be healed during the duration of the infinite mana."
+cost = 0
+targeting_type = 0
+skill_type = 3
+animation_oncast = "attack"

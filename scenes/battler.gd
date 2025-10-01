@@ -56,6 +56,9 @@ func update_hp(bar:ProgressBar, new_value):
 	bar.value = new_value
 
 func heal(amount:int):
+	if char_data.id == ID.CharID.ScarletHeart and has_charm(ID.CharmID.FuryOfTheFir) and has_status(ID.StatusID.BeaconPower):
+		State.popatext(self, "Unnecessary", Color.CRIMSON)
+		return
 	health = min(health + amount,max_health) if not (health + amount >= 0 and health + amount < 10) else amount + 10
 	update_hp(BattleUI.get_health_bar(char_data.display_name),health)
 	State.popatext(self, amount, Color.LIGHT_GREEN)
@@ -71,9 +74,14 @@ func hurt(damage:int,enemy_attacker:EnemyBattler = null,color_string="white",hur
 		heal(damage / 4)
 		update_hp(BattleUI.get_health_bar(char_data.display_name),health)
 		return
+	if enemy_attacker != null and has_status(ID.StatusID.OolongerGingerGuard):
+		heal(damage / 6)
+		update_hp(BattleUI.get_health_bar(char_data.display_name),health)
+		return
 	if already_downed:
 		damage *= 0.2
 	health -= damage
+	
 	if health <= 0 and not already_downed:
 		BattleUI.set_battle_comment("A knockout!")
 		print("%s has been downed!" % char_data.display_name)
@@ -225,8 +233,11 @@ func has_status(status_ID:ID.StatusID) -> bool:
 	return status_array[status_ID] != null
 	
 func has_charm(charm_ID:ID.CharmID):
-	if State.attached_charms[char_data.id][0] is int: return false
-	return State.attached_charms[char_data.id][0].has(charm_ID)
+	var c_array = State.attached_charms[char_data.id]
+	for data in c_array:
+		if data[0] == charm_ID:
+			return true
+	return false
 	
 func transfer_statuses(target:EnemyBattler):
 	for status in status_array:

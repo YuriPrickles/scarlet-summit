@@ -153,7 +153,7 @@ func attack_wildhits(hits:int, mult:float = 1):
 			for bat in State.battler_array:
 				if bat.health > 0:
 					all_down = false
-			if all_down: break
+			if all_down: return
 			b = State.battler_array.pick_random()
 		var donthurt = false
 		if b.char_data.id == ID.CharID.GoldenSun:

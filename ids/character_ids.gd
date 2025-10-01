@@ -55,5 +55,6 @@ enum CharmID {
 	HuntersSharpener,
 	FlowerBands,
 	BloomingWreath,
-	StranglerFig
+	StranglerFig,
+	FuryOfTheFir
 }

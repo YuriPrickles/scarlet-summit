@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Charm" load_steps=2 format=3 uid="uid://dpn5n4ql3fsco"]
+
+[ext_resource type="Script" uid="uid://bgioe3l50hrr8" path="res://scripts/base_charm.gd" id="1_gdsuo"]
+
+[resource]
+script = ExtResource("1_gdsuo")
+charm_ID = 12
+charm_name = "Fury Of The Fir"
+charm_type = 2
+metadata/_custom_type_script = "uid://bgioe3l50hrr8"

@@ -6,7 +6,7 @@
 script = ExtResource("1_mn6wj")
 status_ID = 19
 buff_name = "Oolonger Ginger's Guard"
-buff_description = "The whole team is invincible for 3 turns and heals a smll amount when enemies attempt to damage them."
+buff_description = "The whole team is invincible for 3 turns and heals a small amount when enemies attempt to damage them."
 turns_left = 0
 buff_type = 3
 is_bad = false

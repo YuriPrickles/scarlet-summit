@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://b24lm15vwe11u"]
 
-[ext_resource type="Script" uid="uid://bofnftbv1nidm" path="res://stats/Skills/SkillEffects/healing_herbs.gd" id="1_anoy8"]
+[ext_resource type="Script" uid="uid://b8s1c4837wpkx" path="res://stats/Skills/SkillEffects/daisy_chains.gd" id="1_anoy8"]
 
 [resource]
 script = ExtResource("1_anoy8")

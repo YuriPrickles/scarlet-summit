@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cw76ovml4opom"]
+
+[ext_resource type="Script" uid="uid://dje5oiuti6b61" path="res://stats/Skills/SkillEffects/oolonger_ginger_guard.gd" id="1_11kar"]
+
+[resource]
+script = ExtResource("1_11kar")
+skill_name = "Oolonger Ginger's Guard"
+skill_description = "The whole team is invincible for 3 turns and heals a small amount when enemies attempt to damage them."
+cost = 100
+targeting_type = 4
+skill_type = 3
+animation_oncast = "attack"

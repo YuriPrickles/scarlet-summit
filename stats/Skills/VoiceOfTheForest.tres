@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://biv4gvjdpovng"]
 
-[ext_resource type="Script" uid="uid://cgnktf3yqef8q" path="res://stats/Skills/SkillEffects/ghost_party.gd" id="1_770nm"]
+[ext_resource type="Script" uid="uid://dbmvgnli4bwn4" path="res://stats/Skills/SkillEffects/voice_of_the_forest.gd" id="1_770nm"]
 
 [resource]
 script = ExtResource("1_770nm")

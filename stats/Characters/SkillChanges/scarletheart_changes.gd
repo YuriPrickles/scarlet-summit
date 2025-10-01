@@ -5,4 +5,8 @@ func apply_changed_skills(battler:Battler):
 		battler.char_data.basic_atk = load("res://stats/Skills/MelonCarver.tres")
 	if battler.has_charm(ID.CharmID.HuntersSharpener):
 		battler.char_data.offense_skill = load("res://stats/Skills/KnifeStorm.tres")
+	if battler.has_charm(ID.CharmID.FlowerBands):
+		battler.char_data.support_skill = load("res://stats/Skills/FlowerPower.tres")
+	if battler.has_charm(ID.CharmID.FuryOfTheFir):
+		battler.char_data.ultimate = load("res://stats/Skills/CanopyOfPower.tres")
 	pass
