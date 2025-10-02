@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://s4n2n5s087rf"]
+
+[ext_resource type="Script" uid="uid://5cyfbfvxktwc" path="res://stats/Charms/strangler_fig.gd" id="1_n5515"]
+
+[resource]
+script = ExtResource("1_n5515")
+charm_ID = 11
+charm_name = "Strangler Fig"
+charm_type = 3
+metadata/_custom_type_script = "uid://bgioe3l50hrr8"

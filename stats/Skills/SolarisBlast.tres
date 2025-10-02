@@ -8,6 +8,6 @@ skill_name = "Solaris Blast"
 skill_description = "Roughly means \"Blast of the Sun\".
 Deals massive damage to the enemy with the highest health."
 cost = 100
-targeting_type = 0
+targeting_type = 1
 skill_type = 3
 animation_oncast = "attack"

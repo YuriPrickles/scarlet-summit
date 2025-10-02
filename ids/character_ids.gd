@@ -40,7 +40,8 @@ enum StatusID {
 	BloomingDaisy,
 	ForestSpirits,
 	DisturbedSpirits,
-	OolongerGingerGuard
+	OolongerGingerGuard,
+	WoodcageCurse
 }
 
 enum CharmID {

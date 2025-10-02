@@ -11,6 +11,6 @@ When targeted by an enemy, the ally with Sunblock will take damage instead. Sun'
 
 Only one ally at a time can have Sunblock."
 cost = 24
-targeting_type = 0
+targeting_type = 3
 skill_type = 2
 animation_oncast = "attack"

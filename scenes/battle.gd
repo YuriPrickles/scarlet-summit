@@ -138,7 +138,7 @@ func post_turn():
 				status.onExpire(battler)
 				battler.status_array[status.status_ID] = null
 		if battler.health <= 0:
-			battler.heal((battler.char_data.max_hp / 2) * 0.2)
+			battler.heal((battler.char_data.max_hp / 2) * 0.2,battler)
 		else:
 			all_battlers_down = false
 	all_enemies_down = true

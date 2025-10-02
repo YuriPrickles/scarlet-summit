@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://du6tvp1g6uvh8"]
+
+[ext_resource type="Script" uid="uid://bepl5ht5qlybw" path="res://scripts/base_statuseffect.gd" id="1_up2nb"]
+
+[resource]
+script = ExtResource("1_up2nb")
+status_ID = 20
+buff_name = "Woodcage Curse"
+buff_description = "Unable to receive status effects, receiving healing or hurt instead.
+Start with +10 DEF."
+turns_left = 0
+buff_type = 3
+is_bad = false
+stacking = false
+def_mult = 0.0
+atk_mult = 0.0
+is_stun = false
+damage_over_time = 0
+unremovable = true
+metadata/_custom_type_script = "uid://bepl5ht5qlybw"

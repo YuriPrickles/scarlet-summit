@@ -55,7 +55,9 @@ func _process(_delta: float) -> void:
 func update_hp(bar:ProgressBar, new_value):
 	bar.value = new_value
 
-func heal(amount:int):
+func heal(amount:int,healer_source:Battler=null):
+	if healer_source != null:
+		amount *= 1.25 if healer_source.has_charm(ID.CharmID.BloomingWreath) else 1
 	if char_data.id == ID.CharID.ScarletHeart and has_charm(ID.CharmID.FuryOfTheFir) and has_status(ID.StatusID.BeaconPower):
 		State.popatext(self, "Unnecessary", Color.CRIMSON)
 		return
@@ -71,11 +73,11 @@ func hurt(damage:int,enemy_attacker:EnemyBattler = null,color_string="white",hur
 	else:
 		State.add_mana(2)
 	if enemy_attacker != null and has_status(ID.StatusID.GingerGuard):
-		heal(damage / 4)
+		heal(damage / 4,State.look_for_member(ID.CharID.TwistingTree))
 		update_hp(BattleUI.get_health_bar(char_data.display_name),health)
 		return
 	if enemy_attacker != null and has_status(ID.StatusID.OolongerGingerGuard):
-		heal(damage / 6)
+		heal(damage / 6,State.look_for_member(ID.CharID.TwistingTree))
 		update_hp(BattleUI.get_health_bar(char_data.display_name),health)
 		return
 	if already_downed:
@@ -198,6 +200,13 @@ func turn_status(value:bool = true):
 	turn_done = value
 
 func add_status(status:Array[StatusEffect],turns:Array[int]):
+	if has_status(ID.StatusID.WoodcageCurse):
+		for s in status:
+			if s.is_bad:
+				hurt(max_health * 0.05)
+			else:
+				heal(max_health * 0.03,self)
+		return
 	if status.size() != turns.size():
 		print("Error with applying statuses.")
 		return
@@ -313,7 +322,7 @@ func special_animation_flower_power():
 	for i in range(3):
 		hurt(roundi(State.damage_calc(char_data.attack/2.4,get_atk_mult(),get_def_mult())),null,Color.CRIMSON,false)
 		State.add_mana(roundi(State.damage_calc(char_data.attack/2.4,get_atk_mult(),get_def_mult())))
-		chosen_target.heal(roundi(State.damage_calc(char_data.attack/2.4,get_atk_mult(),get_def_mult())))
+		chosen_target.heal(roundi(State.damage_calc(char_data.attack/2.4,get_atk_mult(),get_def_mult())),self)
 		await get_tree().create_timer(0.25).timeout
 	await sprite.animation_finished
 	weak_state = true

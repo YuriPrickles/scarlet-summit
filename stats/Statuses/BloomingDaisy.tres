@@ -15,4 +15,5 @@ def_mult = 0.0
 atk_mult = 0.0
 is_stun = false
 damage_over_time = 0
+unremovable = false
 metadata/_custom_type_script = "uid://bepl5ht5qlybw"

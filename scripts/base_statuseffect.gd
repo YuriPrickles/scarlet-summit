@@ -19,6 +19,7 @@ enum BuffType{
 @export var atk_mult:float = 0
 @export var is_stun :bool = false
 @export var damage_over_time:int = 0
+@export var unremovable: bool = false
 
 func tickDown():
 	if stacking: return

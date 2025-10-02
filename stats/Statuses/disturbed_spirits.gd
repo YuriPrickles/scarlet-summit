@@ -1,7 +1,7 @@
 extends StatusEffect
 
 func onTickDown(battler:Battler):
-	battler.heal(battler.max_health * 0.06)
+	battler.hurt(damage_over_time)
 	pass
 func onTickDown_enemy(enemy:EnemyBattler):
 	enemy.hurt(damage_over_time)

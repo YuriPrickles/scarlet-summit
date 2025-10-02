@@ -7,6 +7,6 @@ script = ExtResource("1_v8vdc")
 skill_name = "Knife Storm"
 skill_description = "Hits randomly 5 times. Damages self."
 cost = 0
-targeting_type = 0
+targeting_type = 2
 skill_type = 1
 animation_oncast = "attack"

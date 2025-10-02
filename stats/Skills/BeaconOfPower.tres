@@ -7,6 +7,6 @@ script = ExtResource("1_ntfw3")
 skill_name = "Beacon of Power"
 skill_description = "Rip yourself apart and let loose a beacon of infinite mana for the team for 1 turn."
 cost = 0
-targeting_type = 0
+targeting_type = 4
 skill_type = 3
 animation_oncast = "attack"

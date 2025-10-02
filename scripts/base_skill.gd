@@ -30,6 +30,8 @@ func cast(attacker,target):
 func cast_ally(attacker,target):
 	onCast_Ally(attacker,target)
 func onCast(_attacker:Battler,_target:EnemyBattler):
+	if _attacker.has_charm(ID.CharmID.Napsack) and skill_type == SkillType.OffenseSkill:
+		_target.add_tired(3)
 	pass
 
 func onCast_Ally(_attacker:Battler,_target:Battler):

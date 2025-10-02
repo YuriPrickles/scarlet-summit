@@ -7,6 +7,6 @@ script = ExtResource("1_ax7lv")
 skill_name = "Divine Prominence"
 skill_description = "Deals massive damage to all enemies. Damage is spread evenly among everyone."
 cost = 100
-targeting_type = 0
+targeting_type = 2
 skill_type = 3
 animation_oncast = "attack"

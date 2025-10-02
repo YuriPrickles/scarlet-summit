@@ -7,5 +7,5 @@ func onCast(attacker:Battler,target:EnemyBattler):
 		)
 	if target.health <= target.max_health * 0.4:
 		for battler in State.battler_array:
-			battler.heal(attacker.damage_against(target))
+			battler.heal(attacker.damage_against(target),attacker)
 	pass

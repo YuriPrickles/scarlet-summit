@@ -24,7 +24,7 @@ func on_hurt(battler:Battler,target:EnemyBattler,damage:int):
 	if battler.char_data.id == ID.CharID.GoldenSun:
 		for b in State.battler_array:
 			if b.has_status(ID.StatusID.Flowerfence):
-				b.heal(b.max_health * 0.03)
+				b.heal(b.max_health * 0.03,battler)
 
 func on_hit(battler:Battler,attacker:EnemyBattler):
 	if battler.has_charm(ID.CharmID.ThornHeart):

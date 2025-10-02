@@ -8,6 +8,6 @@ skill_name = "Focused Fire"
 skill_description = "Deals massive damage to a single enemy.
 Shines light on the enemy's weak spot, reducing defense for 2 turns."
 cost = 16
-targeting_type = 0
+targeting_type = 1
 skill_type = 1
 animation_oncast = "attack"

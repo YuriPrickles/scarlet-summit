@@ -8,6 +8,6 @@ skill_name = "Canopy of Power"
 skill_description = "Rip yourself apart and let loose a beacon of infinite mana for the team for 2 turns.
 Red cannot be healed during the duration of the infinite mana."
 cost = 0
-targeting_type = 0
+targeting_type = 4
 skill_type = 3
 animation_oncast = "attack"

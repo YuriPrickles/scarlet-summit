@@ -8,6 +8,6 @@ skill_name = "Voice Of The Forest"
 skill_description = "Haunts every other ally, giving them a Forest Spirit that heals every turn.
 When getting hit, the spirit is disturbed and can be kept to heal more or transfered to an enemy for damage."
 cost = 14
-targeting_type = 0
+targeting_type = 4
 skill_type = 2
 animation_oncast = "attack"

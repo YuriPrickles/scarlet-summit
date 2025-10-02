@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_7m07x")
 skill_name = "Stuck In Purgatory"
-skill_description = "Deal big damage to all enemies for every debuff the whole enemy team has. All status effects are extended for 3 turns."
+skill_description = "Deal big damage to all enemies for every debuff the whole enemy team has. Damage multiplier per debuff reduced.
+All status effects are extended for 3 turns."
 cost = 100
-targeting_type = 0
+targeting_type = 2
 skill_type = 3
 animation_oncast = "attack"
