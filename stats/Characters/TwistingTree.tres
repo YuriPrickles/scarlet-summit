@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://bnlgvjwf6grdb"]
+[gd_resource type="Resource" script_class="Character" load_steps=8 format=3 uid="uid://bnlgvjwf6grdb"]
 
 [ext_resource type="Resource" uid="uid://rr18ko5w3wc" path="res://stats/Skills/BranchBash.tres" id="1_fcvhh"]
 [ext_resource type="Resource" uid="uid://bijexag7wndex" path="res://stats/Skills/RootGrasp.tres" id="2_6bh0a"]
+[ext_resource type="SpriteFrames" uid="uid://dqx5a6n58bm1p" path="res://assets/characters/leaf/leaf.tres" id="2_msx21"]
 [ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="2_v88of"]
 [ext_resource type="Resource" uid="uid://il126aih463j" path="res://stats/Characters/SkillChanges/TwistingTree_SC.tres" id="4_0di6y"]
 [ext_resource type="Resource" uid="uid://dhnrouv1jb6n4" path="res://stats/Skills/HealingHerbs.tres" id="4_6bh0a"]
@@ -11,6 +12,7 @@
 script = ExtResource("2_v88of")
 id = 1
 display_name = "Leaf"
+char_sprite_frames = ExtResource("2_msx21")
 hp = 420
 max_hp = 420
 defense = 14
