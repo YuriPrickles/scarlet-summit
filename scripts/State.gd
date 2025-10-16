@@ -14,6 +14,7 @@ var charm_list_ref:Array[Charm] = []
 
 var loaded_encounter:Encounter
 
+var encounter_list:Array[Encounter]
 var max_level_reached = 0
 var levels_beaten:Array[bool]
 var current_level_position
@@ -37,6 +38,12 @@ func _ready() -> void:
 			var final_path = "res://stats/Charms/" + filePath
 			var charm:Charm = load(final_path)
 			charm_list_ref.append(charm)
+	#for filePath in DirAccess.get_files_at("res://stats/Encounters/"): 
+		#if filePath.get_extension() == "tres":  
+			#print("res://stats/Encounters/" + filePath)
+			#var final_path = "res://stats/Encounters/" + filePath
+			#var encounter:Encounter = load(final_path)
+			#encounter_list.append(encounter)
 	var none_charm:Charm = preload("res://stats/Charms/None.tres")
 	for char:Character in current_party:
 		var none_arr:Array[Array] = []

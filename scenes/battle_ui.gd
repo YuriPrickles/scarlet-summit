@@ -32,7 +32,6 @@ func set_battle_comment(text:String):
 	tween.tween_property(battle_comment,"visible_characters",final_text.length(), 1)
 
 func get_health_bar(char_name) -> ProgressBar:
-	print(partyhealth)
 	for hb :HealthbarContainer in partyhealth.get_children():
 		if hb.char_data.display_name == char_name:
 			return hb.get_node("HealthBar")

@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Encounter" load_steps=15 format=3 uid="uid://0juk2h2wrmaw"]
+[gd_resource type="Resource" script_class="Encounter" load_steps=17 format=3 uid="uid://0juk2h2wrmaw"]
 
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_i3iq0"]
-[ext_resource type="Resource" uid="uid://bc1r4rn425k7h" path="res://stats/Charms/None.tres" id="1_r601j"]
+[ext_resource type="Resource" uid="uid://bsjunw72445xo" path="res://stats/Charms/Napsack.tres" id="1_tr4ix"]
 [ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="2_0u3yj"]
 [ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="5_aphvn"]
 [ext_resource type="Resource" uid="uid://n7pus7alujwx" path="res://stats/Characters/ScarletHeart.tres" id="6_7q37r"]
@@ -12,10 +12,16 @@
 [ext_resource type="Resource" uid="uid://yhg5d2s57ufu" path="res://stats/Characters/ShadeLady.tres" id="9_pc8hy"]
 [ext_resource type="Resource" uid="uid://snsr562qju0j" path="res://stats/Enemies/Kickleaf.tres" id="11_tr4ix"]
 [ext_resource type="Resource" uid="uid://b63a3bpo3ftm0" path="res://stats/Enemies/ThornAngel.tres" id="12_7nin4"]
+[ext_resource type="Resource" uid="uid://brpmbvs5cybrj" path="res://stats/Enemies/Boombloom.tres" id="12_tr4ix"]
 
 [sub_resource type="Resource" id="Resource_pc8hy"]
 script = ExtResource("9_7q37r")
-enemy_array = Array[ExtResource("2_0u3yj")]([ExtResource("11_tr4ix"), ExtResource("11_tr4ix")])
+enemy_array = Array[ExtResource("2_0u3yj")]([ExtResource("11_tr4ix"), ExtResource("12_tr4ix")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[sub_resource type="Resource" id="Resource_7nin4"]
+script = ExtResource("9_7q37r")
+enemy_array = Array[ExtResource("2_0u3yj")]([ExtResource("12_tr4ix"), ExtResource("12_tr4ix")])
 metadata/_custom_type_script = "uid://djyvhruidy31o"
 
 [sub_resource type="Resource" id="Resource_os83y"]
@@ -25,11 +31,11 @@ metadata/_custom_type_script = "uid://djyvhruidy31o"
 
 [resource]
 script = ExtResource("6_jhbav")
-enc_name = "1-5 - Bomb Squad"
+enc_name = "1-5 - Guardian Angels"
 enc_desc = "Level 5 Description"
 enc_pic = ExtResource("1_i3iq0")
 default_battle_comments = Array[String](["A battle begins!", "A battle is ongoing."])
 comment_conditions = Array[int]([2, 0])
-waves = Array[ExtResource("9_7q37r")]([SubResource("Resource_pc8hy"), SubResource("Resource_os83y")])
+waves = Array[ExtResource("9_7q37r")]([SubResource("Resource_pc8hy"), SubResource("Resource_7nin4"), SubResource("Resource_os83y")])
 party = Array[ExtResource("5_aphvn")]([ExtResource("6_7q37r"), ExtResource("7_tr4ix"), ExtResource("8_7nin4"), ExtResource("9_pc8hy")])
-completion_reward = ExtResource("1_r601j")
+completion_reward = ExtResource("1_tr4ix")

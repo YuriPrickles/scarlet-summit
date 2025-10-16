@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=16 format=3 uid="uid://d3twumhclto47"]
+
+[ext_resource type="Resource" uid="uid://ctgns2tvh65d3" path="res://stats/Charms/PoisonPatch.tres" id="1_r05j2"]
+[ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="2_2t4yo"]
+[ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="3_pfw6j"]
+[ext_resource type="Resource" uid="uid://n7pus7alujwx" path="res://stats/Characters/ScarletHeart.tres" id="4_na8u5"]
+[ext_resource type="Resource" uid="uid://c5frwxdd2qdce" path="res://stats/Characters/GoldenSun.tres" id="5_g7byn"]
+[ext_resource type="Resource" uid="uid://bnlgvjwf6grdb" path="res://stats/Characters/TwistingTree.tres" id="6_1eoh4"]
+[ext_resource type="Resource" uid="uid://yhg5d2s57ufu" path="res://stats/Characters/ShadeLady.tres" id="7_qcqss"]
+[ext_resource type="Script" uid="uid://i8ywi33nxdfs" path="res://scripts/base_encounter.gd" id="8_gtlmr"]
+[ext_resource type="Script" uid="uid://djyvhruidy31o" path="res://scripts/base_wave.gd" id="9_28j0r"]
+[ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="10_45cbj"]
+[ext_resource type="Resource" uid="uid://snsr562qju0j" path="res://stats/Enemies/Kickleaf.tres" id="11_k3xh8"]
+[ext_resource type="Resource" uid="uid://dxjhjc7sscvqi" path="res://stats/Enemies/Fortroot.tres" id="12_r05j2"]
+[ext_resource type="Resource" uid="uid://uyl7avqvtb8e" path="res://stats/Enemies/Logelisk.tres" id="13_2t4yo"]
+
+[sub_resource type="Resource" id="Resource_pc8hy"]
+script = ExtResource("9_28j0r")
+enemy_array = Array[ExtResource("10_45cbj")]([ExtResource("11_k3xh8"), ExtResource("12_r05j2")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[sub_resource type="Resource" id="Resource_7nin4"]
+script = ExtResource("9_28j0r")
+enemy_array = Array[ExtResource("10_45cbj")]([ExtResource("12_r05j2"), ExtResource("13_2t4yo"), ExtResource("12_r05j2")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[resource]
+script = ExtResource("8_gtlmr")
+enc_name = "1-6 - Tower Defense"
+enc_desc = "Level 6 Description"
+enc_pic = ExtResource("2_2t4yo")
+default_battle_comments = Array[String](["A battle begins!", "A battle is ongoing."])
+comment_conditions = Array[int]([2, 0])
+waves = Array[ExtResource("9_28j0r")]([SubResource("Resource_pc8hy"), SubResource("Resource_7nin4")])
+party = Array[ExtResource("3_pfw6j")]([ExtResource("4_na8u5"), ExtResource("5_g7byn"), ExtResource("6_1eoh4"), ExtResource("7_qcqss")])
+completion_reward = ExtResource("1_r05j2")

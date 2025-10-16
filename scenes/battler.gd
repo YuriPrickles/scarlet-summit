@@ -104,6 +104,8 @@ func hurt(damage:int,enemy_attacker:EnemyBattler = null,color_string="white",hur
 	
 
 func cast_skill(skill:Skill,target,is_ally:bool=false):
+	turn_status(true)
+	finished_turn.emit()
 	if not is_ally:
 		skill.cast(self,target)
 	else:
@@ -112,8 +114,6 @@ func cast_skill(skill:Skill,target,is_ally:bool=false):
 	if has_status(ID.StatusID.BeaconPower):
 		mana_mult = 0
 	skill.mana_use(mana_mult)
-	turn_status(true)
-	finished_turn.emit()
 	pass
 
 enum AttackAnimations{
@@ -131,7 +131,6 @@ func attack_enemy(target:EnemyBattler,attack_anim:AttackAnimations,attack_method
 			sprite.play(sprite_anim)
 			await sprite.animation_finished
 			attack_method.call()
-			transfer_statuses(target)
 			await finished_action
 			await get_tree().create_timer(0.4).timeout
 		AttackAnimations.StayInPlace:
@@ -139,7 +138,6 @@ func attack_enemy(target:EnemyBattler,attack_anim:AttackAnimations,attack_method
 			sprite.play(sprite_anim)
 			await sprite.animation_finished
 			attack_method.call()
-			transfer_statuses(target)
 			await finished_action
 			await get_tree().create_timer(0.4).timeout
 		AttackAnimations.GoToMiddle:
@@ -148,7 +146,6 @@ func attack_enemy(target:EnemyBattler,attack_anim:AttackAnimations,attack_method
 			sprite.play(sprite_anim)
 			await sprite.animation_finished
 			attack_method.call()
-			transfer_statuses(target)
 			await finished_action
 			await get_tree().create_timer(0.4).timeout
 		AttackAnimations.Filler:
@@ -161,6 +158,7 @@ func attack_reflect(target:EnemyBattler,mult:float=1):
 	target.hurt(damage_against(target) * mult,self,false)
 	
 func attack_one(target:EnemyBattler,mult:float=1,hits:int=1):
+	transfer_statuses(target,true)
 	for i in range(hits):
 		char_data.on_hurt(self,target,damage_against(target) * mult)
 		target.hurt(damage_against(target) * mult, self)
@@ -168,13 +166,18 @@ func attack_one(target:EnemyBattler,mult:float=1,hits:int=1):
 	return_to_place()
 		
 func attack_all(mult:float=1):
+	var e_size = State.enemy_battler_array.size()
+	var i = 0
 	for e in State.enemy_battler_array:
 		char_data.on_hurt(self,e,damage_against(e) * mult)
 		e.hurt(damage_against(e) * mult, self)
+		transfer_statuses(e, i >= e_size)
+		i += 1
 	return_to_place()
 		
 func attack_wildhits(hits:int, mult:float = 1):
 	var all_down = true
+	var e_size = State.enemy_battler_array.size()
 	for i in range(hits):
 		var e = State.enemy_battler_array.pick_random()
 		while e.health <= 0:
@@ -185,6 +188,7 @@ func attack_wildhits(hits:int, mult:float = 1):
 			e = State.enemy_battler_array.pick_random()
 		char_data.on_hurt(self,e,damage_against(e) * mult)
 		e.hurt(damage_against(e) * mult,self)
+		transfer_statuses(e, i >= hits)
 		await get_tree().create_timer(0.2).timeout
 	return_to_place()
 		
@@ -248,10 +252,10 @@ func has_charm(charm_ID:ID.CharmID):
 			return true
 	return false
 	
-func transfer_statuses(target:EnemyBattler):
+func transfer_statuses(target:EnemyBattler,last_enemy_in_multihit:bool=false):
 	for status in status_array:
 		if status == null: continue
-		status.onTransfer(self,target)
+		status.onTransfer(self,target,last_enemy_in_multihit)
 
 var is_hovering = false
 var hover_display_req_sent = false

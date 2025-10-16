@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c845oe0t2s3xj"]
+[gd_scene load_steps=16 format=3 uid="uid://c845oe0t2s3xj"]
 
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_6rp8x"]
 [ext_resource type="Script" uid="uid://bpotjeuj352ne" path="res://scenes/battle_select.gd" id="1_uqqp6"]
@@ -10,7 +10,11 @@
 [ext_resource type="Resource" uid="uid://4gowmwcsqxef" path="res://stats/Encounters/1-3.tres" id="5_eilpv"]
 [ext_resource type="Resource" uid="uid://3di361bglrdj" path="res://stats/Encounters/1-4.tres" id="6_pos0x"]
 [ext_resource type="Resource" uid="uid://0juk2h2wrmaw" path="res://stats/Encounters/1-5.tres" id="7_nk1i2"]
+[ext_resource type="Resource" uid="uid://d3twumhclto47" path="res://stats/Encounters/1-6.tres" id="10_aqxj0"]
 [ext_resource type="Resource" uid="uid://drjlvg8wwfi7m" path="res://stats/Encounters/1-10.tres" id="10_rk0no"]
+[ext_resource type="Resource" uid="uid://cf1os1eo7u2nv" path="res://stats/Encounters/1-7.tres" id="11_mh8w6"]
+[ext_resource type="Resource" uid="uid://cek4tqv6axsa3" path="res://stats/Encounters/1-8.tres" id="12_23fcw"]
+[ext_resource type="Resource" uid="uid://nadvmdj84gn" path="res://stats/Encounters/1-9.tres" id="13_cflon"]
 
 [node name="BattleSelect" type="Control"]
 layout_mode = 3
@@ -20,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uqqp6")
-encounter_list = Array[ExtResource("2_mh6sm")]([ExtResource("3_eilpv"), ExtResource("4_pos0x"), ExtResource("3_dgat4"), ExtResource("4_nk1i2"), ExtResource("5_eilpv"), ExtResource("6_pos0x"), ExtResource("7_nk1i2"), ExtResource("10_rk0no")])
+encounter_list = Array[ExtResource("2_mh6sm")]([ExtResource("3_eilpv"), ExtResource("4_pos0x"), ExtResource("3_dgat4"), ExtResource("4_nk1i2"), ExtResource("5_eilpv"), ExtResource("6_pos0x"), ExtResource("7_nk1i2"), ExtResource("10_aqxj0"), ExtResource("11_mh8w6"), ExtResource("12_23fcw"), ExtResource("13_cflon"), ExtResource("10_rk0no")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

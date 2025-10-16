@@ -1,7 +1,7 @@
-[gd_resource type="Resource" load_steps=14 format=3 uid="uid://dahcpmwo8bdia"]
+[gd_resource type="Resource" load_steps=13 format=3 uid="uid://dahcpmwo8bdia"]
 
-[ext_resource type="Resource" uid="uid://bc1r4rn425k7h" path="res://stats/Charms/None.tres" id="1_1m44w"]
 [ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="1_fpup7"]
+[ext_resource type="Resource" uid="uid://3j7nq55qjpb1" path="res://stats/Charms/RindGrinder.tres" id="1_jktad"]
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_xf1q5"]
 [ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="5_02w7w"]
 [ext_resource type="Resource" uid="uid://n7pus7alujwx" path="res://stats/Characters/ScarletHeart.tres" id="6_jktad"]
@@ -11,11 +11,10 @@
 [ext_resource type="Script" uid="uid://djyvhruidy31o" path="res://scripts/base_wave.gd" id="9_jktad"]
 [ext_resource type="Script" uid="uid://cxw3tqver7f4m" path="res://stats/Encounters/1-1.gd" id="10_02w7w"]
 [ext_resource type="Resource" uid="uid://snsr562qju0j" path="res://stats/Enemies/Kickleaf.tres" id="11_3uhq3"]
-[ext_resource type="Resource" uid="uid://j8e8klj600kx" path="res://stats/Enemies/Basqit.tres" id="12_um2dm"]
 
 [sub_resource type="Resource" id="Resource_3uhq3"]
 script = ExtResource("9_jktad")
-enemy_array = Array[ExtResource("1_fpup7")]([ExtResource("11_3uhq3"), ExtResource("12_um2dm"), ExtResource("11_3uhq3")])
+enemy_array = Array[ExtResource("1_fpup7")]([ExtResource("11_3uhq3"), ExtResource("11_3uhq3"), ExtResource("11_3uhq3")])
 metadata/_custom_type_script = "uid://djyvhruidy31o"
 
 [resource]
@@ -27,4 +26,4 @@ default_battle_comments = Array[String](["Drag with [RIGHT CLICK] to an ally to 
 comment_conditions = Array[int]([2, 1, 0, 0, 1])
 waves = Array[ExtResource("9_jktad")]([SubResource("Resource_3uhq3")])
 party = Array[ExtResource("5_02w7w")]([ExtResource("6_jktad"), ExtResource("7_3uhq3"), ExtResource("8_um2dm"), ExtResource("9_7f2mn")])
-completion_reward = ExtResource("1_1m44w")
+completion_reward = ExtResource("1_jktad")

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Encounter" load_steps=13 format=3 uid="uid://drjlvg8wwfi7m"]
 
-[ext_resource type="Resource" uid="uid://bc1r4rn425k7h" path="res://stats/Charms/None.tres" id="1_3acj3"]
+[ext_resource type="Resource" uid="uid://dpn5n4ql3fsco" path="res://stats/Charms/FuryOfTheFir.tres" id="1_hdp35"]
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="2_ceuoy"]
 [ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="3_ig45n"]
 [ext_resource type="Resource" uid="uid://n7pus7alujwx" path="res://stats/Characters/ScarletHeart.tres" id="4_p20wn"]
@@ -26,4 +26,4 @@ default_battle_comments = Array[String](["A battle begins!", "A battle is ongoin
 comment_conditions = Array[int]([2, 0])
 waves = Array[ExtResource("9_vyfe6")]([SubResource("Resource_pc8hy")])
 party = Array[ExtResource("3_ig45n")]([ExtResource("4_p20wn"), ExtResource("5_jgeg7"), ExtResource("6_mlkji"), ExtResource("7_2ixu5")])
-completion_reward = ExtResource("1_3acj3")
+completion_reward = ExtResource("1_hdp35")

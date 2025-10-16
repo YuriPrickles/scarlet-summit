@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=20 format=3 uid="uid://cf1os1eo7u2nv"]
+
+[ext_resource type="Resource" uid="uid://coc0sw2df4e51" path="res://stats/Charms/FlowerBands.tres" id="1_lehlm"]
+[ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="2_m6hwq"]
+[ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="3_lehlm"]
+[ext_resource type="Resource" uid="uid://n7pus7alujwx" path="res://stats/Characters/ScarletHeart.tres" id="4_2k4f7"]
+[ext_resource type="Resource" uid="uid://c5frwxdd2qdce" path="res://stats/Characters/GoldenSun.tres" id="5_xgc5b"]
+[ext_resource type="Resource" uid="uid://bnlgvjwf6grdb" path="res://stats/Characters/TwistingTree.tres" id="6_lum71"]
+[ext_resource type="Resource" uid="uid://yhg5d2s57ufu" path="res://stats/Characters/ShadeLady.tres" id="7_ud0uj"]
+[ext_resource type="Script" uid="uid://i8ywi33nxdfs" path="res://scripts/base_encounter.gd" id="8_7camf"]
+[ext_resource type="Script" uid="uid://djyvhruidy31o" path="res://scripts/base_wave.gd" id="9_swx7p"]
+[ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="10_4knbg"]
+[ext_resource type="Resource" uid="uid://snsr562qju0j" path="res://stats/Enemies/Kickleaf.tres" id="11_kxe72"]
+[ext_resource type="Resource" uid="uid://j8e8klj600kx" path="res://stats/Enemies/Basqit.tres" id="12_lehlm"]
+[ext_resource type="Resource" uid="uid://dxjhjc7sscvqi" path="res://stats/Enemies/Fortroot.tres" id="12_uo0w5"]
+[ext_resource type="Resource" uid="uid://uyl7avqvtb8e" path="res://stats/Enemies/Logelisk.tres" id="13_7r4x5"]
+[ext_resource type="Resource" uid="uid://c2eqd7l5sgo5y" path="res://stats/Enemies/Mediccorn.tres" id="14_2k4f7"]
+
+[sub_resource type="Resource" id="Resource_pc8hy"]
+script = ExtResource("9_swx7p")
+enemy_array = Array[ExtResource("10_4knbg")]([ExtResource("11_kxe72"), ExtResource("12_lehlm"), ExtResource("11_kxe72")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[sub_resource type="Resource" id="Resource_7nin4"]
+script = ExtResource("9_swx7p")
+enemy_array = Array[ExtResource("10_4knbg")]([ExtResource("13_7r4x5"), ExtResource("14_2k4f7"), ExtResource("12_uo0w5")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[sub_resource type="Resource" id="Resource_xgc5b"]
+script = ExtResource("9_swx7p")
+enemy_array = Array[ExtResource("10_4knbg")]([ExtResource("12_lehlm"), ExtResource("12_lehlm"), ExtResource("14_2k4f7"), ExtResource("13_7r4x5")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[sub_resource type="Resource" id="Resource_lum71"]
+script = ExtResource("9_swx7p")
+enemy_array = Array[ExtResource("10_4knbg")]([ExtResource("12_uo0w5"), ExtResource("14_2k4f7"), ExtResource("14_2k4f7")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[resource]
+script = ExtResource("8_7camf")
+enc_name = "1-7 - Generosity"
+enc_desc = "Level 7 Description"
+enc_pic = ExtResource("2_m6hwq")
+default_battle_comments = Array[String](["A battle begins!", "A battle is ongoing."])
+comment_conditions = Array[int]([2, 0])
+waves = Array[ExtResource("9_swx7p")]([SubResource("Resource_pc8hy"), SubResource("Resource_7nin4"), SubResource("Resource_xgc5b"), SubResource("Resource_lum71")])
+party = Array[ExtResource("3_lehlm")]([ExtResource("4_2k4f7"), ExtResource("5_xgc5b"), ExtResource("6_lum71"), ExtResource("7_ud0uj")])
+completion_reward = ExtResource("1_lehlm")

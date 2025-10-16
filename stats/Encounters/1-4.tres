@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Encounter" load_steps=16 format=3 uid="uid://3di361bglrdj"]
+[gd_resource type="Resource" script_class="Encounter" load_steps=17 format=3 uid="uid://3di361bglrdj"]
 
 [ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="1_gtelu"]
-[ext_resource type="Resource" uid="uid://bc1r4rn425k7h" path="res://stats/Charms/None.tres" id="1_n3mjy"]
+[ext_resource type="Resource" uid="uid://d3h6xqf4isuu8" path="res://stats/Charms/HuntersSharpener.tres" id="1_lkbcp"]
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_sv5sy"]
 [ext_resource type="Resource" uid="uid://snsr562qju0j" path="res://stats/Enemies/Kickleaf.tres" id="2_a0754"]
 [ext_resource type="Resource" uid="uid://uyl7avqvtb8e" path="res://stats/Enemies/Logelisk.tres" id="2_sv5sy"]
@@ -15,6 +15,11 @@
 [ext_resource type="Resource" uid="uid://yhg5d2s57ufu" path="res://stats/Characters/ShadeLady.tres" id="11_usvvb"]
 [ext_resource type="Resource" uid="uid://c2eqd7l5sgo5y" path="res://stats/Enemies/Mediccorn.tres" id="14_lkbcp"]
 
+[sub_resource type="Resource" id="Resource_wghed"]
+script = ExtResource("9_urhcl")
+enemy_array = Array[ExtResource("1_gtelu")]([ExtResource("2_sv5sy"), ExtResource("4_tb2ij")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
 [sub_resource type="Resource" id="Resource_lkbcp"]
 script = ExtResource("9_urhcl")
 enemy_array = Array[ExtResource("1_gtelu")]([ExtResource("2_a0754"), ExtResource("2_sv5sy"), ExtResource("4_tb2ij"), ExtResource("14_lkbcp")])
@@ -25,8 +30,8 @@ script = ExtResource("3_a0754")
 enc_name = "1-4 - Overgrowth"
 enc_desc = "Level 4 Description"
 enc_pic = ExtResource("1_sv5sy")
-default_battle_comments = Array[String](["A battle begins!"])
-comment_conditions = Array[int]([2])
-waves = Array[ExtResource("9_urhcl")]([SubResource("Resource_lkbcp")])
+default_battle_comments = Array[String](["A battle begins!", "A battle is ongoing."])
+comment_conditions = Array[int]([2, 0])
+waves = Array[ExtResource("9_urhcl")]([SubResource("Resource_wghed"), SubResource("Resource_lkbcp")])
 party = Array[ExtResource("7_urhcl")]([ExtResource("8_lkbcp"), ExtResource("9_wghed"), ExtResource("10_ohedo"), ExtResource("11_usvvb")])
-completion_reward = ExtResource("1_n3mjy")
+completion_reward = ExtResource("1_lkbcp")

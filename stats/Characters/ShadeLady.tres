@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://yhg5d2s57ufu"]
+[gd_resource type="Resource" script_class="Character" load_steps=8 format=3 uid="uid://yhg5d2s57ufu"]
 
 [ext_resource type="Resource" uid="uid://dqbw2x2j2e3da" path="res://stats/Skills/Jumpscare.tres" id="1_hyp3g"]
 [ext_resource type="Resource" uid="uid://bk72t67mkho34" path="res://stats/Skills/VengefulSpirit.tres" id="2_h3sx3"]
 [ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="2_xkqre"]
+[ext_resource type="SpriteFrames" uid="uid://c6xpay3rd52ky" path="res://assets/characters/ghost/ghost.tres" id="2_ys4j5"]
 [ext_resource type="Resource" uid="uid://c63bvj2fiok33" path="res://stats/Characters/SkillChanges/ShadeLady_SC.tres" id="4_h7duc"]
 [ext_resource type="Resource" uid="uid://dp3vhtxdavcad" path="res://stats/Skills/GhostParty.tres" id="4_meree"]
 [ext_resource type="Resource" uid="uid://cw1he8qhy8egg" path="res://stats/Skills/UnfinishedBusiness.tres" id="5_meree"]
@@ -11,9 +12,10 @@
 script = ExtResource("2_xkqre")
 id = 2
 display_name = "Ghost"
+char_sprite_frames = ExtResource("2_ys4j5")
 hp = 360
 max_hp = 360
-defense = 5
+defense = 8
 attack = 30
 basic_atk = ExtResource("1_hyp3g")
 offense_skill = ExtResource("2_h3sx3")

@@ -33,7 +33,7 @@ func on_hit(battler:Battler,attacker:EnemyBattler):
 		var status = battler.status_array[ID.StatusID.ForestSpirits]
 		var d_spirits:StatusEffect = load("res://stats/Statuses/DisturbedSpirits.tres")
 		d_spirits.damage_over_time = status.damage_over_time
-		battler.add_status([d_spirits],[1])
+		battler.add_status([d_spirits],[2])
 		battler.status_array[ID.StatusID.ForestSpirits] = null
 
 func on_vanquish():

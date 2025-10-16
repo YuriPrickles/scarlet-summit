@@ -17,6 +17,7 @@ var all_enemies_down:bool = false
 var all_battlers_down = false
 
 var ongoing_enemy_turn = false
+var waiting_for_last_action = false
 
 func load_wave(wave:Wave):
 	initial_enemypos = Vector2(920,(-64 * (wave.enemy_array.size() - 1)) + 256)
@@ -46,7 +47,6 @@ func _ready() -> void:
 		print(battler.char_data.display_name)
 		for charm in State.attached_charms.get(battler.char_data.id):
 			charm[1].on_battle_start_effects(battler)
-			print(charm)
 	waves = State.loaded_encounter.waves
 	BattleUI.initialize_healthbars(battlers.get_children())
 
@@ -60,11 +60,13 @@ func _process(_delta: float) -> void:
 	pass
 
 func turn_manager():
+	if ongoing_enemy_turn: return
 	ongoing_enemy_turn = true
 	enemy_turn()
+	print("Reached end of enemy turn.")
 	await enemy_turn_done
 	post_turn()
-	
+	print("Reached end of post-turn.")
 	for b:Battler in battlers.get_children():
 		if b.health > 0:
 			b.weak_state = false
@@ -95,10 +97,16 @@ func check_all_turns_done():
 	for b in battlers.get_children():
 		if not b.turn_done and b.health > 0:
 			return
-	turn_manager()
+	if not waiting_for_last_action:
+		print("Waiting for last action from Archangel Hunters to complete.")
+		print("If this prints more than once something fucked up.")
+		waiting_for_last_action = true
+		await State.someone_finished_something
+		waiting_for_last_action = false
+		turn_manager()
 
 func enemy_turn():
-	await get_tree().create_timer(1.75).timeout
+	await get_tree().create_timer(1).timeout
 	BattleUI.set_battle_comment("The opponents strike!")
 	for e in enemy_battlers.get_children():
 		if check_all_battlers_down():
@@ -127,9 +135,6 @@ func post_turn():
 		print(battler.char_data.display_name)
 		for charm in State.attached_charms.get(battler.char_data.id):
 			charm[1].post_turn_effects(battler)
-			print(charm)
-			
-			
 		for status in battler.status_array:
 			if status == null: continue
 			status.onTickDown(battler)
@@ -161,7 +166,6 @@ func post_turn():
 		print(battler.char_data.display_name)
 		for charm in State.attached_charms.get(battler.char_data.id):
 			charm[1].post_turn_effects(battler)
-			print(charm)
 	var battle_text = State.loaded_encounter.get_comment() if not all_enemies_down else ("Battle won!" if current_wave >= waves.size() else "Wave Complete!")
 	BattleUI.set_battle_comment(battle_text)
 

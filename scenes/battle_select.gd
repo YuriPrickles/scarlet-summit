@@ -11,6 +11,7 @@ func _ready() -> void:
 	BattleUI.hide()
 	HoverInfo.hide()
 	EnemyHoverInfo.hide()
+	#encounter_list = State.encounter_list
 	for enc in encounter_list:
 		var highest_level = 0
 		if highest_level > State.max_level_reached:

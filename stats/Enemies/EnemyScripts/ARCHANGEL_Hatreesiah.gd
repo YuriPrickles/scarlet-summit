@@ -32,7 +32,7 @@ func do_attack(enemy:EnemyBattler):
 			enemy.attack_enemy(
 				last_hit,
 				enemy.AttackAnimations.GetClose,
-				enemy.attack_one.bind(last_hit, 3.5)
+				enemy.attack_one.bind(last_hit, 6.5)
 				)
 		else: 
 			enemy.attack_enemy(null, enemy.AttackAnimations.Filler, filler_func)

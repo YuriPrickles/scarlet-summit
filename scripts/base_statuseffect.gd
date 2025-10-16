@@ -34,5 +34,5 @@ func onExpire(_battler:Battler):
 	pass
 func onExpire_enemy(_enemy:EnemyBattler):
 	pass
-func onTransfer(battler:Battler,_enemy:EnemyBattler):
+func onTransfer(battler:Battler,_enemy:EnemyBattler,last_enemy_in_multihit:bool=false):
 	pass

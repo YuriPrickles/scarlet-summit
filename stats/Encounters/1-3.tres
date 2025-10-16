@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Encounter" load_steps=13 format=3 uid="uid://4gowmwcsqxef"]
 
-[ext_resource type="Resource" uid="uid://bc1r4rn425k7h" path="res://stats/Charms/None.tres" id="1_dh85i"]
 [ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="1_mpnid"]
 [ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="1_pdbwk"]
+[ext_resource type="Resource" uid="uid://b854dttn4ctgs" path="res://stats/Charms/AbundantSoils.tres" id="1_ywsam"]
 [ext_resource type="Resource" uid="uid://uyl7avqvtb8e" path="res://stats/Enemies/Logelisk.tres" id="2_pdbwk"]
 [ext_resource type="Script" uid="uid://i8ywi33nxdfs" path="res://scripts/base_encounter.gd" id="3_r8ack"]
 [ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="5_ywsam"]
@@ -26,4 +26,4 @@ default_battle_comments = Array[String](["A twin of towering twees thwart your t
 comment_conditions = Array[int]([2, 0, 1])
 waves = Array[ExtResource("9_ywsam")]([SubResource("Resource_aw3af")])
 party = Array[ExtResource("5_ywsam")]([ExtResource("6_aw3af"), ExtResource("7_0subj"), ExtResource("8_g5o5f"), ExtResource("9_etdd5")])
-completion_reward = ExtResource("1_dh85i")
+completion_reward = ExtResource("1_ywsam")

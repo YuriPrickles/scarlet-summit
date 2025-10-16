@@ -10,9 +10,10 @@ func onExpire(_battler:Battler):
 	pass
 func onExpire_enemy(_enemy:EnemyBattler):
 	pass
-func onTransfer(battler:Battler, enemy:EnemyBattler):
+func onTransfer(battler:Battler, enemy:EnemyBattler,last_enemy_in_multihit:bool=false):
 	var status = battler.status_array[ID.StatusID.DisturbedSpirits]
 	status.damage_over_time = battler.status_array[ID.StatusID.DisturbedSpirits].damage_over_time
-	var haunted_turns = 1
+	var haunted_turns = 2
 	enemy.add_status([status],[haunted_turns])
-	battler.status_array[ID.StatusID.DisturbedSpirits] = null
+	if last_enemy_in_multihit:
+		battler.status_array[ID.StatusID.DisturbedSpirits] = null

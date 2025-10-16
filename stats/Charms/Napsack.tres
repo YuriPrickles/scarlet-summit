@@ -6,5 +6,5 @@
 script = ExtResource("1_q3tke")
 charm_ID = 7
 charm_name = "Napsack"
-charm_type = 1
+charm_type = 3
 metadata/_custom_type_script = "uid://bgioe3l50hrr8"

@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=24 format=3 uid="uid://nadvmdj84gn"]
+
+[ext_resource type="Resource" uid="uid://bujlkivu1v8rt" path="res://stats/Charms/BloomingWreath.tres" id="1_lwy67"]
+[ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="2_lwy67"]
+[ext_resource type="Script" uid="uid://nxt2251hk0m4" path="res://scripts/base_character.gd" id="3_4q5f8"]
+[ext_resource type="Resource" uid="uid://n7pus7alujwx" path="res://stats/Characters/ScarletHeart.tres" id="4_k4avj"]
+[ext_resource type="Resource" uid="uid://c5frwxdd2qdce" path="res://stats/Characters/GoldenSun.tres" id="5_thq4l"]
+[ext_resource type="Resource" uid="uid://bnlgvjwf6grdb" path="res://stats/Characters/TwistingTree.tres" id="6_exv7j"]
+[ext_resource type="Resource" uid="uid://yhg5d2s57ufu" path="res://stats/Characters/ShadeLady.tres" id="7_lt50x"]
+[ext_resource type="Script" uid="uid://i8ywi33nxdfs" path="res://scripts/base_encounter.gd" id="8_wuloa"]
+[ext_resource type="Script" uid="uid://djyvhruidy31o" path="res://scripts/base_wave.gd" id="9_dynpx"]
+[ext_resource type="Script" uid="uid://c32pbvr848swd" path="res://scripts/base_enemy.gd" id="10_fg3ks"]
+[ext_resource type="Resource" uid="uid://brpmbvs5cybrj" path="res://stats/Enemies/Boombloom.tres" id="11_ngrb7"]
+[ext_resource type="Resource" uid="uid://j8e8klj600kx" path="res://stats/Enemies/Basqit.tres" id="12_224yh"]
+[ext_resource type="Resource" uid="uid://snsr562qju0j" path="res://stats/Enemies/Kickleaf.tres" id="13_0cv24"]
+[ext_resource type="Resource" uid="uid://uyl7avqvtb8e" path="res://stats/Enemies/Logelisk.tres" id="14_imk1f"]
+[ext_resource type="Resource" uid="uid://c2eqd7l5sgo5y" path="res://stats/Enemies/Mediccorn.tres" id="15_8aqn4"]
+[ext_resource type="Resource" uid="uid://dxjhjc7sscvqi" path="res://stats/Enemies/Fortroot.tres" id="15_lwy67"]
+[ext_resource type="Resource" uid="uid://b63a3bpo3ftm0" path="res://stats/Enemies/ThornAngel.tres" id="16_3nvv1"]
+
+[sub_resource type="Resource" id="Resource_pc8hy"]
+script = ExtResource("9_dynpx")
+enemy_array = Array[ExtResource("10_fg3ks")]([ExtResource("11_ngrb7"), ExtResource("15_8aqn4"), ExtResource("13_0cv24")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[sub_resource type="Resource" id="Resource_4q5f8"]
+script = ExtResource("9_dynpx")
+enemy_array = Array[ExtResource("10_fg3ks")]([ExtResource("15_8aqn4"), ExtResource("16_3nvv1"), ExtResource("15_8aqn4")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[sub_resource type="Resource" id="Resource_k4avj"]
+script = ExtResource("9_dynpx")
+enemy_array = Array[ExtResource("10_fg3ks")]([ExtResource("15_lwy67"), ExtResource("12_224yh"), ExtResource("14_imk1f"), ExtResource("15_lwy67")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[sub_resource type="Resource" id="Resource_thq4l"]
+script = ExtResource("9_dynpx")
+enemy_array = Array[ExtResource("10_fg3ks")]([ExtResource("15_8aqn4"), ExtResource("12_224yh"), ExtResource("12_224yh"), ExtResource("13_0cv24")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[sub_resource type="Resource" id="Resource_exv7j"]
+script = ExtResource("9_dynpx")
+enemy_array = Array[ExtResource("10_fg3ks")]([ExtResource("12_224yh"), ExtResource("14_imk1f"), ExtResource("11_ngrb7"), ExtResource("12_224yh")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[sub_resource type="Resource" id="Resource_lt50x"]
+script = ExtResource("9_dynpx")
+enemy_array = Array[ExtResource("10_fg3ks")]([ExtResource("16_3nvv1"), ExtResource("16_3nvv1")])
+metadata/_custom_type_script = "uid://djyvhruidy31o"
+
+[resource]
+script = ExtResource("8_wuloa")
+enc_name = "1-9 - Root Of The Problem"
+enc_desc = "Level 9 Description"
+enc_pic = ExtResource("2_lwy67")
+default_battle_comments = Array[String](["A battle begins!", "A battle is ongoing."])
+comment_conditions = Array[int]([2, 0])
+waves = Array[ExtResource("9_dynpx")]([SubResource("Resource_pc8hy"), SubResource("Resource_4q5f8"), SubResource("Resource_k4avj"), SubResource("Resource_thq4l"), SubResource("Resource_exv7j"), SubResource("Resource_lt50x")])
+party = Array[ExtResource("3_4q5f8")]([ExtResource("4_k4avj"), ExtResource("5_thq4l"), ExtResource("6_exv7j"), ExtResource("7_lt50x")])
+completion_reward = ExtResource("1_lwy67")
