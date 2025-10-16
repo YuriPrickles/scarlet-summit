@@ -7,4 +7,5 @@ script = ExtResource("1_prvpy")
 charm_ID = 2
 charm_name = "Sod Plating"
 charm_type = 3
+charm_desc = "The wearer's DEF raises by 1 every turn."
 metadata/_custom_type_script = "uid://bgioe3l50hrr8"

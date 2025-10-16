@@ -7,4 +7,5 @@ script = ExtResource("1_faxf2")
 charm_ID = 9
 charm_name = "Flower Bands"
 charm_type = 2
+charm_desc = "Modifies the wearer's Support Skill to have healing properties."
 metadata/_custom_type_script = "uid://bgioe3l50hrr8"

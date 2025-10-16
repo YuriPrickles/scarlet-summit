@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsg06kj6a6fo2"]
+
+[ext_resource type="Script" uid="uid://75uhedskee2s" path="res://scenes/charmlist.gd" id="1_k82er"]
+[ext_resource type="Texture2D" uid="uid://c143x5vdfjrba" path="res://icon.svg" id="15_ucq8k"]
+
+[node name="Charmlist" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k82er")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.498039)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Charmlist" type="ScrollContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharmButtonContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer/Charmlist"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="CharmInfoPanel" type="PanelContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/CharmInfoPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/CharmInfoPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="CharmSprite" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/CharmInfoPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 340)
+layout_mode = 2
+texture = ExtResource("15_ucq8k")
+
+[node name="CharmDesc" type="RichTextLabel" parent="MarginContainer/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/CharmInfoPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(510, 144)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=24]Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+
+[node name="CloseButton" type="Button" parent="MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/CloseButton" to="." method="_on_close_button_pressed"]

@@ -7,4 +7,5 @@ script = ExtResource("1_7kpvv")
 charm_ID = 6
 charm_name = "Poison Patch"
 charm_type = 3
+charm_desc = "Wearer permanently has Corroding, but hurting enemies will also cause Corroding."
 metadata/_custom_type_script = "uid://bgioe3l50hrr8"

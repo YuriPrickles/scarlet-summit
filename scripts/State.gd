@@ -9,6 +9,7 @@ var current_party:Array[Character] = [
 
 var unlocked_charms:Dictionary
 var attached_charms:Dictionary
+var selected_charmlist_charm:Charm
 
 var charm_list_ref:Array[Charm] = []
 

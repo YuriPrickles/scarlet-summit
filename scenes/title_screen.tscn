@@ -82,7 +82,7 @@ theme_override_constants/margin_top = 24
 layout_mode = 2
 mouse_filter = 2
 bbcode_enabled = true
-text = "[font_size=64][center]Settings"
+text = "[font_size=64][center]Placeholder"
 scroll_active = false
 
 [node name="Credits" type="Button" parent="HBoxContainer/RightSide/VBoxContainer"]
@@ -103,7 +103,7 @@ theme_override_constants/margin_top = 24
 layout_mode = 2
 mouse_filter = 2
 bbcode_enabled = true
-text = "[font_size=64][center]Credits"
+text = "[font_size=64][center]Placeholder"
 scroll_active = false
 
 [node name="Exit" type="Button" parent="HBoxContainer/RightSide/VBoxContainer"]
@@ -124,7 +124,7 @@ theme_override_constants/margin_top = 24
 layout_mode = 2
 mouse_filter = 2
 bbcode_enabled = true
-text = "[font_size=64][center]Exit"
+text = "[font_size=64][center]Placeholder"
 scroll_active = false
 
 [connection signal="pressed" from="HBoxContainer/RightSide/VBoxContainer/Continue" to="." method="_on_continue_pressed"]

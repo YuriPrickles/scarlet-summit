@@ -7,4 +7,5 @@ script = ExtResource("1_hyms4")
 charm_ID = 3
 charm_name = "Rind Grinder"
 charm_type = 1
+charm_desc = "Modifies the wearer's Basic Attack to have effects on low-HP enemies."
 metadata/_custom_type_script = "uid://bgioe3l50hrr8"

@@ -23,13 +23,17 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="ContinueAdventure" type="Button" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Charmlist" type="Button" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ContinueAdventure"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Charmlist"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +43,31 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/margin_top = 16
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/ContinueAdventure/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Charmlist/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font_size=24][center]Unlocked
+Charms"
+scroll_active = false
+
+[node name="ContinueAdventure" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/ContinueAdventure"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/ContinueAdventure/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 bbcode_enabled = true
@@ -48,4 +76,5 @@ Adventure
 >>>"
 scroll_active = false
 
-[connection signal="pressed" from="MarginContainer/ContinueAdventure" to="." method="_on_continue_adventure_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Charmlist" to="." method="_on_charmlist_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ContinueAdventure" to="." method="_on_continue_adventure_pressed"]
